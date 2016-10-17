@@ -1,0 +1,10 @@
+.menubox{
+  padding:20px;
+  /*background-color: black;*/
+}
+.thebox{
+  margin:5px;
+  height: 100px;
+  background-color: white;
+  box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.13), 4px 4px 4px 4px rgba(0, 0, 0, 0.10);
+}
