@@ -1,0 +1,44 @@
+<body>
+  <div class="modal fade" id="viewAppointment1Modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">ดูการนัดหมาย</h4>
+          </div>
+          <div class="modal-body">
+            <form id="viewAppointmentForm" role="form">
+               <div class="form-group">
+                  <label for="doctor-name">ชื่อ-สกุลแพทย์</label>
+                  <select class="form-control" id="doctor-name">
+                      <option>โปรดระบุ</option>
+                      <option>นพ.เก่ง รักษาทุกโรค</option>
+                      <option>พญ.ก้อย พี่ของเก่ง</option>
+                  </select>
+                  <label>วันที่</label>
+                  <input type="text" class="form-control" id="datepicker-appt">
+              </div>
+            </form>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">ยกเลิก</button>
+              <button type="submit" class="btn btn-success" form="viewAppointmentForm">ยืนยัน</button>
+            </div>
+        </div>   
+        </div> 
+    </div>
+  </div>
+  <div class="modal fade" id="viewAppointment2Modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+               <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+               <h4 class="modal-title" id="myModalLabel">ข้อมูลการนัดหมาย</h4>
+            </div>
+            <div class="modal-body">
+                
+            </div>
+            <div class="modal-footer"></div>
+        </div>
+    </div>
+  </div>  
+</body>
