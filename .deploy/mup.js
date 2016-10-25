@@ -11,7 +11,7 @@ module.exports = {
 
   meteor: {
     name: 'nudmhor',
-    path: '.',
+    path: '..',
     servers: {
       one: {}
     },
