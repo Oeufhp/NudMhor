@@ -8,7 +8,7 @@ module.exports = {
       // or leave blank for authenticate from ssh-agent
     }
   },
-
+//test webhook
   meteor: {
     name: 'nudmhor',
     path: '/var/lib/jenkins/workspace/NudMhorWebApp/.deploy',
