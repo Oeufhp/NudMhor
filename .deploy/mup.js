@@ -11,7 +11,7 @@ module.exports = {
 
   meteor: {
     name: 'nudmhor',
-    path: '..',
+    path: '/var/lib/jenkins/workspace/NudMhorWebApp/.deploy',
     servers: {
       one: {}
     },
