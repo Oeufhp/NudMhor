@@ -1,4 +1,4 @@
-.login-page{
+.register-page{
     background:url('/img/bg/lightbg2.jpg');
     background-size: cover;
     position:fixed;
@@ -6,34 +6,27 @@
     height:100%;
     z-index:0;
 }
-.logo-login{
-  height: 30%;
-  width: 100%;
+.register-page .radio-inline{
+  color:rgba(255,255,255,0.7);
 }
-.login-page .control-label{
+.register-page .control-label{
   color:rgba(255,255,255,0.8);
 }
-.login-page .form-control{
+.register-page .form-control{
   border-radius: 0px;
 }
-.login-page input.form-control{
+.register-page input.form-control{
   border:0px solid #a0b3b0;
   background-color:rgba(0, 0, 0, 0.3);
   color:white;
   border-radius: 15px;
 }
-.login-page input.form-control::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+.register-page input.form-control::-webkit-input-placeholder { /* WebKit, Blink, Edge */
   color:  rgba(255,255,255,0.7);
 }
-.login-page input.form-control:focus {
+.register-page input.form-control:focus {
     border:1px solid #1ab188;
     outline: 10;
     -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);
     box-shadow: inset 0 0px 0px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);
 }
-/*.login-box{
-  padding:20px 40px;
-  background-color:rgba(0,0,0,0.3);
-  z-index:2;
-  border-radius: 15px;
-}*/
