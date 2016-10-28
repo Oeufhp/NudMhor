@@ -6,8 +6,7 @@ Template.body.events({
     }
 });
 Template.body.rendered=function(){
-     $('#datepicker-appt').datepicker({
-            format: "dd/mm/yyyy",
-            maxViewMode: 2,
-        });
+  $('#datepicker-appt').datepicker().on('changeDate', function(ev){
+    $(this).datepicker('hide');
+  });
 }
