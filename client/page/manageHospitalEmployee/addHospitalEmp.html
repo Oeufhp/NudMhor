@@ -1,0 +1,38 @@
+<body>
+<div class="modal fade" id="makeappointmentModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">สร้างการนัดหมายใหม่</h4>
+        </div>
+        <div class="modal-body">
+          <form id="makeappointmentForm" role="form">
+            <div class="form-group">
+              <label for="sel1">แผนก</label>
+              <select class="form-control" id="sel1">
+                <option>โรคทั่วไป</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="sel1">แพทย์</label>
+              <select class="form-control" id="sel1">
+                <option>ไม่ระบุ</option>
+                <option>นพ.ไตรรักษ์ อ้นอารี</option>
+                <option>พญ.ชลกานต์ กิจศิริกุล</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="comment">อาการเบื้องต้น</label>
+              <textarea class="form-control" rows="3" id="comment"></textarea>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">ยกเลิก</button>
+          <button type="submit" class="btn btn-success" form="makeappointmentForm">ยืนยัน</button>
+        </div>
+      </div>
+    </div>
+</div>
+</body>
