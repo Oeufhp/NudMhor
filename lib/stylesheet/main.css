@@ -16,3 +16,9 @@ body{
     padding-top:10%;
   }
 }
+.view-btn:hover{
+  color:#4CAF50;
+}
+.del-btn:hover{
+  color:#F44336;
+}
