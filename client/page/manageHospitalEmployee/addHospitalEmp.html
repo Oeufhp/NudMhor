@@ -1,0 +1,89 @@
+<body>
+<div class="modal fade" id="addEmployeeModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">เพิ่มบุคลากรโรงพยาบาล</h4>
+        </div>
+        <div class="modal-body">
+          <form id="addEmployeeForm" role="form">
+            <div class="form-group">
+              <label for="email">CitizenID :</label>
+              <input class="form-control" id="email" placeholder="รหัสบัตรประชาชน 13 หลัก">
+            </div>
+            <div class="form-group">
+              <label>Firstname :</label>
+              <input class="form-control" id="email" placeholder="ชื่อ">
+            </div>
+            <div class="form-group">
+              <label  for="email">Lastname :</label>
+              <input class="form-control" id="email" placeholder="นามสกุล">
+            </div>
+            <div class="form-group">
+              <label  for="pwd">Password :</label>
+              <input type="password" class="form-control" id="pwd" placeholder="รหัสผ่าน">
+            </div>
+            <div class="form-group">
+              <label for="email">Email :</label>
+              <input type="email" class="form-control" id="email" placeholder="อีเมล์">
+            </div>
+            <div class="form-group">
+              <label  for="email">Mobile number :</label>
+              <input type="email" class="form-control" id="email" placeholder="เบอร์โทรศัพท์มือถือ 0xx-xxx-xxxx">
+            </div>
+            <div class="form-group">
+              <label  for="email">Birthdate :</label>
+              <div class="input-group date" id="datepicker-addemployee">
+                <input type="text" class="form-control">
+                <div class="input-group-addon">
+                    <span class="glyphicon glyphicon-th"></span>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label  for="email">Sex :</label>
+              <label class="radio-inline"><input type="radio" name="optradio">ชาย</label>
+              <label class="radio-inline"><input type="radio" name="optradio">หญิง</label>
+            </div>
+            <div class="form-group">
+              <label>ประเภทผู้ใช้งาน</label>
+              <select>
+                <option>เจ้าหน้าที่ดูแลระบบ (Admin)</option>
+                <option>แพทย์ (Doctor)</option>
+                <option>พยาบาล (Nurse)</option>
+                <option>เภสัชกร (Pharmacist)</option>
+                <option>เจ้าหน้าที่ต้อนรับ (Receptionist)</option>
+              </select>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">ยกเลิก</button>
+          <button type="submit" class="btn btn-success" form="addEmployeeForm">ยืนยัน</button>
+        </div>
+      </div>
+    </div>
+</div>
+<div class="modal fade" id="addEmployeeModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">เพิ่มบุคลากรเรียบร้อยแล้ว</h4>
+        </div>
+        <div class="modal-body">
+          <form id="addEmployeeForm" role="form">
+            <div class="form-group">
+              <label for="email">รหัสพนักงานคือ</label>
+              <label>560001</label>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">ปิดหน้าต่าง</button>
+        </div>
+      </div>
+    </div>
+</div>
+</body>
