@@ -1,41 +1,27 @@
 <body>
-<div class="modal fade" id="makeappointmentModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<div class="modal fade" id="recordDiagnosis" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title" id="myModalLabel">สร้างการนัดหมายใหม่</h4>
+          <h4 class="modal-title" id="myModalLabel">บันทึกข้อมูลการวินิจฉัย</h4>
         </div>
         <div class="modal-body">
-          <form id="makeappointmentForm" role="form">
+          <form id="recordDiagnosisForm" role="form">
             <div class="form-group">
-              <label for="sel1">แผนก</label>
-              <select class="form-control" id="sel1">
-                <option>โรคทั่วไป</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label for="sel1">แพทย์</label>
-              <select class="form-control" id="sel1">
-                <option>ไม่ระบุ</option>
-                <option>นพ.ณัฐภัทร จันใจวงศ์</option>
-                <option>พญ.ชลกานต์ กิจศิริกุล</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label for="comment">อาการเบื้องต้น</label>
-              <textarea class="form-control" rows="3" id="comment"></textarea>
+              <label for="comment">ค้นหาผู้ป่วย</label>
+              <textarea class="form-control" rows="1" id="comment"></textarea>
             </div>
           </form>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">ยกเลิก</button>
-          <button type="submit" class="btn btn-success" form="makeappointmentForm">ยืนยัน</button>
+          <button type="submit" class="btn btn-success" form="recordDiagnosisForm">ค้นหา</button>
         </div>
       </div>
     </div>
 </div>
-<div class="modal fade" id="makeappointmentModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<div class="modal fade" id="recordDiagnosisConfirm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -43,7 +29,7 @@
           <h4 class="modal-title" id="myModalLabel">เลือกวันและเวลานัดหมาย</h4>
         </div>
         <div class="modal-body">
-          <form id="makeappointmentForm2">
+          <form id="recordDiagnosisConfirmForm">
             <div class="form-group">
               <label for="sel1">แพทย์ที่นัดหมาย</label>
               <label for="sel1" style="color:#135e8a">นพ.ณัฐภัทร จันใจวงศ์</label>
@@ -78,12 +64,12 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">ยกเลิก</button>
-          <button type="submit" class="btn btn-success" form="makeappointmentForm2">ยืนยัน</button>
+          <button type="submit" class="btn btn-success" form="recordDiagnosisConfirmForm">ยืนยัน</button>
         </div>
       </div>
     </div>
 </div>
-<div class="modal fade" id="makeappointmentModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<div class="modal fade" id="recordDiagnosisResult" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -117,3 +103,4 @@
     </div>
 </div>
 </body>
+
