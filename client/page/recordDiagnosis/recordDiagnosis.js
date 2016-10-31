@@ -10,5 +10,11 @@ Template.body.events({
       console.log('chooseAppointmentButton is submited');
       $('#recordDiagnosisModal').modal('hide');
       $('#recordDiagnosisResultModal').modal({backdrop: 'static', keyboard: false});
+    },
+    'submit #recordDiagnosisResultButton': function(event){
+      event.preventDefault();
+      console.log('chooseAppointmentButton is submited');
+      $('#recordDiagnosisResultModal').modal('hide');
+      $('#recordDiagnosisSuccessModal').modal({backdrop: 'static', keyboard: false});
     }
 });
