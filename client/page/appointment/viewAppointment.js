@@ -3,6 +3,6 @@ Template.body.events({
         event.preventDefault();
         $('#viewAppointment1Modal').modal('toggle');
         $('#viewAppointment2Modal').modal({backdrop: 'static', keyboard: false});
-    },
+    }
 });
 

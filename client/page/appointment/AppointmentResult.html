@@ -1,46 +1,38 @@
 <template name="AppointmentResult">
     <div class="container" style="margin-top:20px;">
-        <table style="width:100%; color:#000000; text-align:center;">
-            <tr class="table-header" style="border:1px solid #ffffff; border-radius:20%; padding:1em; background-color:grey;">
-                <td>ชื่อ-นามสกุล ผู้ป่วย</td>
-                <td>ชื่อ-นามสกุล แพทย์</td>
-                <td>วันและช่วงเวลา</td>
+        <table border=1 frame=void rules=rows style="width:100%; color:#000000; text-align:center;">
+            <tr class="table-header" style="border:1px solid #000000; border-radius:20%; padding:1em; background-color:grey; font-size:20px;">
+                <td>รายการนัดหมาย</td>
                 <td>ดู/ลบ</td>
             </tr>
-            <tr style="border:1px solid #ffffff; border-radius:20%; padding:1em; background-color:#ffffff;">
-                <td>ผู้ป่วย1 ป่วย</td>
-                <td>หมอ1 หมอ</td>
-                <td>14/10/59 ช่วงเช้า</td>
+            <tr class="appt-row">
                 <td>
-                    <a href="" id="view-btn" style="color:#8BC34A"><i class="fa fa-eye" aria-hidden="true"></i></a>
-                    <a href="" id="del-btn" style="color:#FF5722"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                    <p>หมอ1 หมอ</p>
+                    <p> 14/10/59 ช่วงเช้า</p>
+                </td>
+                <td>
+                    <a href="" class="view-btn" style="color:#8BC34A" data-toggle="modal" data-target="#viewAppointmentModal2" data-backdrop="static"><i class="fa fa-eye" aria-hidden="true" style="color:#ffffff;"></i></a>
+                    <!--<a href="" class="del-btn" style="color:#FF5722"><i class="fa fa-trash" aria-hidden="true" style="color:#ffffff;"></i></a>-->
                 </td>
             </tr>
-            <tr style="border:1px solid #ffffff; border-radius:20%; margin-top:2em; margin-bottom:2em; background-color:#ffffff;">
-                <td>ผู้ป่วย2 ป่วย</td>
-                <td>หมอ2 หมอ</td>
-                <td>15/10/59 ช่วงเช้า</td>
+            <tr class="appt-row">
                 <td>
-                    <a href="" id="view-btn" style="color:#8BC34A"><i class="fa fa-eye" aria-hidden="true"></i></a>
-                    <a href="" id="del-btn" style="color:#FF5722"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                    <p>หมอ2 หมอ</p>
+                    <p> 15/10/59 ช่วงเช้า</p>
+                </td>
+                <td>
+                    <a href="" class="view-btn" style="color:#8BC34A" data-toggle="modal" data-target="#viewAppointmentModal2" data-backdrop="static"><i class="fa fa-eye" aria-hidden="true" style="color:#ffffff;"></i></a>
+                    <!--<a href="" class="del-btn" style="color:#FF5722"><i class="fa fa-trash" aria-hidden="true" style="color:#ffffff;" ></i></a>-->
                 </td>
             </tr>
-            <tr style="border:1px solid #ffffff; border-radius:20%; margin-top:2em; margin-bottom:2em; background-color:#ffffff;">
-                <td>ผู้ป่วย3 ป่วย</td>
-                <td>หมอ3 หมอ</td>
-                <td>16/10/59 ช่วงเช้า</td>
+            <tr class="appt-row">
                 <td>
-                    <a href="" id="view-btn" style="color:#8BC34A"><i class="fa fa-eye" aria-hidden="true"></i></a>
-                    <a href="" id="del-btn" style="color:#FF5722"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                    <p>หมอ3 หมอ</p>
+                    <p> 16/10/59 ช่วงเช้า</p>
                 </td>
-            </tr>
-            <tr style="border:1px solid #ffffff; border-radius:20%; margin-top:2em; margin-bottom:2em; background-color:#ffffff;">
-                <td>ผู้ป่วย4 ป่วย</td>
-                <td>หมอ4 หมอ</td>
-                <td>17/10/59 ช่วงเช้า</td>
                 <td>
-                    <a href="" id="view-btn" style="color:#8BC34A"><i class="fa fa-eye" aria-hidden="true"></i></a>
-                    <a href="" id="del-btn" style="color:#FF5722"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                    <a href="" class="view-btn" style="color:#8BC34A" data-toggle="modal" data-target="#viewAppointmentModal2" data-backdrop="static"><i class="fa fa-eye" aria-hidden="true" style="color:#ffffff;"></i></a>
+                    <!--<a href="" class="del-btn" style="color:#FF5722"><i class="fa fa-trash" aria-hidden="true" style="color:#ffffff;"></i></a>-->
                 </td>
             </tr>
         </table>
