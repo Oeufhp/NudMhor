@@ -7,7 +7,7 @@
           <h4 class="modal-title" id="myModalLabel">เพิ่มตารางออกตรวจ</h4>
         </div>
         <div class="modal-body">
-          <form id="" role="form">
+          <form id="adddoctorscheduleForm" role="form">
             <div class="form-group">
               <label for="sel1">รหัสพนักงาน</label>
               <input class="form-control" >
@@ -32,7 +32,37 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">ยกเลิก</button>
-          <button type="submit" class="btn btn-success" form="makeappointmentForm">ยืนยัน</button>
+          <button type="submit" class="btn btn-success" form="adddoctorscheduleForm">ยืนยัน</button>
+        </div>
+      </div>
+    </div>
+</div>
+
+<div class="modal fade" id="adddoctorscheduleModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">เพิ่มตารางออกตรวจเรียบร้อยแล้ว</h4>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <label for="sel1">แพทย์</label>
+              <label for="sel1" style="color:#135e8a">นพ.ณัฐภัทร จันใจวงศ์</label>
+            </div>
+            <div class="form-group">
+              <label for="sel1">ช่วงการออกตรวจ</label>
+              <label for="sel1" style="color:#135e8a">ช่วงเช้า(9:00-12:00)</label>
+            </div>
+            <div class="form-group">
+              <label for="sel1">วันที่ออกตรวจ</label>
+              <label for="sel1" style="color:#135e8a">24 ตุลาคม 2559 9.00 - 11.30น.</label>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">ปิดหน้าต่าง</button>
         </div>
       </div>
     </div>

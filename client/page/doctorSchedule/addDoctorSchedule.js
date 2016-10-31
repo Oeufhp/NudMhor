@@ -8,7 +8,7 @@ Template.body.events({
 });
 
 Template.body.rendered=function(){
-  $('#datepicker-appt').datepicker().on('changeDate', function(ev){
+  $('#datepicker-adddoctorschedule').datepicker().on('changeDate', function(ev){
     $(this).datepicker('hide');
   });
 }
