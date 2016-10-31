@@ -2,13 +2,13 @@ Template.body.events({
     'submit #recordDiagnosisForm': function(event){
       event.preventDefault();
       console.log('makeappointmentForm is submited');
-      $('#recordDiagnosis').modal('hide');
-      $('#recordDiagnosisConfirm').modal({backdrop: 'static', keyboard: false});
+      $('#patientSearch').modal('hide');
+      Router.go('/recordDiagnosis/AppointmentList'); 
     },
-    'submit #recordDiagnosisConfirmForm': function(event){
+    'submit #recordDiagnosisConfirm': function(event){
       event.preventDefault();
-      console.log('makeappointmentForm2 is submited');
-      $('#recordDiagnosisConfirm').modal('hide');
-      $('#recordDiagnosisResult').modal({backdrop: 'static', keyboard: false});
+      console.log('chooseAppointmentButton is submited');
+      $('#recordDiagnosisModal').modal('hide');
+      $('#recordDiagnosisResultModal').modal({backdrop: 'static', keyboard: false});
     }
 });

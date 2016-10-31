@@ -1,5 +1,5 @@
 <body>
-<div class="modal fade" id="recordDiagnosis" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<div class="modal fade" id="patientSearch" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -21,86 +21,62 @@
       </div>
     </div>
 </div>
-<div class="modal fade" id="recordDiagnosisConfirm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title" id="myModalLabel">เลือกวันและเวลานัดหมาย</h4>
+<div class="modal fade" id="recordDiagnosisModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">บันทึกการวินิจฉัย</h4>
+                    </div>
+                    <div class="modal-body">
+                    <form id="recordDiagnosisConfirm" role="form">
+                        <div class="form-group">
+                        <label for="comment">โรค</label>
+                        <textarea class="form-control" rows="1" id="comment"></textarea>
+                        </div>
+                        <div class="form-group">
+                        <label for="comment">รายการยา</label>
+                        <textarea class="form-control" rows="3" id="comment"></textarea>
+                        </div>
+                    </form>
+                    </div>
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">ยกเลิก</button>
+                    <button type="submit" class="btn btn-success" form="recordDiagnosisConfirm">บันทึก</button>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="modal-body">
-          <form id="recordDiagnosisConfirmForm">
-            <div class="form-group">
-              <label for="sel1">แพทย์ที่นัดหมาย</label>
-              <label for="sel1" style="color:#135e8a">นพ.ณัฐภัทร จันใจวงศ์</label>
+        <div class="modal fade" id="recordDiagnosisResultModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">บันทึกการวินิจฉัยเรียบร้อยแล้ว</h4>
+                </div>
+                <div class="modal-body">
+                <form>
+                    <div class="form-group">  
+                    <label for="sel1">การนัดหมาย</label>
+                    <p for="sel1" style="color:#135e8a">แพทย์ : นพ.ณัฐภัทร จันใจวงศ์</p>
+                    <p for="sel1" style="color:#135e8a">แผนก : อายุรกรรม</p>
+                    <p for="sel1" style="color:#135e8a">วันที่  : 14/10/59 ช่วงเช้า</p>
+                    </div>
+                    <div class="form-group">  
+                    <label for="sel1">โรค</label>
+                    <p for="sel1" style="color:#135e8a">[J11] Influenza due to unidentified influenza virus</p>
+                    </div>
+                    <div class="form-group">
+                    <label for="sel1">รายการยา</label>
+                    <p for="sel1" style="color:#135e8a">paracetamol 14 เม็ด รับประทานครั้ง 1 เม็ด เช้า เย็น</p>
+                    </div>
+                </form>
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">เสร็จสิ้น</button>
+                </div>
             </div>
-            <div class="form-group">
-              <label for="sel1">แผนก</label>
-              <label for="sel1" style="color:#135e8a">โรคทั่วไป</label>
             </div>
-            <div class="form-group">
-              <label for="sel1">อาการเบื้องต้น</label>
-              <label for="sel1" style="color:#135e8a">มีไข้สูง ปวดศีรษะ อาเจียน</label>
-            </div>
-            <div class="form-group">
-              <label for="sel1">วันเวลาที่เร็วที่สุด</label>
-              <label for="sel1" style="color:#135e8a">24 ตุลาคม 2559 9.00 - 11.30น.</label>
-            </div>
-            <div class="form-group">
-              <a class="btn btn-primary" id="newdatetimeButton">เลือกวันเวลาใหม่</a>
-            </div>
-            <div class="form-group">
-              <select class="form-control" id="newdatetimeOption" style="display:none">
-                <option>24 ตุลาคม 2559 9.00 - 11.30น.</option>
-                <option>24 ตุลาคม 2559 13.00 - 15.30น.</option>
-                <option>25 ตุลาคม 2559 9.00 - 11.30น.</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label for="sel1">วันเวลาที่เลือก</label>
-              <label for="sel1" style="color:#135e8a" id="newdatetimeLabel">24 ตุลาคม 2559 8.00 - 12.00น.</label>
-            </div>
-          </form>
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">ยกเลิก</button>
-          <button type="submit" class="btn btn-success" form="recordDiagnosisConfirmForm">ยืนยัน</button>
-        </div>
-      </div>
-    </div>
-</div>
-<div class="modal fade" id="recordDiagnosisResult" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title" id="myModalLabel">สร้างการนัดหมายเรียบร้อยแล้ว</h4>
-        </div>
-        <div class="modal-body">
-          <form>
-            <div class="form-group">
-              <label for="sel1">แพทย์ที่นัดหมาย</label>
-              <label for="sel1" style="color:#135e8a">นพ.ณัฐภัทร จันใจวงศ์</label>
-            </div>
-            <div class="form-group">
-              <label for="sel1">แผนก</label>
-              <label for="sel1" style="color:#135e8a">โรคทั่วไป</label>
-            </div>
-            <div class="form-group">
-              <label for="comment">อาการเบื้องต้น</label>
-              <label for="comment" style="color:#135e8a">มีไข้สูง ปวดศีรษะ อาเจียน</label>
-            </div>
-            <div class="form-group">
-              <label for="sel1">วันเวลาที่นัดหมาย</label>
-              <label for="sel1" style="color:#135e8a">24 ตุลาคม 2559 9.00 - 11.30น.</label>
-            </div>
-          </form>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">ปิดหน้าต่าง</button>
-        </div>
-      </div>
-    </div>
-</div>
 </body>
 
