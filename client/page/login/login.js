@@ -7,12 +7,16 @@ Template.loginPage.onRendered(function(){
   else{
     str = margintop+"px";
   }
-  $('.login-box').css('margin-top', margintop); 
-});
-Template.body.events({
-   'click #forgetpass-btn': function(event){
+  $('.login-box').css('margin-top', margintop);
+  $('#forgetpass-btn').click(function(event){
     event.preventDefault();
     Router.go('/forgetPassword');
-
-  } 
+  }); 
 });
+// Template.body.events({
+//    'click #forgetpass-btn': function(event){
+//     event.preventDefault();
+//     Router.go('/forgetPassword');
+
+//   } 
+// });
