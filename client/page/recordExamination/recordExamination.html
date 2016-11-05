@@ -1,0 +1,152 @@
+<body>
+<div class="modal fade" id="ExaminationpatientSearch" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">บันทึกข้อมูลก่อนการวินิจฉัย</h4>
+        </div>
+        <div class="modal-body">
+          <form id="recordExaminationForm" role="form">
+            <div class="form-group">
+              <label for="comment">  ค้นหาผู้ป่วย</label>
+              <textarea class="form-control" rows="1" id="comment" placeholder="ระบุเลขบัตรโรงพยาบาลหรือเลขบัตรประจำตัวประชาชนของผู้ป่วย"></textarea>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">ยกเลิก</button>
+          <button type="submit" class="btn btn-success" form="recordExaminationForm">ค้นหา</button>
+        </div>
+      </div>
+    </div>
+</div>
+<div class="modal fade" id="recordExaminationModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">บันทึกข้อมูลก่อนการวินิจฉัย</h4>
+                    </div>
+                    <div class="modal-body">
+                    <form id="recordExaminationConfirm" role="form">
+                        <div class="form-group">
+                        <label for="comment">น้ำหนัก</label>
+                        <textarea class="form-control" rows="1" id="comment"></textarea>
+                        </div>
+                        <div class="form-group">
+                        <label for="comment">ส่วนสูง</label>
+                        <textarea class="form-control" rows="3" id="comment"></textarea>
+                        </div>
+                        <div class="form-group">
+                        <label for="comment">อุณหภูมิ</label>
+                        <textarea class="form-control" rows="3" id="comment"></textarea>
+                        </div>
+                        <div class="form-group">
+                        <label for="comment">ความดันโลหิต</label>
+                        <textarea class="form-control" rows="3" id="comment"></textarea>
+                        </div>
+                        <div class="form-group">
+                        <label for="comment">ชีพจร</label>
+                        <textarea class="form-control" rows="3" id="comment"></textarea>
+                        </div>
+                    </form>
+                    </div>
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">ยกเลิก</button>
+                    <button type="submit" class="btn btn-success" form="recordExaminationConfirm">บันทึก</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="recordExaminationResultModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">โปรดตรวจสอบข้อมูลก่อนการวินิจฉัย</h4>
+                </div>
+                <div class="modal-body">
+                <form id = "recordExaminationResultButton">
+                    <div class="form-group">  
+                    <label for="sel1">การนัดหมาย</label>
+                    <p for="sel1" style="color:#135e8a">แพทย์ : นพ.ณัฐภัทร จันใจวงศ์</p>
+                    <p for="sel1" style="color:#135e8a">แผนก : อายุรกรรม</p>
+                    <p for="sel1" style="color:#135e8a">วันที่  : 14/10/59 ช่วงเช้า</p>
+                    </div>
+                    <div class="form-group">  
+                    <label for="sel1">น้ำหนัก</label>
+                    <p for="sel1" style="color:#135e8a">70 กิโลกรัม</p>
+                    </div>
+                    <div class="form-group">
+                    <label for="sel1">ส่วนสูง</label>
+                    <p for="sel1" style="color:#135e8a">1.70 เมตร</p>
+                    </div>
+                    <div class="form-group">
+                    <label for="sel1">อุณหภูมิ</label>
+                    <p for="sel1" style="color:#135e8a">39 องศาเซลเซียส</p>
+                    </div>
+                    <div class="form-group">
+                    <label for="sel1">ความดันโลหิต</label>
+                    <p for="sel1" style="color:#135e8a">80/120 มิลลิเมตรปรอท</p>
+                    </div>
+                    <div class="form-group">
+                    <label for="sel1">ชีพจร</label>
+                    <p for="sel1" style="color:#135e8a">60 ครั้งต่อนาที</p>
+                    </div>
+
+                </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">แก้ไข</button>
+                    <button type="submit" class="btn btn-success" form = "recordExaminationResultButton">ยืนยัน</button>
+                </div>
+            </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="recordExaminationSuccessModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">บันทึกข้อมูลก่อนการวินิจฉัยเรียบร้อย</h4>
+                </div>
+                <div class="modal-body">
+                <form>
+                    <div class="form-group">  
+                    <label for="sel1">การนัดหมาย</label>
+                    <p for="sel1" style="color:#135e8a">แพทย์ : นพ.ณัฐภัทร จันใจวงศ์</p>
+                    <p for="sel1" style="color:#135e8a">แผนก : อายุรกรรม</p>
+                    <p for="sel1" style="color:#135e8a">วันที่  : 14/10/59 ช่วงเช้า</p>
+                    </div>
+                    <div class="form-group">  
+                    <label for="sel1">น้ำหนัก</label>
+                    <p for="sel1" style="color:#135e8a">70 กิโลกรัม</p>
+                    </div>
+                    <div class="form-group">
+                    <label for="sel1">ส่วนสูง</label>
+                    <p for="sel1" style="color:#135e8a">1.70 เมตร</p>
+                    </div>
+                    <div class="form-group">
+                    <label for="sel1">อุณหภูมิ</label>
+                    <p for="sel1" style="color:#135e8a">39 องศาเซลเซียส</p>
+                    </div>
+                    <div class="form-group">
+                    <label for="sel1">ความดันโลหิต</label>
+                    <p for="sel1" style="color:#135e8a">80/120 มิลลิเมตรปรอท</p>
+                    </div>
+                    <div class="form-group">
+                    <label for="sel1">ชีพจร</label>
+                    <p for="sel1" style="color:#135e8a">60 ครั้งต่อนาที</p>
+                    </div>
+                </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">เสร็จสิ้น</button>
+                </div>
+            </div>
+            </div>
+        </div>
+</body>
+

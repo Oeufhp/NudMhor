@@ -1,13 +1,13 @@
 <template name="doctor-page">
 <div class="container" style=";margin-top:20px">
   <div class="row">
-    <div class="col-md-4 menubox">
+    <div class="col-md-6 menubox">
       <div class="thebox">
         <img src="/img/folder.svg" class="img-responsive menu-img"/>
         <p class="menu-caption">ดูประวัติการรักษาของผู้ป่วย</p>
       </div>
     </div>
-    <div class="col-md-4 menubox">
+    <div class="col-md-6 menubox">
       <div class="thebox">
         <img src="/img/patient-info.svg" class="img-responsive menu-img"/>
         <p class="menu-caption">ดูข้อมูลส่วนตัวผู้ป่วย</p>
@@ -20,23 +20,17 @@
       </div>
     </div>
     <div class="col-md-4 menubox col-md-offset-2">
-      <div class="thebox">
+      <div class="thebox" data-toggle="modal" data-target="#viewdoctorscheduleModal2" data-backdrop="static">
         <img src="/img/calendar.svg" class="img-responsive menu-img"/>
         <p class="menu-caption">ดูตารางการออกตรวจ</p>
       </div>
     </div>
-    <div class="col-md-4 menubox">
-      <div class="thebox" data-toggle="modal" data-target="#patientSearch" data-backdrop="static">
+    <div class="col-md-6 menubox">
+      <div class="thebox" data-toggle="modal" data-target="#DiagnosispatientSearch" data-backdrop="static">
         <img src="/img/recDiagnosis.svg" class="img-responsive menu-img"/>
         <p class="menu-caption">บันทึกข้อมูลการวินิจฉัย</p>
       </div>
     </div>
-    <!--<div class="col-md-4 menubox">
-      <div class="thebox">
-        <img src="/img/genInfo.svg" class="img-responsive menu-img"/>
-        <p class="menu-caption">บันทึกข้อมูลก่อนการวินิจฉัย</p>
-      </div>
-    </div>-->
   </div>
 </div>
 </template>
