@@ -8,4 +8,15 @@ Template.loginPage.onRendered(function(){
     str = margintop+"px";
   }
   $('.login-box').css('margin-top', margintop);
-})
+  $('#forgetpass-btn').click(function(event){
+    event.preventDefault();
+    Router.go('/forgetPassword');
+  }); 
+});
+// Template.body.events({
+//    'click #forgetpass-btn': function(event){
+//     event.preventDefault();
+//     Router.go('/forgetPassword');
+
+//   } 
+// });
