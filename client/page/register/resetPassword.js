@@ -1,0 +1,3 @@
+Template.resetPassword.rendered=function(){
+
+}
