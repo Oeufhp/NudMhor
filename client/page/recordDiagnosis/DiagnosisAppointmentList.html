@@ -1,5 +1,6 @@
-<template name="AppointmentList">
+<template name="DiagnosisAppointmentList">
     <div class="container" style="margin-top:20px;">
+        <h1 class="modal-title" id="myModalLabel" style="color:rgb(255,255,255)">บันทึกข้อมูลการวินิจฉัย</h1><br>
         <table border=1 frame=void rules=rows style="width:100%; color:#000000; text-align:center;">
             <tr class="table-header" style="border:1px solid #000000; border-radius:20%; padding:1em; background-color:grey; font-size:20px;">
                 <td>รายการนัดหมาย</td>
@@ -12,8 +13,6 @@
                     <p> 14/10/59 ช่วงเช้า</p>
                 </td>
                 <td>
-                    <!--<a href="" class="view-btn" style="color:#8BC34A" data-toggle="modal" data-target="#AppointmentDetail" data-backdrop="static"><i class="fa fa-eye" aria-hidden="true" style="color:#ffffff;"></i></a>-->
-                    <!--<a href="" class="del-btn" style="color:#FF5722"><i class="fa fa-trash" aria-hidden="true" style="color:#ffffff;"></i></a>-->
                     <button type="submit" class="btn btn-success" data-toggle="modal" data-target="#recordDiagnosisModal" data-backdrop="static">เลือก</button>
                 </td>
             </tr>
@@ -25,7 +24,6 @@
                 </td>
                 <td>
                     <button type="submit" class="btn btn-success" data-toggle="modal" data-target="#recordDiagnosisModal" data-backdrop="static">เลือก</button>
-                    <!--<a href="" class="del-btn" style="color:#FF5722"><i class="fa fa-trash" aria-hidden="true" style="color:#ffffff;" ></i></a>-->
                 </td>
             </tr>
             <tr class="appt-row">
@@ -36,7 +34,6 @@
                 </td>
                 <td>
                     <button type="submit" class="btn btn-success" data-toggle="modal" data-target="#recordDiagnosisModal" data-backdrop="static">เลือก</button>
-                    <!--<a href="" class="del-btn" style="color:#FF5722"><i class="fa fa-trash" aria-hidden="true" style="color:#ffffff;"></i></a>-->
                 </td>
             </tr>
         </table>

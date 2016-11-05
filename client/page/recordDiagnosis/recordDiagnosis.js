@@ -2,8 +2,8 @@ Template.body.events({
     'submit #recordDiagnosisForm': function(event){
       event.preventDefault();
       console.log('makeappointmentForm is submited');
-      $('#patientSearch').modal('hide');
-      Router.go('/recordDiagnosis/AppointmentList'); 
+      $('#DiagnosispatientSearch').modal('hide');
+      Router.go('/recordDiagnosis/DiagnosisAppointmentList'); 
     },
     'submit #recordDiagnosisConfirm': function(event){
       event.preventDefault();
