@@ -8,6 +8,12 @@ Template.body.events({
         event.preventDefault();
         Router.go('/viewAppointment/results');
         $('#viewAppointmentModal').modal('toggle');
+     }
+    ,
+    'click #view-appt-div' : function(event){
+        event.preventDefault();
+        console.info("Patient View Appointment select");
+        Router.go('/viewAppointment/results');
     }
 });
 
