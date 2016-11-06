@@ -19,5 +19,11 @@ Template.body.events({
       $('#makeappointmentModal2').modal('hide');
       $('#choosenDoctorLabel').text();
       $('#makeappointmentModal3').modal({backdrop: 'static', keyboard: false});
+    },
+    'submit #makeappointmentSearchPatientForm': function(event){
+      event.preventDefault();
+      console.log('makeappointmentForm2 is submited');
+      $('#makeappointmentSearchPatientModal').modal('hide');
+      $('#makeappointmentModal').modal({backdrop: 'static', keyboard: false});
     }
 });
