@@ -1,9 +1,9 @@
-// Template.body.events({
-//     'submit #viewdoctorscheduleForm': function(event){
-//       event.preventDefault();
-//       console.log('viewdoctorscheduleForm is submited');
-//       $('#viewdoctorscheduleModal').modal('toggle');
-//       $('#viewdoctorscheduleModal2').modal({backdrop: 'static', keyboard: false});
-//     }
-// });
+Template.body.events({
+    'submit #viewDoctorScheduleForm': function(event){
+      event.preventDefault();
+      console.log('viewDoctorScheduleForm is submited');
+      $('#viewDoctorScheduleModal').modal('toggle');
+      Router.go('/doctorSchedule');
+    }
+});
 
