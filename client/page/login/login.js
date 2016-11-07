@@ -21,6 +21,11 @@ if (Meteor.isClient) {
 
   //   }
   // });
+  Template.loginPage.onRendered(function(){
+    if(Session.get('currentUser')!=null){
+      Router.go('/home/homepage');
+    }
+  });
   Template.loginPage.events({
     'submit form': function(event) {
         event.preventDefault();
@@ -32,9 +37,9 @@ if (Meteor.isClient) {
             Bert.alert({title:"Wrong username/password ",type:"danger",style: 'growl-top-right'})
           }
           else{
-            Session.set('currentUser',result)
+            Session.setAuth('currentUser', result)
             Router.go('/home/homepage');
-            Bert.alert({title:"Login success",type:"success",style: 'growl-top-right'})
+            // Bert.alert({title:"Login success",type:"success",style: 'growl-top-right'})
           }
         });
     }

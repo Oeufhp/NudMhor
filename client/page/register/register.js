@@ -21,7 +21,7 @@ if(Meteor.isClient){
 					Bert.alert({title:'กรุญาใส่รหัสบัตรประชาชน 13 หลัก',type:'danger',style: 'growl-top-right'});
 					return;
 				}
-				if(password == ""||(password.length<6 && password.length>10) ){
+				if(password == ""||(password.length<6 || password.length>10) ){
 					Bert.alert({title:'กรุณาใส่พาสเวิร์ด 6-10 หลัก',type:'danger',style: 'growl-top-right'});
 					return;
 				}
