@@ -1,3 +1,4 @@
+if(Meteor.isClient){
 Template.body.events({
     'submit #makeappointmentForm': function(event){
       event.preventDefault();
@@ -27,3 +28,4 @@ Template.body.events({
       $('#makeappointmentModal').modal({backdrop: 'static', keyboard: false});
     }
 });
+}
