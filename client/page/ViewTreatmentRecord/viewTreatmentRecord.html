@@ -1,0 +1,53 @@
+<body>
+<div class="modal fade" id="viewTreatmentpatientSearch" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">ดูประวัติการรักษา</h4>
+        </div>
+        <div class="modal-body">
+          <form id="viewTreatmentpatientSearchForm" role="form">
+            <div class="form-group">
+              <label for="comment">  ค้นหาผู้ป่วย</label>
+              <textarea class="form-control" rows="1" id="comment" placeholder="ระบุเลขบัตรโรงพยาบาลหรือเลขบัตรประจำตัวประชาชนของผู้ป่วย"></textarea>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">ยกเลิก</button>
+          <button type="submit" class="btn btn-success" form="viewTreatmentpatientSearchForm">ค้นหา</button>
+        </div>
+      </div>
+    </div>
+</div>
+<div class="modal fade" id="viewTreatmentDetail" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">รายการนัดหมาย</h4>
+          </div>
+          <div class="modal-body">
+            <div class="row">
+              <div class="col-md-4">
+                <img src="/img/appointment-cal.svg" class="img-responsive"/>
+                <p style="text-align:center; font-size:14px; padding-top:10px;" id="appt-time-modal"><b>ข้อมูลก่อนการวินิจฉัย: </b></p>
+              </div>
+              <div class="col-md-4">
+                <img src="/img/appointment-doc.svg" class="img-responsive"/>
+                <p style="text-align:center; font-size:14px; padding-top:10px;" id="doc-name-modal"><b>ข้อมูลการวินิจฉัย: </b></p>
+              </div>
+              <div class="col-md-4">
+                <img src="/img/appointment-hospital.svg" class="img-responsive"/>
+                <p style="text-align:center; font-size:14px; padding-top:10px;"><b>ประวัติการจ่ายยา: </b></p>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="submit" class="btn btn-default" form="">ปิดหน้าต่าง</button>
+            </div>
+        </div>
+        </div>
+    </div>
+  </div>
+</body>
