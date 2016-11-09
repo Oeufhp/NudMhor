@@ -1,0 +1,41 @@
+<template name="viewTreatmentAppointmentList">
+    <div class="container" style="margin-top:20px;">
+        <h1 class="modal-title" id="myModalLabel" style="color:rgb(255,255,255)">บันทึกประวัติการจ่ายยา</h1><br>
+        <table border=1 frame=void rules=rows style="width:100%; color:#000000; text-align:center;">
+            <tr class="table-header" style="border:1px solid #000000; border-radius:20%; padding:1em; background-color:grey; font-size:20px;">
+                <td>รายการนัดหมาย</td>
+                <td>เลือกการนัดหมาย</td>
+            </tr>
+            <tr class="appt-row">
+                <td>
+                    <p>แพทย์ : นพ.ณัฐภัทร จันใจวงศ์</p>
+                    <p>แผนก : อายุรกรรม</p>
+                    <p> 14/10/59 ช่วงเช้า</p>
+                </td>
+                <td>
+                    <button type="submit" class="btn btn-success" data-toggle="modal" data-target="#recordPrescriptionModal" data-backdrop="static">เลือก</button>
+                </td>
+            </tr>
+            <tr class="appt-row">
+                <td>
+                    <p>แพทย์ : พญ.ชลกานต์ กิจศิริกุล</p>
+                    <p>แผนก : ทางเดินอาหาร</p>
+                    <p> 14/10/59 ช่วงเช้า</p>
+                </td>
+                <td>
+                    <button type="submit" class="btn btn-success" data-toggle="modal" data-target="#recordPrescriptionModal" data-backdrop="static">เลือก</button>
+                </td>
+            </tr>
+            <tr class="appt-row">
+                <td>
+                    <p>แพทย์ : นพ.ณัฐภัทร จันใจวงศ์</p>
+                    <p>แผนก : หู ตา คอ จมูก</p>
+                    <p> 14/10/59 ช่วงบ่าย</p>
+                </td>
+                <td>
+                    <button type="submit" class="btn btn-success" data-toggle="modal" data-target="#recordPrescriptionModal" data-backdrop="static">เลือก</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+</template>
