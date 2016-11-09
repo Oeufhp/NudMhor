@@ -1,8 +1,14 @@
 if(Meteor.isClient){
 	Template.register.onRendered(function() {
-		$('#datepicker-register').datepicker().on('changeDate', function(ev){
-	    $(this).datepicker('hide');
-	  });
+		// $('#datepicker-register').datepicker({
+    	// 	format: "dd/mm/yyyy",
+    	// 	weekStart: 1,
+    	// 	autoclose: true,
+    	// 	toggleActive: true
+		// });
+		$('#datepicker-register').datetimepicker({
+			format:'DD/MM/YYYY'
+		});
 	})
 	Template.register.events({
     'submit form': function(event){
@@ -43,3 +49,6 @@ if(Meteor.isClient){
     }
 	});
 }
+Template.body.events({
+
+})
