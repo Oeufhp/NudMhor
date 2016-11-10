@@ -25,7 +25,7 @@ iron:router
 robertlowe:pickadate
 fortawesome:fontawesome
 msavin:mongol
-session
+session@1.1.7
 themeteorchef:bert
 u2622:persistent-session
 momentjs:moment
