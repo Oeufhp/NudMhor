@@ -10,32 +10,32 @@
           <form id="addEmployeeForm" role="form">
             <div class="form-group">
               <label for="email">เลขบัตรประจำตัวประชาชน :</label>
-              <input class="form-control" id="email" placeholder="รหัสบัตรประชาชน 13 หลัก">
+              <input class="form-control" id="email" name="registerCID" placeholder="รหัสบัตรประชาชน 13 หลัก">
             </div>
             <div class="form-group">
               <label>ชื่อ :</label>
-              <input class="form-control" id="email" placeholder="ชื่อ">
+              <input class="form-control" id="email" name="firstname" placeholder="ชื่อ">
             </div>
             <div class="form-group">
               <label  for="email">นามสกุล :</label>
-              <input class="form-control" id="email" placeholder="นามสกุล">
+              <input class="form-control" id="email" name="lastname" placeholder="นามสกุล">
             </div>
             <div class="form-group">
               <label  for="pwd">รหัสผ่าน :</label>
-              <input type="password" class="form-control" id="pwd" placeholder="รหัสผ่าน">
+              <input type="password" class="form-control" id="pwd" name="register-password" placeholder="รหัสผ่าน">
             </div>
             <div class="form-group">
               <label for="email">Email :</label>
-              <input type="email" class="form-control" id="email" placeholder="อีเมล์">
+              <input type="email" class="form-control" id="email" name="email" placeholder="อีเมล์">
             </div>
             <div class="form-group">
               <label  for="email">เบอร์โทรศัพท์มือถือ :</label>
-              <input type="email" class="form-control" id="email" placeholder="เบอร์โทรศัพท์มือถือ 0xx-xxx-xxxx">
+              <input class="form-control" id="email" name="tel" placeholder="เบอร์โทรศัพท์มือถือ 0xx-xxx-xxxx">
             </div>
             <div class="form-group">
               <label  for="email">วันเดือนปีเกิด :</label>
               <div class="input-group date" id="datepicker-addemployee">
-                <input type="text" class="form-control">
+                <input type="text" class="form-control" name="birthdate">
                 <div class="input-group-addon">
                     <span class="glyphicon glyphicon-th"></span>
                 </div>
@@ -43,17 +43,17 @@
             </div>
             <div class="form-group">
               <label  for="email">เพศ :</label>
-              <label class="radio-inline"><input type="radio" name="optradio">ชาย</label>
-              <label class="radio-inline"><input type="radio" name="optradio">หญิง</label>
+              <label class="radio-inline"><input type="radio" name="gender" value="male">ชาย</label>
+              <label class="radio-inline"><input type="radio" name="gender" value="female">หญิง</label>
             </div>
             <div class="form-group">
               <label>ประเภทผู้ใช้งาน</label>
-              <select>
-                <option>เจ้าหน้าที่ดูแลระบบ (Admin)</option>
-                <option>แพทย์ (Doctor)</option>
-                <option>พยาบาล (Nurse)</option>
-                <option>เภสัชกร (Pharmacist)</option>
-                <option>เจ้าหน้าที่ต้อนรับ (Receptionist)</option>
+              <select name="role">
+                <option value="admin">เจ้าหน้าที่ดูแลระบบ (Admin)</option>
+                <option value="doctor">แพทย์ (Doctor)</option>
+                <option value="nurse">พยาบาล (Nurse)</option>
+                <option value="pharmacist">เภสัชกร (Pharmacist)</option>
+                <option value="receptionist">เจ้าหน้าที่ต้อนรับ (Receptionist)</option>
               </select>
             </div>
           </form>
