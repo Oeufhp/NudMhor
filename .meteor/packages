@@ -23,10 +23,11 @@ insecure@1.0.7                # Allow all DB writes from clients (for prototypin
 twbs:bootstrap
 iron:router
 robertlowe:pickadate
-rajit:bootstrap3-datepicker
 fortawesome:fontawesome
 msavin:mongol
 session
 themeteorchef:bert
 u2622:persistent-session
+momentjs:moment
 tsega:bootstrap3-datetimepicker
+rajit:bootstrap3-datepicker
