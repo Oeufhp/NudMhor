@@ -1,8 +1,8 @@
 if(Meteor.isClient){
-  Template.body.rendered(function(){
-    $('#datepicker-addemployee').datepicker().on('changeDate', function(ev){
-      $(this).datepicker('hide');
-    });
+  Template.addHospitalEmp.onRendered(function(){
+    $('#datepicker-addemployee').datetimepicker({
+			// format:'DD/MM/YYYY'
+		});
   });
   Template.body.events({
     'submit #addEmployeeForm': function(event){
