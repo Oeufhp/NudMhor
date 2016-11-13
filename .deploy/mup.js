@@ -28,7 +28,7 @@ module.exports = {
     },
 
     //dockerImage: 'kadirahq/meteord'
-    deployCheckWaitTime: 600
+    deployCheckWaitTime: 60
   },
 
   mongo: {
