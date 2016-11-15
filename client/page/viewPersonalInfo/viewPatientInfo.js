@@ -1,6 +1,6 @@
-Template.body.events({
-    'submit #edit-patientInfo-btn':function(event){
-        event.preventDefault();
-        Router.go('/viewPatientInfo/edit');
-    }    
-});
+// Template.body.events({
+//     '​click #edit-patientInfo-btn':function(){
+//         // event.preventDefault();
+//         Router.go('/viewPatientInfo/edit');
+//     }    
+// });

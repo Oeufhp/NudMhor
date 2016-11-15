@@ -40,9 +40,19 @@
                 <img src="/img/appointment-hospital.svg" class="img-responsive"/>
                 <p style="text-align:center; font-size:14px; padding-top:10px;"><b>สถานที่: </b>ตึกๆโป๊ะตึกๆ ชั้น 2</p>
               </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <select class="form-control" id="changedatetimeOption" style="display:none">
+                    <option>15 พฤศจิกายน 2559 9.00 - 11.30น.</option>
+                    <option>16 พฤศจิกายน 2559 13.00 - 15.30น.</option>
+                    <option>17 พฤศจิกายน 2559 9.00 - 11.30น.</option>
+                  </select>
+               </div>
+             </div>
             </div>
             <div class="modal-footer">
-              <button type="submit" class="btn edit-btn" form="">แก้ไขการนัดหมาย     <i class="fa fa-pencil" aria-hidden="true"></i></button>
+              <a class="btn btn-success" id="confirmChange-btn" style="display:none">ยืนยันการแก้ไข     <i class="fa fa-check" aria-hidden="true"></i></a>
+              <a class="btn btn-info" id="changeDateTime-btn">แก้ไขการนัดหมาย     <i class="fa fa-pencil" aria-hidden="true"></i></a>
               <button type="button" class="btn cancel-btn" id="del-appt-btn">ยกเลิกการนัดหมาย     <i class="fa fa-trash" aria-hidden="true"></i></button>
             </div>
         </div>
