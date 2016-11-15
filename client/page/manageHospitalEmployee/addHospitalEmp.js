@@ -1,9 +1,9 @@
 if(Meteor.isClient){
-  Template.addHospitalEmp.onRendered(function(){
-    $('#datepicker-addemployee').datetimepicker({
-			// format:'DD/MM/YYYY'
-		});
-  });
+  // Template.addHospitalEmp.onRendered(function(){
+  //   $('#datepicker-addemployee').datetimepicker({
+	// 		// format:'DD/MM/YYYY'
+	// 	});
+  // });
   Template.body.events({
     'submit #addEmployeeForm': function(event){
       event.preventDefault();
@@ -42,6 +42,12 @@ if(Meteor.isClient){
         }
       });    
     },
+    'click #datepicker-span':function(event){
+      event.preventDefault();
+      $('#datepicker-addemployee').datetimepicker({
+        format:'DD/MMM/Y'
+      });
+    }
   });
 }
 
