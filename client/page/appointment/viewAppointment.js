@@ -19,7 +19,3 @@ Template.body.events({
       $('#confirmChange-btn').toggle();
     }
 });
-
-Template.body.rendered=function(){
-  $('#viewAppointmentModal').modal({backdrop: 'static', keyboard: false});
-}
