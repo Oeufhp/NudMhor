@@ -26,19 +26,11 @@ if(Meteor.isClient){
         return;
       }
       if(email ==""||fname==""||lname==""||tel==""||gender==""||birthdate==""){
-        console.log(email=="");
-        console.log(gender=="");
-        console.log(fname=="");
-        console.log(lname=="");
-        console.log(birthdate=="");
-        console.log(tel=="");
         Bert.alert({title:'กรุณากรอกข้อมูลให้ครบถ้วน',type:'danger',style: 'growl-top-right'});
         return;
       } 
-
       let user = {cid:cid,password:password,email:email,fname:fname,lname:lname,tel:tel,gender:gender,birthdate:birthdate,role:role};
       Meteor.call('addEmployee',user,function(err,result){
-        'eid',
         console.log("result : "+result);
         if(err!=null){
           Bert.alert({title: 'Already used citizenID',type: 'danger',style: 'growl-top-right',icon: 'fa-key'});
@@ -55,10 +47,10 @@ if(Meteor.isClient){
           Session.set('tel',tel);
           Session.set('gender',gender);
           Session.set('birthdate',birthdate);
-          Session.set('role',role);         
+          Session.set('role',role);  
+          Session.set('eid',result);       
         }
       });
-      Session.set('eid',eid); 
     },
     'click #datepicker-span':function(event){
       event.preventDefault();
@@ -68,16 +60,16 @@ if(Meteor.isClient){
     }
   });
   Template.body.helpers({
-      cid: Session.get('cid'),
-      fname: Session.get('fname'),
-      lname: Session.get('lname'),
-      pass: Session.get('password'),
-      email: Session.get('email'),
-      tel: Session.get('tel'),
-      gender: Session.get('gender'),
-      birthdate: Session.get('birthdate'),
-      role: Session.get('role'),
-      eid: Session.get('eid'),
+      cid: function(){ return Session.get('cid'); },
+      fname: function(){ return Session.get('fname'); },
+      lname: function(){ return Session.get('lname'); },
+      pass: function(){ return Session.get('password'); },
+      email: function(){ return Session.get('email'); },
+      tel: function(){ return Session.get('tel'); },
+      gender: function(){ return Session.get('gender'); },
+      birthdate: function(){ return Session.get('birthdate'); },
+      role: function(){ return Session.get('role'); },
+      eid: function(){ return Session.get('eid'); },
   });
 }
 
