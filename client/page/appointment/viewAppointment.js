@@ -14,9 +14,10 @@ Template.body.events({
         $('#viewAppointmentModal3').modal('toggle');
         $('#viewAppointmentModal2').modal('toggle');
     },
-    'click #changeDateTime-btn': function(event){
-      $('#changedatetimeOption').toggle();
-      $('#confirmChange-btn').toggle();
+    'click #changeDateTime-btn':function(event){
+        event.preventDefault();
+        $('#viewAppointmentModal2').modal('toggle');
+        $('#viewAppointmentModal4').modal('toggle');
     }
 });
 

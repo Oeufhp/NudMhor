@@ -40,18 +40,8 @@
                 <img src="/img/appointment-hospital.svg" class="img-responsive"/>
                 <p style="text-align:center; font-size:14px; padding-top:10px;"><b>แผนก: </b>ตึกๆโป๊ะตึกๆ ชั้น 2</p>
               </div>
-              <div class="col-md-6">
-                <div class="form-group">
-                  <select class="form-control" id="changedatetimeOption" style="display:none">
-                    <option>15 พฤศจิกายน 2559 9.00 - 11.30น.</option>
-                    <option>16 พฤศจิกายน 2559 13.00 - 15.30น.</option>
-                    <option>17 พฤศจิกายน 2559 9.00 - 11.30น.</option>
-                  </select>
-               </div>
-             </div>
             </div>
             <div class="modal-footer">
-              <a class="btn btn-success" id="confirmChange-btn" style="display:none">ยืนยันการแก้ไข     <i class="fa fa-check" aria-hidden="true"></i></a>
               <a class="btn btn-info" id="changeDateTime-btn">แก้ไขการนัดหมาย     <i class="fa fa-pencil" aria-hidden="true"></i></a>
               <button type="button" class="btn cancel-btn" id="del-appt-btn">ยกเลิกการนัดหมาย     <i class="fa fa-trash" aria-hidden="true"></i></button>
             </div>
@@ -73,6 +63,45 @@
             <div class="modal-footer">
               <button type="submit" class="btn edit-btn" form="">ยืนยัน     <i class="fa fa-check" aria-hidden="true"></i></button>
               <button type="button" class="btn cancel-btn" data-dismiss="modal">ยกเลิก     <i class="fa fa-times" aria-hidden="true"></i></button>
+            </div>
+        </div>
+        </div>
+    </div>
+  </div>
+  <div class="modal fade" id="viewAppointmentModal4" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">รายการนัดหมาย</h4>
+          </div>
+          <div class="modal-body">
+            <div class="row">
+              <div class="col-md-4">
+                <img src="/img/appointment-cal.svg" class="img-responsive"/>
+                <p style="text-align:center; font-size:14px; padding-top:10px;" id="appt-time-modal"><b>วัน-เวลา: </b></p>
+              </div>
+              <div class="col-md-4">
+                <img src="/img/appointment-doc.svg" class="img-responsive"/>
+                <p style="text-align:center; font-size:14px; padding-top:10px;" id="doc-name-modal"><b>แพทย์: </b></p>
+              </div>
+              <div class="col-md-4">
+                <img src="/img/appointment-hospital.svg" class="img-responsive"/>
+                <p style="text-align:center; font-size:14px; padding-top:10px;"><b>แผนก: </b>ตึกๆโป๊ะตึกๆ ชั้น 2</p>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <select class="form-control" id="changedatetimeOption">
+                    <option>15 พฤศจิกายน 2559 9.00 - 11.30น.</option>
+                    <option>16 พฤศจิกายน 2559 13.00 - 15.30น.</option>
+                    <option>17 พฤศจิกายน 2559 9.00 - 11.30น.</option>
+                  </select>
+               </div>
+             </div>
+            </div>
+            <div class="modal-footer">
+              <a class="btn btn-success" id="confirmChange-btn">ยืนยันการแก้ไข     <i class="fa fa-check" aria-hidden="true"></i></a>
+              <button type="button" class="btn cancel-btn" data-dismiss="modal">ยกเลิก</button>
             </div>
         </div>
         </div>
