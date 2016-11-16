@@ -1,0 +1,87 @@
+<template name="RoleInfo">
+    <body>
+        <div class="container" style="width:100%;">
+          <div style="width:90% background-color:#ffffff;">
+             <div class="col-md-offset-2 col-md-8">
+                 <div class="col-xs-12">
+                 <form class="form-horizontal" style="background:rgba(0,73,163,0.95);padding:20px;border-radius:10px">
+                    <div class="col-xs-12">
+                      <h2 style="color:rgba(255,255,255,1);text-align:left">ดูข้อมูลส่วนบุคคลของบุคลากร</h2>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-2" for="NID" style="color:rgba(255,255,255,1)">เลขบัตรประจำตัวประชาชน :</label>
+                        <div class="col-sm-10">
+                            <input class="form-control" id="register-NID" name="registerCID" disabled maxlength="13" value="1234567891011">
+                        </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label col-sm-2" for="name" style="color:rgba(255,255,255,1)">ชื่อ :</label>
+                    <div class="col-sm-10">
+                      <input class="form-control" id="register-name" name="firstname" disabled value="แปลก">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label col-sm-2" for="surname" style="color:rgba(255,255,255,1)">นามสกุล :</label>
+                    <div class="col-sm-10">
+                      <input class="form-control" id="register-surname" name="lastname" disabled value="จังเลย">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label col-sm-2" for="email" style="color:rgba(255,255,255,1)">Email :</label>
+                    <div class="col-sm-10">
+                      <input type="email" class="form-control" id="register-email" name="email" disabled value="eiei@eiei.com">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label col-sm-2" for="tel" style="color:rgba(255,255,255,1)">เบอร์โทรศัพท์มือถือ :</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" id="register-tel" name="tel" disabled value="0812345678">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label col-sm-2" for="birthdate" style="color:rgba(255,255,255,1)">วันเดือนปีเกิด :</label>
+                    <div class="col-sm-10">
+                      <div class="input-group date" id="datepicker-info">
+                        <input type="text" class="form-control" name="birthdate" disabled value="12/2/25">
+                        <div class="input-group-addon">
+                            <span class="glyphicon glyphicon-calendar"></span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label col-sm-2" for="birthdate" style="color:rgba(255,255,255,1)">หน้าที่ :</label>
+                     <div class="col-sm-10">
+                      <select class="form-control" disabled>
+                        <option>แพทย์</option>
+                        <option>พยาบาล</option>
+                        <option>เจ้าหน้าที่โรงพยาบาล</option>
+                        <option>ผู้ดูแลระบบ</option>
+                        <option>เภสัชกร</option>
+                      </select>
+                     </div> 
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label col-sm-2" for="gender" style="color:rgba(255,255,255,1)">เพศ :</label>
+                    <div class="col-sm-10">
+                      <label class="radio-inline" style="color:rgba(255,255,255,1)"><input type="radio" name="gender" value="male" >ชาย</label>
+                      <label class="radio-inline" style="color:rgba(255,255,255,1)"><input type="radio" name="gender" value="female">หญิง</label>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="col-sm-offset-4 col-sm-2">
+                      <a href="/" ><button type="button" class="form-control btn btn-danger" style="width:auto;">กลับไปหน้าหลัก   <i class="fa fa-home" aria-hidden="true"></i>
+</button></a>
+                    </div>
+                    <div class="col-sm-2">
+                      <!--<button type="submit" class="btn btn-info"  id="edit-patientInfo-btn" form="patientInfoForm">แก้ไขข้อมูล</button>-->
+                      <a class="btn btn-info" id="edit-RoleInfo-btn" href="/RoleInfo/edit" style="margin-left:2em;">แก้ไขข้อมูล        <i class="fa fa-pencil" aria-hidden="true"></i></a>
+                    </div>
+                  </div>
+        </form>
+      </div>
+    </div>
+    </div>    
+    </div>
+  </body>
+</template>

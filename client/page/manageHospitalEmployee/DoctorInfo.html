@@ -1,0 +1,41 @@
+<template name="DoctorInfo">
+    <div class="container" style="margin-top:20px;">
+        <h1 class="modal-title" style="color:rgb(255,255,255)">ดูข้อมูลแพทย์</h1><br>
+        <table border=1 frame=void rules=rows style="width:100%; color:#000000; text-align:center;">
+            <tr class="table-header" style="border:1px solid #000000; border-radius:20%; padding:1em; background-color:grey; font-size:20px;">
+                <td>รายการข้อมูลแพทย์</td>
+                <td>ดูรายละเอียดข้อมูลแพทย์</td>
+            </tr>
+            <tr class="appt-row">
+                <td>
+                    <p id="doc-name1"><b>ชื่อ: </b>หมอ1 หมอ</p>
+                    <p id=""><b>แผนก: </b>อายุรกรรม</p>
+                     <p id=""><b>ความถนัดเฉพาะทาง: </b>ตีดอทได้</p>
+                </td>
+                <td>
+                    <a href="" class="view-btn" id="view-btn1" style="color:#ffffff" data-toggle="modal" data-target="#viewDocInfoModal" data-backdrop="static">ดูรายละเอียด</a>
+                </td>
+            </tr>
+            <tr class="appt-row">
+                <td>
+                    <p id="doc-name2"><b>ชื่อ: </b>หมอ2 หมอ</p>
+                    <p id=""><b>แผนก: </b>อายุรกรรม</p>
+                     <p id=""><b>ความถนัดเฉพาะทาง: </b>ทอดไข่เจียวได้</p>
+                </td>
+                <td>
+                    <a href="" class="view-btn" id="view-btn2" style="color:#ffffff" data-toggle="modal" data-target="#viewDocInfoModal" data-backdrop="static">ดูรายละเอียด</a>
+                </td>
+            </tr>
+            <tr class="appt-row">
+                <td>
+                    <p id="doc-name3"><b>ชื่อ: </b>หมอ2 หมอ</p>
+                    <p id=""><b>แผนก: </b>อายุรกรรม</p>
+                     <p id=""><b>ความถนัดเฉพาะทาง: </b>ทำเว็บได้</p>
+                </td>
+                <td>
+                    <a href="" class="view-btn" id="view-btn3" style="color:#ffffff" data-toggle="modal" data-target="#viewDocInfoModal" data-backdrop="static">ดูรายละเอียด</a>
+                </td>
+            </tr>
+        </table>
+    </div>
+</template>
