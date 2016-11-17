@@ -1,28 +1,21 @@
 if(Meteor.isClient){
     Template.body.events({
-        // 'click #searchHN-btn':function(event){
-        //     $('#searchHN-modal').modal('toggle');
-        // },
-        // 'submit #searchEIDForm':function(event){
-        //     event.preventDefault();
-        //     console.log('searhEIDForm is submitted');
-        //     let RoleEid=event.target.RoleEid.value.trim();
-        //     Meteor.call('searchRole',RoleEid,function(err,userr){
-        //        if(err){
-        //            Bert.alert({title:'รหัสพนักงานนี้ไม่มีอยู่ในระบบ กรุณาลองใหม่อีกครั้ง',
-        //           type:'warning',style:'growl-top-right',icon: 'fa-warning'});
-        //        }
-        //        else{
-        //          Session.set('userr',userr);
-        //          Router.go('/RoleInfo');
-        //          $('#searchEID-modal').modal('toggle');
-        //        } 
-        //     });
-        // }
-    });
-    Template.body.helpers({
-        user:function(){
-            return Session.get('userr');
-        }
+        'submit #searchPatientForm':function(event){
+            event.preventDefault();
+            console.log('Submitted search patient id');
+            let cidhn = event.target.cidhn.value.trim();
+            Meteor.call('searchPatient',cidhn,function(err,user){
+                if(err){
+                    console.log("bert alert");
+                    Bert.alert({title: 'รหัสผู้ป่วยที่ระบุไม่มีอยู่ในระบบ กรุณาระบุใหม่อีกครั้ง'
+                    , type: 'danger',style:'growl-top-right',icon: 'fa-key'});        
+                }
+                else{
+                    Session.set('patientSearched',user);
+                    $('#searchHN-modal').modal('toggle');
+                    Router.go('/viewPatientInfo');
+                }
+            });
+        },
     });
 }
