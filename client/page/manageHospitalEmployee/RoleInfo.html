@@ -11,38 +11,38 @@
                     <div class="form-group">
                         <label class="control-label col-sm-2" for="NID" style="color:rgba(255,255,255,1)">เลขบัตรประจำตัวประชาชน :</label>
                         <div class="col-sm-10">
-                            <input class="form-control" id="register-NID" name="registerCID" disabled maxlength="13" value="{{user.cid}}">
+                            <input class="form-control" id="register-NID" name="registerCID"  readonly maxlength="13" value="{{user.cid}}">
                         </div>
                   </div>
                   <div class="form-group">
                     <label class="control-label col-sm-2" for="name" style="color:rgba(255,255,255,1)">ชื่อ :</label>
                     <div class="col-sm-10">
-                      <input class="form-control" id="register-name" name="firstname" disabled value="{{user.fname}}">
+                      <input class="form-control" id="register-name" name="firstname"  readonly value="{{user.fname}}">
                     </div>
                   </div>
                   <div class="form-group">
                     <label class="control-label col-sm-2" for="surname" style="color:rgba(255,255,255,1)">นามสกุล :</label>
                     <div class="col-sm-10">
-                      <input class="form-control" id="register-surname" name="lname" disabled value="{{user.lname}}">
+                      <input class="form-control" id="register-surname" name="lname"   readonly value="{{user.lname}}">
                     </div>
                   </div>
                   <div class="form-group">
                     <label class="control-label col-sm-2" for="email" style="color:rgba(255,255,255,1)">Email :</label>
                     <div class="col-sm-10">
-                      <input type="email" class="form-control" id="register-email" name="email" disabled value="{{user.email}}">
+                      <input type="email" class="form-control" id="register-email" name="email"  readonly value="{{user.email}}">
                     </div>
                   </div>
                   <div class="form-group">
                     <label class="control-label col-sm-2" for="tel" style="color:rgba(255,255,255,1)">เบอร์โทรศัพท์มือถือ :</label>
                     <div class="col-sm-10">
-                      <input type="text" class="form-control" id="register-tel" name="tel" disabled value="{{user.tel}}">
+                      <input type="text" class="form-control" id="register-tel" name="tel"  readonly value="{{user.tel}}">
                     </div>
                   </div>
                   <div class="form-group">
                     <label class="control-label col-sm-2" for="birthdate" style="color:rgba(255,255,255,1)">วันเดือนปีเกิด :</label>
                     <div class="col-sm-10">
                       <div class="input-group date" id="datepicker-info">
-                        <input type="text" class="form-control" name="birthdate" disabled value="{{user.birthdate}}">
+                        <input type="text" class="form-control" name="birthdate"  readonly value="{{user.birthdate}}">
                         <div class="input-group-addon">
                             <span class="glyphicon glyphicon-calendar"></span>
                         </div>
@@ -52,12 +52,12 @@
                   <div class="form-group">
                     <label class="control-label col-sm-2" for="birthdate" style="color:rgba(255,255,255,1)">หน้าที่ :</label>
                      <div class="col-sm-10">
-                      <select class="form-control" disabled>
-                        <option>แพทย์</option>
-                        <option>พยาบาล</option>
-                        <option>เจ้าหน้าที่โรงพยาบาล</option>
-                        <option>ผู้ดูแลระบบ</option>
-                        <option>เภสัชกร</option>
+                      <select class="form-control"  readonly>
+                        <option value="admin" {{roleAdmin}}>เจ้าหน้าที่ดูแลระบบ (Admin)</option>
+                        <option value="doctor" {{roleDoctor}}>แพทย์ (Doctor)</option>
+                        <option value="nurse" {{roleNurse}}>พยาบาล (Nurse)</option>
+                        <option value="pharmacist" {{rolePharmacist}}>เภสัชกร (Pharmacist)</option>
+                        <option value="receptionist" {{roleReceptionist}}>เจ้าหน้าที่ต้อนรับ (Receptionist)</option>
                       </select>
                      </div> 
                   </div>
