@@ -4,7 +4,7 @@
           <div style="width:90% background-color:#ffffff;">
              <div class="col-md-offset-2 col-md-8">
                  <div class="col-xs-12">
-                 <form class="form-horizontal" style="background:rgba(0,73,163,0.95);padding:20px;border-radius:10px" id="roleInfoForm">
+                 <form class="form-horizontal" style="background:rgba(0,73,163,0.95);padding:20px;border-radius:10px" id="roleInfoForm" role="form">
                     <div class="col-xs-12">
                       <h2 style="color:rgba(255,255,255,1);text-align:left">แก้ไขข้อมูลส่วนบุตัวของบุคลากร</h2>
                     </div>
@@ -45,16 +45,15 @@
                      </div> 
                   </div>
                   <div class="form-group">
-                    <div class="col-sm-offset-3 col-sm-2">
-                      <a href="/" ><button type="button" class="form-control btn btn-danger" style="width:auto;">กลับไปหน้าหลัก   <i class="fa fa-home" aria-hidden="true"></i>
-</button></a>
+                    <div class="col-sm-offset-5 col-sm-2">
+                      <button type="button" class="btn-info btn btn-danger" id="editRoleGoBack">ยกเลิก</button>
                     </div>
                     <div class="col-sm-2">
-                      <button type="submit" class="btn btn-info"  id="edit-roleInfo-btn" form="roleInfoForm">ยืนยันการแก้ไขข้อมูล</button>
+                      <button type="submit" class="btn btn-info"  form="roleInfoForm">ยืนยันการแก้ไขข้อมูล</button>
                     </div>
-                    <div class="col-sm-2">
-                      <a class="btn btn-info" id="delete-btn" href="" style="background-color:#FF5722; border-color: transparent;"
-                      data-toggle="modal" data-target="#deleteRoleModal" data-backdrop="static">ลบบุคลากร        <i class="fa fa-trash" aria-hidden="true"></i></a>
+                    <div class="pull-right col-sm-2">
+                      <button type="button" class="btn btn-info" id="delete-btn" style="background-color:#FF5722; border-color: transparent;"
+                      data-toggle="modal" data-target="#deleteRoleModal" data-backdrop="static">ลบบุคลากร</button>
                     </div>
                   </div>
         </form>
@@ -62,5 +61,76 @@
     </div>
     </div>    
     </div>
+
+
+    <div class="modal" id="editRoleInfoConfirmationModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="myModalLabel">แก้ไขข้อมูลส่วนตัวบุคลากรเรียบร้อยแล้ว</h4>
+            </div>
+            <div class="modal-body">
+              <form id="addEmployeeForm" role="form">
+                <div class="form-group">
+                  <label>ชื่อ :</label>
+                  <label style="color:#135e8a"> {{editedUser.fname}} </label><br>
+                  <label  for="email">นามสกุล :</label>
+                  <label style="color:#135e8a"> {{editedUser.lname}} </label><br>
+                  <label for="email">Email :</label>
+                  <label style="color:#135e8a"> {{editedUser.email}} </label><br>
+                  <label  for="email">เบอร์โทรศัพท์มือถือ :</label>
+                  <label style="color:#135e8a"> {{editedUser.tel}} </label><br>
+                  <label>ประเภทผู้ใช้งาน</label>
+                  <label style="color:#135e8a"> {{editedUser.role}} </label>
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" id="editRoleGoBack">ปิดหน้าต่าง</button>
+            </div>
+          </div>
+        </div>
+    </div>
+
+
+    <div class="modal" id="deleteRoleModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title">ยืนยันการลบบุคลากร</h4>
+            </div>
+            <div class="modal-body">
+              <div class="row">
+                  <h5 style="text-align:center;">คุณต้องการลบบุคลากรออกจากระบบใช่หรือไม่?</h5>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn edit-btn" id="deleteRoleBtn">ยืนยัน </button>
+                <button type="button" class="btn cancel-btn" data-dismiss="modal">ยกเลิก     <i class="fa fa-times" aria-hidden="true"></i></button>
+              </div>
+          </div>
+          </div>
+      </div>
+    </div>
+
+
+    <div class="modal" id="deleteRoleConfirmationModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title">ลบบุคลากรเรียบร้อยแล้ว</h4>
+            </div>
+            <div class="modal-body">
+              <div class="modal-footer">
+                <button type="button" class="btn edit-btn" id="editRoleGoBack">ปิดหน้าต่าง </button>
+              </div>
+          </div>
+          </div>
+      </div>
+    </div>
+
+    
   </body>
 </template>

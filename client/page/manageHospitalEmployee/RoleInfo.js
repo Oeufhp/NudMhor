@@ -4,25 +4,25 @@ if(Meteor.isClient){
                 return Session.get('userr');
             },
             genderMale:function(){
-                return user.gender==="male"?'checked':'';
+                return Session.get('userr').gender==="male"?'checked':'';
             },
             genderFemale:function(){
-                return user.gender==="female"?'checked':'';
+                return Session.get('userr').gender==="female"?'checked':'';
             },
             roleAdmin:function(){
-                return user.role==="admin"?'selected':'';
+                return Session.get('userr').role==="admin"?'selected':'';
             },
             roleDoctor:function(){
-                return user.role==="doctor"?'selected':'';
+                return Session.get('userr').role==="doctor"?'selected':'';
             },
             roleNurse:function(){
-                return user.role==="nurse"?'selected':'';
+                return Session.get('userr').role==="nurse"?'selected':'';
             },
             rolePharmacist:function(){
-                return user.role==="pharmacist"?'selected':'';
+                return Session.get('userr').role==="pharmacist"?'selected':'';
             },
             roleReceptionist:function(){
-                return user.role==="admin"?'selected':'';
+                return Session.get('userr').role==="admin"?'selected':'';
             }
     });
 }
