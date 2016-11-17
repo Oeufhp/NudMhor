@@ -1,18 +1,41 @@
 <template name="admin-page">
-<div class="container" style=";margin-top:20px">
-  <div class="row">
-    <div class="col-md-6 menubox" data-toggle="modal" data-target="#addEmployeeModal" data-backdrop="static">
-      <div class="thebox ">
-        <img src="/img/user-add.svg" class="img-responsive menu-img "/>
-        <p class="menu-caption">เพิ่มบุคลากรโรงพยาบาล</p>
+  <div class="container" style=";margin-top:20px">
+    <div class="row">
+      <div class="col-md-6 menubox" data-toggle="modal" data-target="#addEmployeeModal" data-backdrop="static">
+        <div class="thebox ">
+          <img src="/img/user-add.svg" class="img-responsive menu-img "/>
+          <p class="menu-caption">เพิ่มบุคลากรโรงพยาบาล</p>
+        </div>
       </div>
-    </div>
-    <div class="col-md-6 menubox"  data-toggle="modal" data-target="#searchEID-modal" data-backdrop="static">
-      <div class="thebox">
-        <img src="/img/user-edit.svg" class="img-responsive menu-img"/>
-        <p class="menu-caption">ดูข้อมูลบุคลากรโรงพยาบาล</p>
+      <div class="col-md-6 menubox"  data-toggle="modal" data-target="#searchEID-modal" data-backdrop="static">
+        <div class="thebox">
+          <img src="/img/user-edit.svg" class="img-responsive menu-img"/>
+          <p class="menu-caption">ดูข้อมูลบุคลากรโรงพยาบาล</p>
+        </div>
       </div>
     </div>
   </div>
-</div>
 </template>
+  <body>
+  <div class="modal fade" id="searchEID-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title">กรอกรหัสประจำตัวบุคลากรเพื่อดูข้อมูลส่วนตัว</h4>
+            </div>
+            <div class="modal-body">
+              <form id="searchEIDForm" role="form">
+                <label for="comment">  ค้นหาผู้บุคลากร</label>
+                <input type="text" class="form-control" placeholder="รหัสประจำตัวบุคลากร" name="RoleEid" value="">
+              </form>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">ยกเลิก</button>
+                <button type="submit" class="btn btn-success" id="searchEID-btn" form="searchEIDForm">ยืนยัน</button>
+            </div>
+          </div>
+          </div>
+      </div>
+    </div>
+</body>
+
