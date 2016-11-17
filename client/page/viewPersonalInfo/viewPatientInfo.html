@@ -11,7 +11,7 @@
                     <div class="form-group">
                         <label class="control-label col-sm-2" for="NID" style="color:rgba(255,255,255,1)">เลขบัตรประจำตัวประชาชน :</label>
                         <div class="col-sm-10">
-                            <input class="form-control" id="register-NID" name="registerCID" disabled maxlength="13" value="1234567891011">
+                            <input class="form-control" id="register-NID" name="registerCID" disabled maxlength="13" value={{patientSearched.cid}}>
                         </div>
                   </div>
                   <!--<div class="form-group">
@@ -23,32 +23,32 @@
                   <div class="form-group">
                     <label class="control-label col-sm-2" for="name" style="color:rgba(255,255,255,1)">ชื่อ :</label>
                     <div class="col-sm-10">
-                      <input class="form-control" id="register-name" name="firstname" disabled value="แปลก">
+                      <input class="form-control" id="register-name" name="firstname" disabled value={{patientSearched.fname}} >
                     </div>
                   </div>
                   <div class="form-group">
                     <label class="control-label col-sm-2" for="surname" style="color:rgba(255,255,255,1)">นามสกุล :</label>
                     <div class="col-sm-10">
-                      <input class="form-control" id="register-surname" name="lastname" disabled value="จังเลย">
+                      <input class="form-control" id="register-surname" name="lastname" disabled value={{patientSearched.lname}} >
                     </div>
                   </div>
                   <div class="form-group">
                     <label class="control-label col-sm-2" for="email" style="color:rgba(255,255,255,1)">Email :</label>
                     <div class="col-sm-10">
-                      <input type="email" class="form-control" id="register-email" name="email" disabled value="eiei@eiei.com">
+                      <input type="email" class="form-control" id="register-email" name="email" disabled value={{patientSearched.email}} >
                     </div>
                   </div>
                   <div class="form-group">
                     <label class="control-label col-sm-2" for="tel" style="color:rgba(255,255,255,1)">เบอร์โทรศัพท์มือถือ :</label>
                     <div class="col-sm-10">
-                      <input type="text" class="form-control" id="register-tel" name="tel" disabled value="0812345678">
+                      <input type="text" class="form-control" id="register-tel" name="tel" disabled value={{patientSearched.tel}}>
                     </div>
                   </div>
                   <div class="form-group">
                     <label class="control-label col-sm-2" for="birthdate" style="color:rgba(255,255,255,1)">วันเดือนปีเกิด :</label>
                     <div class="col-sm-10">
                       <div class="input-group date" id="datepicker-register">
-                        <input type="text" class="form-control" name="birthdate" disabled value="12/2/25">
+                        <input type="text" class="form-control" name="birthdate" disabled value={{patientSearched.birthdate}} >
                         <div class="input-group-addon">
                             <span class="glyphicon glyphicon-calendar"></span>
                         </div>
@@ -58,20 +58,19 @@
                   <div class="form-group">
                     <label class="control-label col-sm-2" for="birthdate" style="color:rgba(255,255,255,1)">การแพ้ยา :</label>
                     <div class="col-sm-10">
-                      <input type="text" class="form-control" id="register-medicine" name="tel" disabled value="แพ้ยาพารา กินแล้วหายปวดหัว">
+                      <input type="text" class="form-control" id="register-medicine" name="tel" disabled value={{patientSearched.drugAllergy}} >
                     </div>
                   </div>
                   <div class="form-group">
                     <label class="control-label col-sm-2" for="gender" style="color:rgba(255,255,255,1)">เพศ :</label>
                     <div class="col-sm-10">
-                      <label class="radio-inline" style="color:rgba(255,255,255,1)"><input type="radio" name="gender" value="male" >ชาย</label>
-                      <label class="radio-inline" style="color:rgba(255,255,255,1)"><input type="radio" name="gender" value="female">หญิง</label>
+                      <label class="radio-inline" style="color:rgba(255,255,255,1)"><input type="radio" name="gender" value="male" {{gender0}}>ชาย</label>
+                      <label class="radio-inline" style="color:rgba(255,255,255,1)"><input type="radio" name="gender" value="female" {{gender1}} >หญิง</label>
                     </div>
                   </div>
                   <div class="form-group">
                     <div class="col-sm-offset-4 col-sm-2">
-                      <a href="/" ><button type="button" class="form-control btn btn-danger" style="width:auto;">กลับไปหน้าหลัก   <i class="fa fa-home" aria-hidden="true"></i>
-</button></a>
+                      <button type="button" class="form-control btn btn-danger" id="viewPatientInfoGoBack" style="width:auto;">กลับไปหน้าหลัก   <i class="fa fa-home" aria-hidden="true"></i> </button>
                     </div>
                     <div class="col-sm-2">
                       <!--<button type="submit" class="btn btn-info"  id="edit-patientInfo-btn" form="patientInfoForm">แก้ไขข้อมูล</button>-->
