@@ -20,7 +20,11 @@
       {{#each schedule in schedules}}
         <tr class="appt-row" data-toggle="modal" data-target="#viewDoctorScheduleModal2" data-backdrop="static">
           <td>{{schedule.date}}</td>
-          <td>{{schedule.time}}</td>
+          {{#if equalTo schedule.time "0"}}
+            <td>ช่วงเช้า(9:00-12:00)</td>
+          {{else}}
+            <td>ช่วงบ่าย(13:00-16:00)</td>
+          {{/if}}
         </tr>        
       {{/each}}
     </table>

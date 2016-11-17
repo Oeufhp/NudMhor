@@ -13,13 +13,18 @@ if(Meteor.isClient){
             Bert.alert({title: 'รหัสพนักงานของแพทย์ที่ระบุไม่มีอยู่ในระบบ กรุณาระบุใหม่อีกครั้ง', type: 'danger',style:'growl-top-right',icon: 'fa-key'});
           }
           else{
-            Meteor.call('addDoctorSchedule',eid,date,time);
-            $('#adddoctorscheduleModal').modal('toggle');
-            $('#adddoctorscheduleModal2').modal({backdrop: 'static', keyboard: false});
-            Session.set('name', name);
-            if(time == "0") Session.set('time', 'ช่วงเช้า(9:00-12:00)');
-            else Session.set('time', 'ช่วงบ่าย(13:00-16:00)');
-            Session.set('date', date);
+            Meteor.call('addDoctorSchedule',eid,date,time,function(err2,res){
+              if(err2) Bert.alert({title: 'มีช่วงการออกตรวจในระบบแล้ว', type: 'success',style: 'growl-top-right',icon: 'fa-check'});
+              else{
+                $('#adddoctorscheduleModal').modal('toggle');
+                $('#adddoctorscheduleModal2').modal({backdrop: 'static', keyboard: false});
+                Session.set('name', name);
+                if(time == "0") Session.set('time', 'ช่วงเช้า(9:00-12:00)');
+                else Session.set('time', 'ช่วงบ่าย(13:00-16:00)');
+                Session.set('date', date);
+              }
+            });
+
           }
         });//end of meteor.call   
       },
