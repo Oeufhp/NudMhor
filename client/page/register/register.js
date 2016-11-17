@@ -24,8 +24,8 @@ if(Meteor.isClient){
 			}
 			return false;
 		}
-        let cid = event.target.registerCID.value.trim();
-        let password = event.target.registerPassword.value.trim();
+		let cid = event.target.registerCID.value.trim();
+		let password = event.target.registerPassword.value.trim();
 		let email = event.target.email.value.trim();
 		let fname = event.target.firstname.value.trim();
 		let lname = event.target.lastname.value.trim();
@@ -75,7 +75,7 @@ if(Meteor.isClient){
 			return;
 		}
 		// drug allergy checker
-		if( /^[a-zA-Z0-9- ]*$/.test(drugAllergy) == false || drugAllergy > 255 || drugAllergy == ""){
+		if( check(drugAllergy) == true  || drugAllergy > 255 || drugAllergy == ""){
 			Bert.alert({title:'ประวัติการแพ้ยาต้องมีความยาวไม่เกิน 255 ตัวอักษร',type:'danger',style: 'growl-top-right'});
 			return;
 		}
