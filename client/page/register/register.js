@@ -80,7 +80,7 @@ if(Meteor.isClient){
 			return;
 		}
 		//////////////////////////complete all checking////////////////////////////////
-		let user = {cid:cid,password:password,email:email,fname:fname,lname:lname,tel:tel,gender:gender,birthdate:birthdate};
+		let user = {cid:cid,password:password,email:email,fname:fname,lname:lname,tel:tel,gender:gender,birthdate:birthdate,drugAllergy:drugAllergy};
 		Meteor.call('register',user,function(err,result){
 			console.log("result : "+result);
 			if(err!=null){
