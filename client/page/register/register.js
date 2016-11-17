@@ -40,7 +40,7 @@ if(Meteor.isClient){
 			return;
 		}
 		// password checker
-		if(password == ""|| password.length>20) {
+		if( /^[a-zA-Z0-9]*$/.test(password) == false || password == "" || password.length>20) {
 			Bert.alert({title:'รหัสผ่านต้องมีความยาวไม่เกิน 20 ตัวอักษร',type:'danger',style: 'growl-top-right'});
 			return;
 		}
