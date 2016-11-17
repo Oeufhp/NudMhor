@@ -13,9 +13,9 @@ if(Meteor.isClient){
                     type:'warning',style:'growl-top-right',icon: 'fa-warning'});
                 }
                 else{
-                Session.set('userr',userr);
-                $('#searchEID-modal').modal('toggle');
-                Router.go('/RoleInfo');
+                    Session.set('userr',userr);
+                    $('#searchEID-modal').modal('toggle');
+                    Router.go('/RoleInfo');
                 } 
             });
          }
