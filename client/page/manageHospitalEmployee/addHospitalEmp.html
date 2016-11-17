@@ -1,3 +1,4 @@
+<!--<template name="addHospitalEmp">-->
 <body>
 <div class="modal fade" id="addEmployeeModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
@@ -10,34 +11,34 @@
           <form id="addEmployeeForm" role="form">
             <div class="form-group">
               <label for="email">เลขบัตรประจำตัวประชาชน :</label>
-              <input class="form-control" id="email" name="registerCID" placeholder="รหัสบัตรประชาชน 13 หลัก">
+              <input class="form-control" maxlength="13" id="email" name="registerCID" value="" placeholder="รหัสบัตรประชาชน 13 หลัก">
             </div>
             <div class="form-group">
               <label>ชื่อ :</label>
-              <input class="form-control" id="email" name="firstname" placeholder="ชื่อ">
+              <input class="form-control" id="email" name="firstname" value="" placeholder="ชื่อ">
             </div>
             <div class="form-group">
               <label  for="email">นามสกุล :</label>
-              <input class="form-control" id="email" name="lastname" placeholder="นามสกุล">
+              <input class="form-control" id="email" name="lastname" value="" placeholder="นามสกุล">
             </div>
             <div class="form-group">
               <label  for="pwd">รหัสผ่าน :</label>
-              <input type="password" class="form-control" id="pwd" name="register-password" placeholder="รหัสผ่าน">
+              <input type="password" class="form-control" id="pwd" value="" name="registerPassword" placeholder="รหัสผ่าน">
             </div>
             <div class="form-group">
               <label for="email">Email :</label>
-              <input type="email" class="form-control" id="email" name="email" placeholder="อีเมล์">
+              <input type="email" class="form-control" id="email" value="" name="emailS" placeholder="อีเมล์">
             </div>
             <div class="form-group">
               <label  for="email">เบอร์โทรศัพท์มือถือ :</label>
-              <input class="form-control" id="email" name="tel" placeholder="เบอร์โทรศัพท์มือถือ 0xx-xxx-xxxx">
+              <input class="form-control" length="10" id="email" name="tel" value="" placeholder="เบอร์โทรศัพท์มือถือ 0xx-xxx-xxxx">
             </div>
             <div class="form-group">
               <label  for="email">วันเดือนปีเกิด :</label>
               <div class="input-group date" id="datepicker-addemployee">
-                <input type="text" class="form-control" name="birthdate">
+                <input type="text" class="form-control" name="birthdate" value="">
                 <div class="input-group-addon">
-                    <span class="glyphicon glyphicon-th"></span>
+                    <span class="glyphicon glyphicon-th" id="datepicker-span"></span>
                 </div>
               </div>
             </div>
@@ -49,6 +50,7 @@
             <div class="form-group">
               <label>ประเภทผู้ใช้งาน</label>
               <select name="role">
+                <option selected="true" disabled="disabled" value="">โปรดเลือก</option>
                 <option value="admin">เจ้าหน้าที่ดูแลระบบ (Admin)</option>
                 <option value="doctor">แพทย์ (Doctor)</option>
                 <option value="nurse">พยาบาล (Nurse)</option>
@@ -76,25 +78,25 @@
           <form id="addEmployeeForm" role="form">
             <div class="form-group">
               <label for="email">รหัสพนักงาน :</label>
-              <label style="color:#135e8a"> 560001</label><br>
+              <label style="color:#135e8a"> {{eid}} </label><br>
               <label for="email">เลขบัตรประจำตัวประชาชน :</label>
-              <label style="color:#135e8a"> 3123412112123</label><br>
+              <label style="color:#135e8a"> {{cid}} </label><br>
               <label>ชื่อ :</label>
-              <label style="color:#135e8a"> อาทิดย์</label><br>
+              <label style="color:#135e8a"> {{fname}} </label><br>
               <label  for="email">นามสกุล :</label>
-              <label style="color:#135e8a"> แซ่ง่อว</label><br>
+              <label style="color:#135e8a"> {{lname}} </label><br>
               <label  for="pwd">รหัสผ่าน :</label>
-              <label style="color:#135e8a"> password</label><br>
+              <label style="color:#135e8a"> {{pass}}</label><br>
               <label for="email">Email :</label>
-              <label style="color:#135e8a"> arthit.s@nudmhor.com</label><br>
+              <label style="color:#135e8a"> {{email}} </label><br>
               <label  for="email">เบอร์โทรศัพท์มือถือ :</label>
-              <label style="color:#135e8a"> 0812345678</label><br>
+              <label style="color:#135e8a"> {{tel}} </label><br>
               <label  for="email">วันเดือนปีเกิด :</label>
-              <label style="color:#135e8a"> 14 ตุลาคม พ.ศ.2519</label><br>
+              <label style="color:#135e8a"> {{birthdate}} </label><br>
               <label  for="email">เพศ :</label>
-              <label style="color:#135e8a"> ชาย</label><br>
+              <label style="color:#135e8a"> {{gender}} </label><br>
               <label>ประเภทผู้ใช้งาน</label>
-              <label style="color:#135e8a"> แพทย์ (Doctor)</label>
+              <label style="color:#135e8a"> {{role}} </label>
             </div>
           </form>
         </div>
@@ -105,3 +107,4 @@
     </div>
 </div>
 </body>
+<!--</template>-->

@@ -13,10 +13,10 @@ Template.body.events({
         event.preventDefault();
         $('#viewAppointmentModal3').modal('toggle');
         $('#viewAppointmentModal2').modal('toggle');
-        
+    },
+    'click #changeDateTime-btn':function(event){
+        event.preventDefault();
+        $('#viewAppointmentModal2').modal('toggle');
+        $('#viewAppointmentModal4').modal('toggle');
     }
 });
-
-Template.body.rendered=function(){
-  $('#viewAppointmentModal').modal({backdrop: 'static', keyboard: false});
-}

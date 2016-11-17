@@ -7,7 +7,7 @@ if(Meteor.isClient){
     	// 	toggleActive: true
 		// });
 		$('#datepicker-register').datetimepicker({
-			format:'DD/MM/YYYY'
+			format:'DD/MMM/YYYY'
 		});
 	})
 	Template.register.events({

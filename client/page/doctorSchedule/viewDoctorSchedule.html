@@ -17,38 +17,16 @@
         <td> วันที่ </td>
         <td> ช่วงการออกตรวจ</td>
       </tr>
-      <tr class="appt-row" data-toggle="modal" data-target="#viewDoctorScheduleModal2" data-backdrop="static">
-        <td>06/10/2016</td>
-        <td>ช่วงเช้า(9:00-12:00)</td>
-      </tr>
-      <tr class="appt-row">
-        <td>06/10/2016</td>
-        <td>ช่วงบ่าย(13:00-16:00)</td>
-      </tr>
-      <tr class="appt-row">
-        <td>07/10/2016</td>
-        <td>ช่วงเช้า(9:00-12:00)</td>
-      </tr>
-      <tr class="appt-row">
-        <td>07/10/2016</td>
-        <td>ช่วงบ่าย(13:00-16:00)</td>
-      </tr>
-      <tr class="appt-row">
-        <td>08/10/2016</td>
-        <td>ช่วงเช้า(9:00-12:00)</td>
-      </tr>
-      <tr class="appt-row">
-        <td>08/10/2016</td>
-        <td>ช่วงบ่าย(13:00-16:00)</td>
-      </tr>
-      <tr class="appt-row">
-        <td>09/10/2016</td>
-        <td>ช่วงเช้า(9:00-12:00)</td>
-      </tr>
-      <tr class="appt-row">
-        <td>09/10/2016</td>
-        <td>ช่วงบ่าย(13:00-16:00)</td>
-      </tr>
+      {{#each schedule in schedules}}
+        <tr class="appt-row" data-toggle="modal" data-target="#viewDoctorScheduleModal2" data-backdrop="static">
+          <td>{{schedule.date}}</td>
+          {{#if equalTo schedule.time "0"}}
+            <td>ช่วงเช้า(9:00-12:00)</td>
+          {{else}}
+            <td>ช่วงบ่าย(13:00-16:00)</td>
+          {{/if}}
+        </tr>        
+      {{/each}}
     </table>
 <!--     <a href="/home/doctor">
       <button type="button" class="btn btn-danger pull-right">ย้อนกลับ</button>
@@ -68,7 +46,7 @@
           <form id="viewDoctorScheduleForm" role="form">
             <div class="form-group">
               <label for="sel1">รหัสแพทย์</label>
-              <input class="form-control">
+              <input class="form-control" name="doctorEid" value="" >
             </div>
           </form>
         </div>

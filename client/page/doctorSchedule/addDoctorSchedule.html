@@ -9,24 +9,19 @@
         <div class="modal-body">
           <form id="adddoctorscheduleForm" role="form">
             <div class="form-group">
-              <label for="sel1">รหัสพนักงาน</label>
-              <input class="form-control" >
+              <label for="sel1">รหัสแพทย์</label>
+              <input class="form-control" name="eid" value="">
             </div>
             <div class="form-group">
               <label for="sel1">ช่วงการออกตรวจ</label>
-              <select class="form-control" id="sel1">
-                <option>ช่วงเช้า(9:00-12:00)</option>
-                <option>ช่วงบ่าย(13:00-16:00)</option>
+              <select class="form-control" id="sel1" name="time">
+                <option value=0 >ช่วงเช้า(9:00-12:00)</option>
+                <option value=1 >ช่วงบ่าย(13:00-16:00)</option>
               </select>
             </div>
             <div class="form-group">
               <label for="comment">วันที่ออกตรวจ</label>
-                <div class="input-group date" >
-                  <input type="text" class="form-control" id="datepicker-adddoctorschedule">
-                  <div class="input-group-addon">
-                      <span class="glyphicon glyphicon-th"></span>
-                  </div>
-                </div>
+                <input type='text' class="form-control" name="date" id='datetimepicker-adddoctorschedule' value=""/>
             </div>
           </form>
         </div>
@@ -49,15 +44,15 @@
           <form>
             <div class="form-group">
               <label for="sel1">แพทย์</label>
-              <label for="sel1" style="color:#135e8a">นพ.ณัฐภัทร จันใจวงศ์</label>
+              <label for="sel1" style="color:#135e8a">{{name}}</label>
             </div>
             <div class="form-group">
               <label for="sel1">ช่วงการออกตรวจ</label>
-              <label for="sel1" style="color:#135e8a">ช่วงเช้า(9:00-12:00)</label>
+              <label for="sel1" style="color:#135e8a">{{time}}</label>
             </div>
             <div class="form-group">
               <label for="sel1">วันที่ออกตรวจ</label>
-              <label for="sel1" style="color:#135e8a">24 ตุลาคม 2559</label>
+              <label for="sel1" style="color:#135e8a">{{date}}</label>
             </div>
           </form>
         </div>

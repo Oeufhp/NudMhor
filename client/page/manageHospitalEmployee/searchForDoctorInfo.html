@@ -1,0 +1,62 @@
+<body>    
+<div class="modal fade" id="searchDocName-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">เลิอกแผนกและกรอกชื่อแพทย์ เพื่อดูข้อมูลแพทย์</h4>
+          </div>
+          <div class="modal-body">
+            <form id="viewAppointmentForm" role="form">
+               <label for="comment">  เลิอกแผนก</label>
+               <div class="form-group">
+                <select class="form-control" id="wardOption">
+                    <option>อายุรกรรม</option>
+                    <option>ทางเดินอาหาร</option>
+                    <option>ทางเดินหายใจ</option>
+                </select>
+               </div>
+               <div class="form-group">
+                   <label for="comment">กรอกชื่อ - นามสกุลของแพทย์</label>
+                   <input type="text" class="form-control" placeholder="ชื่อ-นามสกุลของแพทย์">
+               </div>
+            </form>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-danger" data-dismiss="modal">ยกเลิก</button>
+              <!--<button type="submit" class="btn btn-success" id="personalInfo-search-btn" form="HNSearchforVieePersonalInfo">ยืนยัน</button>-->
+              <a class="btn btn-success" id="searchDocName-btn" href="/DoctorInfo">ยืนยัน</a>
+            </div>
+        </div>
+        </div>
+    </div>
+  </div>
+  <div class="modal fade" id="viewDocInfoModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">รายละเอียดข้อมูลแพทย์</h4>
+          </div>
+          <div class="modal-body">
+            <div class="row">
+              <div class="col-md-4">
+                <img src="/img/appointment-doc.svg" class="img-responsive"/>
+                <p style="text-align:center; font-size:14px; padding-top:10px;" id="docName-modal"><b>ชื่อ-นามสกุลแพทย์: </b></p>
+              </div>
+              <div class="col-md-4">
+                <img src="/img/hospital_ward.svg" class="img-responsive"/>
+                <p style="text-align:center; font-size:14px; padding-top:10px;" id="ward-modal"><b>แผนก: </b></p>
+              </div>
+              <div class="col-md-4">
+                <img src="/img/doctor_cert.svg" class="img-responsive"/>
+                <p style="text-align:center; font-size:14px; padding-top:10px;"><b>ความถนัดเฉพาะทาง: </b></p>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn cancel-btn" data-dismiss="modal">ปิด</button>
+            </div>
+        </div>
+        </div>
+    </div>
+  </div>
+</body>
