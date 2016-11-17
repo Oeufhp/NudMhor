@@ -30,18 +30,52 @@ if (Meteor.isClient) {
     'submit form': function(event) {
         event.preventDefault();
         console.log("login form is submitted.");
-        let cid = event.target.loginCID.value.trim();
+        let username = event.target.loginCID.value.trim();
         let pass = event.target.loginPassword.value.trim();
-        Meteor.call('login',cid,pass,function(err,result){
-          if(err!=null){
-            Bert.alert({title:"Wrong username/password ",type:"danger",style: 'growl-top-right'})
-          }
-          else{
-            Session.setAuth('currentUser', result)
-            Router.go('/home/homepage');
-            // Bert.alert({title:"Login success",type:"success",style: 'growl-top-right'})
-          }
-        });
+        //for login with hn
+        if(username.substring(0,2).toUpperCase() === 'HN'){
+          username = username.toUpperCase();
+          Meteor.call('loginWithHN',username,pass,function(err,result){
+            if(err!=null){
+              Bert.alert({title:"Wrong username/password ",type:"danger",style: 'growl-top-right'})
+            }
+            else{
+              Session.setAuth('currentUser', result)
+              Router.go('/home/homepage');
+              // Bert.alert({title:"Login success",type:"success",style: 'growl-top-right'})
+            }
+          });
+        }
+        //for login with eid
+        else if(username.substring(0,1).toUpperCase() === 'E'){
+          username = username.toUpperCase();
+          Meteor.call('loginWithEID',username,pass,function(err,result){
+            if(err!=null){
+              Bert.alert({title:"Wrong username/password ",type:"danger",style: 'growl-top-right'})
+            }
+            else{
+              Session.setAuth('currentUser', result)
+              Router.go('/home/homepage');
+              // Bert.alert({title:"Login success",type:"success",style: 'growl-top-right'})
+            }
+          });
+
+        }
+        //for login with citizen id
+        else{
+          Meteor.call('loginWithCID',username,pass,function(err,result){
+            if(err!=null){
+              Bert.alert({title:"Wrong username/password ",type:"danger",style: 'growl-top-right'})
+            }
+            else{
+              Session.setAuth('currentUser', result)
+              Router.go('/home/homepage');
+              // Bert.alert({title:"Login success",type:"success",style: 'growl-top-right'})
+            }
+          }); 
+        }
+
+        
     }
   });
 }

@@ -24,8 +24,8 @@ if(Meteor.isClient){
 			}
 			return false;
 		}
-        let cid = event.target.registerCID.value.trim();
-        let password = event.target.registerPassword.value.trim();
+		let cid = event.target.registerCID.value.trim();
+		let password = event.target.registerPassword.value.trim();
 		let email = event.target.email.value.trim();
 		let fname = event.target.firstname.value.trim();
 		let lname = event.target.lastname.value.trim();
@@ -40,7 +40,7 @@ if(Meteor.isClient){
 			return;
 		}
 		// password checker
-		if(password == ""|| password.length>20) {
+		if( /^[a-zA-Z0-9]*$/.test(password) == false || password == "" || password.length>20) {
 			Bert.alert({title:'รหัสผ่านต้องมีความยาวไม่เกิน 20 ตัวอักษร',type:'danger',style: 'growl-top-right'});
 			return;
 		}
@@ -75,12 +75,12 @@ if(Meteor.isClient){
 			return;
 		}
 		// drug allergy checker
-		if( /^[a-zA-Z0-9- ]*$/.test(drugAllergy) == false || drugAllergy > 255 || drugAllergy == ""){
+		if( check(drugAllergy) == true  || drugAllergy > 255 || drugAllergy == ""){
 			Bert.alert({title:'ประวัติการแพ้ยาต้องมีความยาวไม่เกิน 255 ตัวอักษร',type:'danger',style: 'growl-top-right'});
 			return;
 		}
 		//////////////////////////complete all checking////////////////////////////////
-		let user = {cid:cid,password:password,email:email,fname:fname,lname:lname,tel:tel,gender:gender,birthdate:birthdate};
+		let user = {cid:cid,password:password,email:email,fname:fname,lname:lname,tel:tel,gender:gender,birthdate:birthdate,drugAllergy:drugAllergy};
 		Meteor.call('register',user,function(err,result){
 			console.log("result : "+result);
 			if(err!=null){
