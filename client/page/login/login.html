@@ -1,10 +1,10 @@
 <template name="loginPage">
   <div class="container" style="color:white">
     <div class="row">
-      <div class="col-md-2 login-box">
+      <div class="col-md-3 login-box">
         <p>account avaliable in db</p>
         {{#each alluser}}
-          <p>{{cid}} , {{password}}</p>
+          <p>{{cid}} , {{password}} , {{role}}</p>
         {{/each}}
       </div>
       <div class="col-md-offset-0 col-md-8  login-box"  style="height:500px;background:rgba(0,73,163,0.95);padding:50px;border-radius:10px">
