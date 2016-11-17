@@ -2,7 +2,6 @@ if(Meteor.isClient){
     Template.body.events({
         'click #searchEID-btn': function(event){
             // event.preventDefault();
-            $('#searchEID-modal').modal('toggle');
         },
         'submit #searchEIDForm':function(event){
             event.preventDefault();
