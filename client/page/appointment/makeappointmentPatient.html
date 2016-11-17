@@ -92,11 +92,7 @@
             <div class="form-group">
               <label for="sel1">วันเวลาที่เร็วที่สุด</label>
               <label for="sel1" style="color:#135e8a">{{date_format best_time.date}}
-                {{#if isEqual best_time.time 0}}
-                  ช่วงเช้า (8.00 - 12.00น.)
-                {{else}}
-                  ช่วงบ่าย (13.00 - 16.00น.)
-                {{/if}}
+                {{time_format best_time.time}}
               </label>
             </div>
             <div class="form-group">
@@ -107,18 +103,17 @@
                 {{#each slot in avaliable_time}}
                 <option data-date="{{slot.date}}" data-time="{{slot.time}}">
                   {{date_format slot.date}}
-                  {{#if isEqual slot.time 0}}
-                    ช่วงเช้า (8.00 - 12.00น.)
-                  {{else}}
-                    ช่วงบ่าย (13.00 - 16.00น.)
-                  {{/if}}
+                  {{time_format slot.time}}
                 </option>
                 {{/each}}
               </select>
             </div>
             <div class="form-group">
               <label for="sel1">วันเวลาที่เลือก</label>
-              <label for="sel1" style="color:#135e8a" class="newdatetimeLabel">------------</label>
+              <label for="sel1" style="color:#135e8a" class="newdatetimeLabel">
+                {{date_format best_time.date}}
+                {{time_format best_time.time}}
+              </label>
             </div>
           </form>
         </div>

@@ -30,15 +30,23 @@
             <div class="row">
               <div class="col-md-4">
                 <img src="/img/appointment-cal.svg" class="img-responsive"/>
-                <p style="text-align:center; font-size:14px; padding-top:10px;" id="appt-time-modal"><b>วัน-เวลา: </b></p>
+                <p style="text-align:center; font-size:14px; padding-top:10px;" id="appt-time-modal"><b>วัน-เวลา : </b>
+                {{date_format currentAppointment.date}}</p>
               </div>
               <div class="col-md-4">
                 <img src="/img/appointment-doc.svg" class="img-responsive"/>
-                <p style="text-align:center; font-size:14px; padding-top:10px;" id="doc-name-modal"><b>แพทย์: </b></p>
+                <p style="text-align:center; font-size:14px; padding-top:10px;" id="doc-name-modal"><b>แพทย์ : </b>{{doctor_name currentAppointment.doctor}}</p>
               </div>
               <div class="col-md-4">
                 <img src="/img/appointment-hospital.svg" class="img-responsive"/>
-                <p style="text-align:center; font-size:14px; padding-top:10px;"><b>แผนก: </b>ตึกๆโป๊ะตึกๆ ชั้น 2</p>
+                <p style="text-align:center; font-size:14px; padding-top:10px;"><b>แผนก : </b>{{currentAppointment.department}}</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-4">
+                <p style="text-align:center; font-size:14px;">
+                {{time_format currentAppointment.round}}
+                </p>
               </div>
             </div>
             <div class="modal-footer">
@@ -61,7 +69,7 @@
                 <h5 style="text-align:center;">คุณต้องการยกเลิกการนัดหมายนี้ใช่หรือไม่?</h5>
             </div>
             <div class="modal-footer">
-              <button type="submit" class="btn edit-btn" form="">ยืนยัน     <i class="fa fa-check" aria-hidden="true"></i></button>
+              <button type="submit" class="btn edit-btn" id="confirm-del-btn" form="">ยืนยัน     <i class="fa fa-check" aria-hidden="true"></i></button>
               <button type="button" class="btn cancel-btn" data-dismiss="modal">ยกเลิก     <i class="fa fa-times" aria-hidden="true"></i></button>
             </div>
         </div>
@@ -79,28 +87,45 @@
             <div class="row">
               <div class="col-md-4">
                 <img src="/img/appointment-cal.svg" class="img-responsive"/>
-                <p style="text-align:center; font-size:14px; padding-top:10px;" id="appt-time-modal"><b>วัน-เวลา: </b></p>
+                <p style="text-align:center; font-size:14px; padding-top:10px;" id="appt-time-modal"><b>วัน-เวลา(เดิม) : </b>
+                  {{date_format currentAppointment.date}}</p>
               </div>
               <div class="col-md-4">
                 <img src="/img/appointment-doc.svg" class="img-responsive"/>
-                <p style="text-align:center; font-size:14px; padding-top:10px;" id="doc-name-modal"><b>แพทย์: </b></p>
+                <p style="text-align:center; font-size:14px; padding-top:10px;" id="doc-name-modal"><b>แพทย์ : </b>{{doctor_name currentAppointment.doctor}}</p>
               </div>
               <div class="col-md-4">
                 <img src="/img/appointment-hospital.svg" class="img-responsive"/>
-                <p style="text-align:center; font-size:14px; padding-top:10px;"><b>แผนก: </b>ตึกๆโป๊ะตึกๆ ชั้น 2</p>
+                <p style="text-align:center; font-size:14px; padding-top:10px;"><b>แผนก : </b>{{currentAppointment.department}}</p>
               </div>
+            </div>
+            <div class="row">
+              <div class="col-md-4">
+                <p style="text-align:center; font-size:14px;">
+                {{time_format currentAppointment.round}}
+                </p>
+              </div>
+            </div>
+            <div class="row">
               <div class="col-md-6">
+                <form id="editAppointmentForm1">
+                <b>วันเวลา(ใหม่) : </b>
                 <div class="form-group">
-                  <select class="form-control" id="changedatetimeOption">
-                    <option>15 พฤศจิกายน 2559 9.00 - 11.30น.</option>
-                    <option>16 พฤศจิกายน 2559 13.00 - 15.30น.</option>
-                    <option>17 พฤศจิกายน 2559 9.00 - 11.30น.</option>
+                  <select class="form-control" id="changedatetimeOption" name="date">
+                    {{#each slot in avaliable_time2 currentAppointment.doctor_eid}}
+                    <option data-date="{{slot.date}}" data-time="{{slot.time}}">
+                    {{date_format slot.date}}
+                    {{time_format slot.time}}
+                    </option>
+                    {{/each}}
                   </select>
                </div>
+              </form>
              </div>
             </div>
+
             <div class="modal-footer">
-              <a class="btn btn-success" id="confirmChange-btn">ยืนยันการแก้ไข     <i class="fa fa-check" aria-hidden="true"></i></a>
+              <button class="btn btn-success" id="confirmChange-btn" form="editAppointmentForm1">ยืนยันการแก้ไข     <i class="fa fa-check" aria-hidden="true"></i></button>
               <button type="button" class="btn cancel-btn" data-dismiss="modal">ยกเลิก</button>
             </div>
         </div>
@@ -108,4 +133,3 @@
     </div>
   </div>
 </body>
-
