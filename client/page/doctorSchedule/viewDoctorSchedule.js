@@ -22,6 +22,10 @@ if(Meteor.isClient){
 
   Template.viewDoctorSchedule.helpers({
     schedules: function(){ return Session.get('schedules'); }
+  });
+
+  Template.registerHelper('equalTo',(a,b)=>{
+    return a == b;
   });  
 }
 
