@@ -7,8 +7,29 @@ if(Meteor.isClient){
         // }
         'submit #editPatientInfoForm':function(){
             event.preventDefault();
-            
+            let cid = Session.get('patientSearched').cid;
+            let fname = event.target.firstname.value.trim();
+            let lname = event.target.lastname.value.trim();
+            let email = event.target.email.value.trim();
+            let tel = event.target.tel.value.trim();
+            let drugAllergy = event.target.drugAllergy.value.trim();
+            Meteor.call('editPatientInfo',cid,fname,lname,email,tel,drugAllergy,function(err,res){
+                if(err){
+                    Bert.alert({title: 'Something went wrong!'
+                      , type: 'danger',style:'growl-top-right',icon: 'fa-key'});                     
+                }
+                else{
+                    Session.set('editedUser',res);
+                    $('#editPatientInfoConfirmationModal').modal({backdrop: 'static', keyboard: false}); 
+                }
+            });
         },
+        'click #goBack2times': function(){
+            event.preventDefault();
+            $('editPatientInfoConfirmationModal').modal('hide');
+            $('.modal-backdrop').remove();
+            history.go(-2);
+        }
     });
 
     Template.editPatientInfo.helpers({
@@ -23,6 +44,9 @@ if(Meteor.isClient){
             let gender = Session.get('patientSearched').gender;
             if(gender == "female") return "checked";
         },
+        editedUser:function(){
+            return Session.get('editedUser');
+        }
     });
 
 }
