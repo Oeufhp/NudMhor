@@ -21,7 +21,19 @@ if(Meteor.isClient){
   });
 
   Template.viewDoctorSchedule.helpers({
-    schedules: function(){ return Session.get('schedules'); }
+    schedules: function(){ 
+        return Session.get('schedules');
+    }
+  });
+
+  Template.viewDoctorSchedule.onRendered(function(){
+    cUser = Session.get('currentUser');
+    if(cUser.role=='doctor'){
+        Meteor.call('getDoctorSchedule',cUser.eid,function(err,res){
+          if(err) console.log('cannot get doc schedule');
+          else Session.set('schedules',res);
+        });     
+    }
   });
 
   Template.registerHelper('equalTo',(a,b)=>{

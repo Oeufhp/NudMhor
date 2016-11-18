@@ -25,9 +25,12 @@
           {{else}}
             <td>ช่วงบ่าย(13:00-16:00)</td>
           {{/if}}
-        </tr>        
+        </tr>
       {{/each}}
     </table>
+    {{#unless schedules}}
+      <h1 style="color:white; text-align:center; padding-top:10%"> ไม่มีตารางออกตรวจในระบบ </h1>
+    {{/unless}}
 <!--     <a href="/home/doctor">
       <button type="button" class="btn btn-danger pull-right">ย้อนกลับ</button>
     </a> -->
