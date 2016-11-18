@@ -4,10 +4,10 @@ if(Meteor.isClient){
                 return Session.get('userr');
             },
             genderMale:function(){
-                return Session.get('userr').gender==="male"?'checked':'';
+                return Session.get('userr').gender==="male"?'checked':'disabled';
             },
             genderFemale:function(){
-                return Session.get('userr').gender==="female"?'checked':'';
+                return Session.get('userr').gender==="female"?'checked':'disabled';
             },
             roleAdmin:function(){
                 return Session.get('userr').role==="admin"?'selected':'';
@@ -22,7 +22,7 @@ if(Meteor.isClient){
                 return Session.get('userr').role==="pharmacist"?'selected':'';
             },
             roleReceptionist:function(){
-                return Session.get('userr').role==="admin"?'selected':'';
+                return Session.get('userr').role==="receptionist"?'selected':'';
             }
     });
 }

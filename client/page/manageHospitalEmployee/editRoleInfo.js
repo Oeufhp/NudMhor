@@ -53,7 +53,7 @@ if(Meteor.isClient){
                 return Session.get('userr').role==="pharmacist"?'selected':'';
             },
             roleReceptionist:function(){
-                return Session.get('userr').role==="admin"?'selected':'';
+                return Session.get('userr').role==="receptionist"?'selected':'';
             },
             editedUser:function(){
                 return Session.get('usr');
