@@ -7,7 +7,10 @@ if(Meteor.isClient){
         // }
         'submit #editPatientInfoForm':function(){
             event.preventDefault();
-            let cid = Session.get('patientSearched').cid;
+            let cUser = Session.get('currentUser');
+            let cid;
+            if(cUser.role != 'patient') cid = Session.get('patientSearched').cid;
+            else cid = cUser.cid;
             let fname = event.target.firstname.value.trim();
             let lname = event.target.lastname.value.trim();
             let email = event.target.email.value.trim();
@@ -20,6 +23,8 @@ if(Meteor.isClient){
                 }
                 else{
                     Session.set('editedUser',res);
+                    if(Session.get('currentUser').role == 'patient')
+                        Session.set('currentUser',res);
                     $('#editPatientInfoConfirmationModal').modal({backdrop: 'static', keyboard: false}); 
                 }
             });
@@ -34,16 +39,21 @@ if(Meteor.isClient){
 
     Template.editPatientInfo.helpers({
         patientSearched:function(){
-            return Session.get('patientSearched');
+            let cUser = Session.get('currentUser');
+            if(cUser.role != 'patient')
+                return Session.get('patientSearched');
+            else return cUser;
         },
-        gender0:function(){
-            let gender = Session.get('patientSearched').gender;
-            if(gender == "male") return "checked";
-        },
-        gender1:function(){
-            let gender = Session.get('patientSearched').gender;
-            if(gender == "female") return "checked";
-        },
+        // gender0:function(){
+        //     let gender = Session.get('currentUser').role == 'patient' ? 
+        //         Session.get('currentUser').gender: Session.get('patientSearched').gender ;
+        //     if(gender == "male") return "checked";
+        // },
+        // gender1:function(){
+        //     let gender = Session.get('currentUser').role == 'patient' ? 
+        //         Session.get('currentUser').gender: Session.get('patientSearched').gender ;
+        //     if(gender == "female") return "checked";
+        // },
         editedUser:function(){
             return Session.get('editedUser');
         }

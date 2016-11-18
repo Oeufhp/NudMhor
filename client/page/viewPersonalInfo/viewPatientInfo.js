@@ -20,15 +20,23 @@ if(Meteor.isClient){
 
     Template.viewPatientInfo.helpers({
         patientSearched:function(){
-            return Session.get('patientSearched');
+            if(Session.get('currentUser').role != 'patient')
+                return Session.get('patientSearched');
+            else return Session.get('currentUser');
         },
         gender0:function(){
-            let gender = Session.get('patientSearched').gender;
+            let gender;
+            if(Session.get('currentUser').role != 'patient')
+                gender = Session.get('patientSearched').gender;
+            else gender = Session.get('currentUser').gender;
             if(gender == "male") return "checked";
             else return "disabled";
         },
         gender1:function(){
-            let gender = Session.get('patientSearched').gender;
+            let gender;
+            if(Session.get('currentUser').role != 'patient')
+                gender = Session.get('patientSearched').gender;
+            else gender = Session.get('currentUser').gender;
             if(gender == "female") return "checked";
             else return "disabled";
         },
