@@ -72,10 +72,10 @@ if (Meteor.isClient) {
               Router.go('/home/homepage');
               // Bert.alert({title:"Login success",type:"success",style: 'growl-top-right'})
             }
-          }); 
+          });
         }
 
-        
+
     }
   });
 }

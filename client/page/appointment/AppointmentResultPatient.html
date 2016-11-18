@@ -3,36 +3,27 @@
         <h1 class="modal-title" style="color:rgb(255,255,255)">ดูการนัดหมาย</h1><br>
         <table border=1 frame=void rules=rows style="width:100%; color:#000000; text-align:center;">
             <tr class="table-header" style="border:1px solid #000000; border-radius:20%; padding:1em; background-color:grey; font-size:20px;">
-                <td>รายการนัดหมาย</td>
+                <td>แผนก</td>
+                <td>วันที่</td>
+                <td>เวลา</td>
                 <td>ดูรายละเอียดการนัดหมาย</td>
             </tr>
+            {{#each app in appointmentList}}
             <tr class="appt-row">
                 <td>
-                    <p id="doc-name1">หมอ1 หมอ</p>
-                    <p id="appt-time1"> 14/10/59 ช่วงเช้า</p>
+                    <p id="doc-name1">{{app.department}}</p>
                 </td>
                 <td>
-                    <a href="" class="view-btn" id="view-btn1" style="color:#ffffff" data-toggle="modal" data-target="#viewAppointmentModal2" data-backdrop="static">ดูรายละเอียด</a>
+                    <p id="doc-name1">{{date_format app.date}}</p>
+                </td>
+                <td>
+                    <p id="doc-name1">{{time_format app.round}}</p>
+                </td>
+                <td>
+                    <a href="" class="view-btn" data-app="{{app._id}}" id="view-btn" style="color:#ffffff" data-toggle="modal" data-target="#viewAppointmentModal2" data-backdrop="static">ดูรายละเอียด</a>
                 </td>
             </tr>
-            <tr class="appt-row">
-                <td>
-                    <p id="doc-name2">หมอ2 หมอ</p>
-                    <p id="appt-time2"> 15/10/59 ช่วงเช้า</p>
-                </td>
-                <td>
-                    <a href="" class="view-btn" id="view-btn2" style="color:#ffffff" data-toggle="modal" data-target="#viewAppointmentModal2" data-backdrop="static">ดูรายละเอียด</a>
-                </td>
-            </tr>
-            <tr class="appt-row">
-                <td>
-                    <p id="doc-name3">หมอ3 หมอ</p>
-                    <p id="appt-time3"> 16/10/59 ช่วงเช้า</p>
-                </td>
-                <td>
-                    <a href="" class="view-btn" id="view-btn3" style="color:#ffffff" data-toggle="modal" data-target="#viewAppointmentModal2" data-backdrop="static">ดูรายละเอียด</a>
-                </td>
-            </tr>
+            {{/each}}
         </table>
     </div>
 </template>

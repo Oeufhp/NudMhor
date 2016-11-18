@@ -32,21 +32,32 @@
           <form id="makeappointmentForm" role="form">
             <div class="form-group">
               <label for="sel1">แผนก</label>
-              <select class="form-control" id="sel1">
+              <select class="form-control" id="sel1" name="department">
                 <option>โรคทั่วไป</option>
+                <option>แผนกอายุรกรรม</option>
+                <option>แผนกศัลยกรรม</option>
+                <option>แผนกสูติ</option>
+                <option>แผนกจักษุ</option>
+                <option>แผนกโรคผิวหนัง</option>
+                <option>แผนกอวัยวะปัสสาวะ</option>
+                <option>แผนกหัวใจ</option>
+                <option>แผนกหู คอ จมูก</option>
+                <option>แผนกรังสี</option>
+                <option>แผนกรักษาโรคในช่องปากและฟัน</option>
               </select>
             </div>
             <div class="form-group">
               <label for="sel1">แพทย์</label>
-              <select class="form-control" id="sel1">
-                <option>ไม่ระบุ</option>
-                <option>นพ.ณัฐภัทร จันใจวงศ์</option>
-                <option>พญ.ชลกานต์ กิจศิริกุล</option>
+              <select class="form-control" id="sel1" name="doctor">
+                <option data-eid="{{random_doctor.eid}}">ไม่ระบุ</option>
+                {{#each doctor in doctor_list}}
+                <option data-eid="{{doctor.eid}}">{{doctor.fname}} {{doctor.lname}}</option>
+                {{/each}}
               </select>
             </div>
             <div class="form-group">
               <label for="comment">อาการเบื้องต้น</label>
-              <textarea class="form-control" rows="3" id="comment"></textarea>
+              <textarea class="form-control" rows="3" id="comment" name="symptom"></textarea>
             </div>
           </form>
         </div>
@@ -67,39 +78,47 @@
         <div class="modal-body">
           <form id="makeappointmentForm2">
             <div class="form-group">
-              <label for="sel1">แพทย์ที่นัดหมาย</label>
-              <label for="sel1" style="color:#135e8a">นพ.ณัฐภัทร จันใจวงศ์</label>
+              <label  for="sel1">แพทย์ที่นัดหมาย</label>
+              <label class="doctor" for="sel1" style="color:#135e8a">--------------</label>
             </div>
             <div class="form-group">
               <label for="sel1">แผนก</label>
-              <label for="sel1" style="color:#135e8a">โรคทั่วไป</label>
+              <label class="department" for="sel1" style="color:#135e8a">----------</label>
             </div>
             <div class="form-group">
               <label for="sel1">อาการเบื้องต้น</label>
-              <label for="sel1" style="color:#135e8a">มีไข้สูง ปวดศีรษะ อาเจียน</label>
+              <label class="symptom" for="sel1" style="color:#135e8a">--------------</label>
             </div>
             <div class="form-group">
               <label for="sel1">วันเวลาที่เร็วที่สุด</label>
-              <label for="sel1" style="color:#135e8a">24 ตุลาคม 2559 9.00 - 11.30น.</label>
+              <label for="sel1" style="color:#135e8a">{{date_format best_time.date}}
+                {{time_format best_time.time}}
+              </label>
             </div>
             <div class="form-group">
               <a class="btn btn-primary" id="newdatetimeButton">เลือกวันเวลาใหม่</a>
             </div>
             <div class="form-group">
-              <select class="form-control" id="newdatetimeOption" style="display:none">
-                <option>24 ตุลาคม 2559 9.00 - 11.30น.</option>
-                <option>24 ตุลาคม 2559 13.00 - 15.30น.</option>
-                <option>25 ตุลาคม 2559 9.00 - 11.30น.</option>
+              <select class="form-control" id="newdatetimeOption" name="date" style="display:none">
+                {{#each slot in avaliable_time}}
+                <option data-date="{{slot.date}}" data-time="{{slot.time}}">
+                  {{date_format slot.date}}
+                  {{time_format slot.time}}
+                </option>
+                {{/each}}
               </select>
             </div>
             <div class="form-group">
               <label for="sel1">วันเวลาที่เลือก</label>
-              <label for="sel1" style="color:#135e8a" id="newdatetimeLabel">24 ตุลาคม 2559 8.00 - 12.00น.</label>
+              <label for="sel1" style="color:#135e8a" class="newdatetimeLabel">
+                {{date_format best_time.date}}
+                {{time_format best_time.time}}
+              </label>
             </div>
           </form>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-danger" data-dismiss="modal">แก้ไข</button>
+          <button type="button" class="btn btn-danger" data-dismiss="modal" data-toggle="modal" data-target="#makeappointmentModal" data-backdrop="static">แก้ไข</button>
           <button type="submit" class="btn btn-success" form="makeappointmentForm2">ยืนยัน</button>
         </div>
       </div>
@@ -116,19 +135,19 @@
           <form>
             <div class="form-group">
               <label for="sel1">แพทย์ที่นัดหมาย</label>
-              <label for="sel1" style="color:#135e8a">นพ.ณัฐภัทร จันใจวงศ์</label>
+              <label class="doctor" for="sel1" style="color:#135e8a">---------</label>
             </div>
             <div class="form-group">
               <label for="sel1">แผนก</label>
-              <label for="sel1" style="color:#135e8a">โรคทั่วไป</label>
+              <label class="department" for="sel1" style="color:#135e8a">---------</label>
             </div>
             <div class="form-group">
               <label for="comment">อาการเบื้องต้น</label>
-              <label for="comment" style="color:#135e8a">มีไข้สูง ปวดศีรษะ อาเจียน</label>
+              <label class="symptom" for="comment" style="color:#135e8a">---------</label>
             </div>
             <div class="form-group">
               <label for="sel1">วันเวลาที่นัดหมาย</label>
-              <label for="sel1" style="color:#135e8a">24 ตุลาคม 2559 9.00 - 11.30น.</label>
+              <label for="sel1" style="color:#135e8a" class="newdatetimeLabel">--------------</label>
             </div>
           </form>
         </div>
