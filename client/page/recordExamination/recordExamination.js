@@ -35,11 +35,13 @@ Template.body.events({
           }
       }
       let appt_obj ={
-        name:appt.
-        department:
-        date:
+        name: doctor.fname+" "+doctor.lname,
+        department: appt.department,
+        date:appt.date,
+        time:appt.round
       }
       Session.setAuth('exam_rec_obj',exam_rec_obj);
+      Session.setAuth('appt_obj',appt_obj);
       console.log("exam_rec_obj : " + exam_rec_obj['examinationRecord']['weight']);
       $('#recordExaminationModal').modal('hide');
       $('#recordExaminationResultModal').modal({backdrop: 'static', keyboard: false});
