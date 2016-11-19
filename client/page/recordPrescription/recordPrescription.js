@@ -18,39 +18,54 @@ Template.body.events({
       let medicineList =event.target.medicineList.value.trim();
       console.log(medicineList);
       Session.set('medicine',medicineList);
+      Session.set('apptID',Session.get('currentAppointmentID'));
       $('#recordPrescriptionModal').modal('toggle');
       $('#recordPrescriptionResultModal').modal({backdrop: 'static', keyboard: false});
     },
     
-    'submit #recordPrescriptionResultButton': function(event){
+    'submit #recordPrescriptionResultForm': function(event){
       event.preventDefault();
       console.log('chooseAppointmentButton is submited');
       let idAppt=Session.get('currentAppointmentID');
+      let medList=Session.get('medicine');
       Meteor.call('updateAppointmentwithPrescription',idAppt,medList,function(){
         console.log('updateAppointment is called');
         $('#recordPrescriptionResultModal').modal({backdrop: 'static', keyboard: false});
         Bert.alert({title:'Add prescription sucessful',type:'success',style:'growl-top-right',icon:'fa-check'});
         Session.set('appt',Appointment.findOne({_id:idAppt}));
       });
-      $('#recordPrescriptionResultModal').modal('hide');
+      $('#recordPrescriptionResultModal').modal('toggle');
       $('#recordPrescriptionSuccessModal').modal({backdrop: 'static', keyboard: false});
     },
-    'submit #edit-pres-btn':function(event){
+    'click #edit-pres-btn':function(event){
       event.preventDefault();
-      $('#recordPrescriptionSuccessModal').modal('toggle');
-      $('#recordPrescriptionModal').modal({backdrop: 'static', keyboard: false});
+      $('#recordPrescriptionResultModal').modal('hide');
+      $('#recordPrescriptionModal').modal('show');
     },
+    'click #finish-btn':function(event){
+      event.preventDefault();
+      $('#recordPrescriptionResultModal').modal('hide');
+      $('#recordPrescriptionModal').modal('hide');
+      $('.modal-backdrop').remove();
+
+    }
 });
 
 Template.body.helpers({
-    appointment:function(){
-      return Appointment.find({_id:Session.get('currentAppointmentID')});
+    'doctor':function(){
+      let appointment= Appointment.findOne({_id:Session.get('apptID')});
+      // console.log('attempt to find doctor');
+      let doctorEid=appointment.doctor_eid;
+      let doctor=User.findOne({eid:doctorEid});
+      return doctor;
     },
-    doctorName:function(){
-      Meteor.call('searchRole',appointment.doctor_eid,function(err,docName){
-        return  docName;
-      });
-      return  docName;
-      
+    'appointment':function(){
+      // console.log('attempt to find appointment');
+      let appointment=Appointment.findOne({_id:Session.get('apptID')});
+      return appointment;
+    },
+    'medicine':function(){
+      return Session.get('medicine');
     }
+    
 });

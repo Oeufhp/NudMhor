@@ -41,7 +41,7 @@
                     </form>
                     </div>
                     <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" id="edit-pres-btn">ยกเลิก</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">ยกเลิก</button>
                     <button type="submit" class="btn btn-success" form="recordPrescriptionConfirmForm">บันทึก</button>
                     </div>
                 </div>
@@ -58,13 +58,13 @@
                 <form id = "recordPrescriptionResultForm">
                     <div class="form-group">  
                     <label for="sel1">การนัดหมาย</label>
-                    <p for="sel1" style="color:#135e8a">แพทย์ : {{doctorName}}</p>
-                    <p for="sel1" style="color:#135e8a">แผนก : อายุรกรรม</p>
-                    <p for="sel1" style="color:#135e8a">วันที่  : 14/10/59 ช่วงเช้า</p>
+                    <p for="sel1" style="color:#135e8a">แพทย์ : {{doctor.fname}} {{doctor.lname}}</p>
+                    <p for="sel1" style="color:#135e8a">แผนก : {{doctor.department}}</p>
+                    <p for="sel1" style="color:#135e8a">วันที่  : {{appointment.date}}</p>
                     </div>
                     <div class="form-group">  
                     <label for="sel1">รายการยา</label>
-                    <p for="sel1" style="color:#135e8a">Paracetamol</p>
+                    <p for="sel1" style="color:#135e8a">{{medicine}}</p>
                     </div>
                     <div class="form-group">
                     <label for="sel1">จำนวน</label>
@@ -73,7 +73,7 @@
                 </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">แก้ไข</button>
+                    <button type="button" class="btn btn-info" id="edit-pres-btn">แก้ไข</button>
                     <button type="submit" class="btn btn-success" form = "recordPrescriptionResultForm">ยืนยัน</button>
                 </div>
             </div>
@@ -91,13 +91,13 @@
                 <form>
                     <div class="form-group">  
                     <label for="sel1">การนัดหมาย</label>
-                    <p for="sel1" style="color:#135e8a">แพทย์ : นพ.ณัฐภัทร จันใจวงศ์</p>
-                    <p for="sel1" style="color:#135e8a">แผนก : อายุรกรรม</p>
-                    <p for="sel1" style="color:#135e8a">วันที่  : 14/10/59 ช่วงเช้า</p>
+                    <p for="sel1" style="color:#135e8a">แพทย์ : {{doctor.fname}} {{doctor.lname}}</p>
+                    <p for="sel1" style="color:#135e8a">แผนก : {{doctor.department}}</p>
+                    <p for="sel1" style="color:#135e8a">วันที่  : {{appointment.date}}</p>
                     </div>
                     <div class="form-group">  
                     <label for="sel1">รายการยา</label>
-                    <p for="sel1" style="color:#135e8a">Paracetamol</p>
+                    <p for="sel1" style="color:#135e8a">{{medicine}}</p>
                     </div>
                     <div class="form-group">
                     <label for="sel1">จำนวน</label>
@@ -106,7 +106,7 @@
                 </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">เสร็จสิ้น</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal" id="finish-btn">เสร็จสิ้น</button>
                 </div>
             </div>
             </div>
