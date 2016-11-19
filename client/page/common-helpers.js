@@ -8,7 +8,6 @@ Template.registerHelper('isEqual',function(obj1,obj2){
   return (obj1==obj2);
 });
 Template.registerHelper('getEmployeeName',function(eid){
-  if(eid ==null) return;
   let usr = User.findOne({eid:eid});
   if(usr!=null){
     return usr.fname +" "+usr.lname;
@@ -27,4 +26,9 @@ Template.registerHelper('time_format',function(time){
 });
 Template.registerHelper('get_session',function(key){
   return Session.get(key);
+});
+Template.registerHelper('appointmentList',function(){
+    let patient_hn = Session.get('currentPatientHN');
+    let appt_list = Appointment.find({patient_hn:patient_hn}).fetch();
+    return appt_list;
 });
