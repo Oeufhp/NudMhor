@@ -4,8 +4,8 @@ Template.body.events({
       console.log('recordPrescriptionForm is submited');
       $('#PrescriptionpatientSearch').modal('toggle');
       let patientHN=event.target.patientHN.value.trim();
-      if(Appointment.find({patient_hn:patientHN}).count()===0){
-        Bert.alert({title:'ค้นหาล้มเหลว',message:'ยังไม่ได้กรอกรหัสประจำตัวผู้ป่วย หรือ รหัสประจำตัวผู้ป่วยนี้ไม่มีในระบบ',type:'warning',style:'growl-top-right',icon:'fa-warning'});
+      if(Appointment.find({patient_hn:patientHN}).fetch()===null){
+        throw new Meteor.Error(400, 'Error 400: Wrong Request', 'no permission with current_user');
       }
       else{
         Session.set('appointments',Appointment.find({patient_hn:patientHN}).fetch());

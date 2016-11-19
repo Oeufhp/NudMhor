@@ -8,12 +8,12 @@
           </div>
           <div class="modal-body">
             <form id="viewAppointmentForm" role="form">
-               <label for="comment">  ค้นหาผู้ป่วย</label>
-               <input type="text" class="form-control" placeholder="ระบุเลขบัตรโรงพยาบาลหรือเลขบัตรประจำตัวประชาชนของผู้ป่วย">
+               <label for="comment">ค้นหาผู้ป่วย</label>
+               <input name="patient_hn" type="text" class="form-control" placeholder="ระบุเลขบัตรโรงพยาบาลหรือเลขบัตรประจำตัวประชาชนของผู้ป่วย">
             </form>
             <div class="modal-footer">
               <button type="button" class="btn btn-danger" data-dismiss="modal">ยกเลิก</button>
-              <button type="submit" class="btn btn-success" id="appt-search-btn" form="">ยืนยัน</button>
+              <button type="submit" class="btn btn-success" form="viewAppointmentForm">ค้นหา</button>
             </div>
         </div>
         </div>
@@ -69,8 +69,8 @@
                 <h5 style="text-align:center;">คุณต้องการยกเลิกการนัดหมายนี้ใช่หรือไม่?</h5>
             </div>
             <div class="modal-footer">
-              <button type="submit" class="btn edit-btn" id="confirm-del-btn" form="">ยืนยัน     <i class="fa fa-check" aria-hidden="true"></i></button>
-              <button type="button" class="btn cancel-btn" data-dismiss="modal">ยกเลิก     <i class="fa fa-times" aria-hidden="true"></i></button>
+              <button type="submit" class="btn btn-success" id="confirm-del-btn" form="">ยืนยัน     <i class="fa fa-check" aria-hidden="true"></i></button>
+              <button type="button" class="btn btn-danger" data-dismiss="modal">ยกเลิก     <i class="fa fa-times" aria-hidden="true"></i></button>
             </div>
         </div>
         </div>
@@ -126,7 +126,7 @@
 
             <div class="modal-footer">
               <button class="btn btn-success" id="confirmChange-btn" form="editAppointmentForm1">ยืนยันการแก้ไข     <i class="fa fa-check" aria-hidden="true"></i></button>
-              <button type="button" class="btn cancel-btn" data-dismiss="modal">ยกเลิก</button>
+              <button type="button" class="btn btn-danger" data-dismiss="modal">ยกเลิก <i class="fa fa-times" aria-hidden="true"></i></button>
             </div>
         </div>
         </div>
