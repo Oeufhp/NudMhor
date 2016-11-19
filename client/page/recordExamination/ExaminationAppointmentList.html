@@ -14,7 +14,7 @@
                     <p>{{date_format app.date}} {{time_format app.round}}</p>
                 </td>
                 <td>
-                    <button type="submit" class="btn btn-success" data-toggle="modal" data-target="#recordExaminationModal" data-backdrop="static">เลือก</button>
+                    <button  type="submit" data-app="{{app._id}}" class="createExaminationBtn btn btn-success" data-toggle="modal" data-target="#recordExaminationModal" data-backdrop="static">เลือก</button>
                 </td>
             </tr>
             {{/each}}

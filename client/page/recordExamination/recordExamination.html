@@ -31,24 +31,24 @@
                     <div class="modal-body">
                     <form id="recordExaminationConfirm" role="form">
                         <div class="form-group">
-                        <label for="comment">น้ำหนัก</label>
-                        <textarea class="form-control" rows="1" id="comment"></textarea>
+                        <label for="comment">น้ำหนัก (กิโลกรัม)</label>
+                        <input class="form-control" name="weight">
                         </div>
                         <div class="form-group">
-                        <label for="comment">ส่วนสูง</label>
-                        <textarea class="form-control" rows="3" id="comment"></textarea>
+                        <label for="comment">ส่วนสูง (เมตร)</label>
+                        <input class="form-control" name="height">
                         </div>
                         <div class="form-group">
-                        <label for="comment">อุณหภูมิ</label>
-                        <textarea class="form-control" rows="3" id="comment"></textarea>
+                        <label for="comment">อุณหภูมิ (องศาเซลเซียส)</label>
+                        <input class="form-control" name="body_temp">
                         </div>
                         <div class="form-group">
-                        <label for="comment">ความดันโลหิต</label>
-                        <textarea class="form-control" rows="3" id="comment"></textarea>
+                        <label for="comment">ความดันโลหิต (มิลลิเมตรปรอท)</label>
+                        <input class="form-control" name="blood_pressure">
                         </div>
                         <div class="form-group">
-                        <label for="comment">ชีพจร</label>
-                        <textarea class="form-control" rows="3" id="comment"></textarea>
+                        <label for="comment">ชีพจร (ครั้งต่อนาที)</label>
+                        <input class="form-control" name="heart_rate">
                         </div>
                     </form>
                     </div>
@@ -67,35 +67,36 @@
                 <h4 class="modal-title" id="myModalLabel">โปรดตรวจสอบข้อมูลก่อนการวินิจฉัย</h4>
                 </div>
                 <div class="modal-body">
+                {{#with get_session 'exam_rec_obj'}}
                 <form id = "recordExaminationResultButton">
                     <div class="form-group">
                     <label for="sel1">การนัดหมาย</label>
-                    <p for="sel1" style="color:#135e8a">แพทย์ : นพ.ณัฐภัทร จันใจวงศ์</p>
-                    <p for="sel1" style="color:#135e8a">แผนก : อายุรกรรม</p>
-                    <p for="sel1" style="color:#135e8a">วันที่  : 14/10/59 ช่วงเช้า</p>
+                    <p for="sel1" style="color:#135e8a">แพทย์ : -------------</p>
+                    <p for="sel1" style="color:#135e8a">แผนก : -------------</p>
+                    <p for="sel1" style="color:#135e8a">วันที่  : -------------</p>
                     </div>
                     <div class="form-group">
                     <label for="sel1">น้ำหนัก</label>
-                    <p for="sel1" style="color:#135e8a">70 กิโลกรัม</p>
+                    <p for="sel1" style="color:#135e8a">{{examinationRecord.weight}} กิโลกรัม</p>
                     </div>
                     <div class="form-group">
                     <label for="sel1">ส่วนสูง</label>
-                    <p for="sel1" style="color:#135e8a">1.70 เมตร</p>
+                    <p for="sel1" style="color:#135e8a">{{examinationRecord.height}} เมตร</p>
                     </div>
                     <div class="form-group">
                     <label for="sel1">อุณหภูมิ</label>
-                    <p for="sel1" style="color:#135e8a">39 องศาเซลเซียส</p>
+                    <p for="sel1" style="color:#135e8a">{{examinationRecord.body_temp}} องศาเซลเซียส</p>
                     </div>
                     <div class="form-group">
                     <label for="sel1">ความดันโลหิต</label>
-                    <p for="sel1" style="color:#135e8a">80/120 มิลลิเมตรปรอท</p>
+                    <p for="sel1" style="color:#135e8a">{{examinationRecord.blood_pressure}} มิลลิเมตรปรอท</p>
                     </div>
                     <div class="form-group">
                     <label for="sel1">ชีพจร</label>
-                    <p for="sel1" style="color:#135e8a">60 ครั้งต่อนาที</p>
+                    <p for="sel1" style="color:#135e8a">{{examinationRecord.heart_rate}} ครั้งต่อนาที</p>
                     </div>
-
                 </form>
+                {{/with}}
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-dismiss="modal">แก้ไข</button>

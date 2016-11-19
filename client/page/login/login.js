@@ -80,9 +80,6 @@ if (Meteor.isClient) {
     }
   });
 }
-Template.registerHelper('current_user',function(){
-  return Session.get('current_user');
-});
 Template.loginPage.helpers({
   'alluser': function(){
     return User.find().fetch();

@@ -9,7 +9,9 @@ Template.registerHelper('isEqual',function(obj1,obj2){
 });
 Template.registerHelper('getEmployeeName',function(eid){
   let usr = User.findOne({eid:eid});
-  return usr.fname +" "+usr.lname;
+  if(usr!=null){
+    return usr.fname +" "+usr.lname;
+  }
 });
 Template.registerHelper('date_format',function(date){
   return moment(date).format('DD MMM YYYY');
@@ -21,4 +23,7 @@ Template.registerHelper('time_format',function(time){
   if(time==1){
     return "ช่วงบ่าย (13.00 - 16.00น.)";
   }
+});
+Template.registerHelper('get_session',function(key){
+  return Session.get(key);
 });
