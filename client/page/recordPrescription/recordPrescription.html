@@ -29,20 +29,20 @@
                     <h4 class="modal-title" id="myModalLabel">บันทึกประวัติการจ่ายยา</h4>
                     </div>
                     <div class="modal-body">
-                    <form id="recordPrescriptionConfirm" role="form">
+                    <form id="recordPrescriptionConfirmForm" role="form">
                         <div class="form-group">
                         <label for="comment">รายการยา</label>
-                        <textarea class="form-control" rows="3" name="medicine-list" value=""></textarea>
+                        <textarea class="form-control" rows="3" name="medicineList" value=""></textarea>
                         </div>
-                        <div class="form-group">
+                        <!--<div class="form-group">
                         <label for="comment">จำนวน</label>
                         <textarea class="form-control" rows="3" name="medicine-amount" value=""></textarea>
-                        </div>
+                        </div>-->
                     </form>
                     </div>
                     <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">ยกเลิก</button>
-                    <button type="submit" class="btn btn-success" form="recordPrescriptionConfirm">บันทึก</button>
+                    <button type="button" class="btn btn-danger" id="edit-pres-btn">ยกเลิก</button>
+                    <button type="submit" class="btn btn-success" form="recordPrescriptionConfirmForm">บันทึก</button>
                     </div>
                 </div>
             </div>
@@ -55,10 +55,10 @@
                 <h4 class="modal-title" id="myModalLabel">โปรดตรวจสอบข้อมูลประวัติการจ่ายยา</h4>
                 </div>
                 <div class="modal-body">
-                <form id = "recordPrescriptionResultButton">
+                <form id = "recordPrescriptionResultForm">
                     <div class="form-group">  
                     <label for="sel1">การนัดหมาย</label>
-                    <p for="sel1" style="color:#135e8a">แพทย์ : นพ.ณัฐภัทร จันใจวงศ์</p>
+                    <p for="sel1" style="color:#135e8a">แพทย์ : {{doctorName}}</p>
                     <p for="sel1" style="color:#135e8a">แผนก : อายุรกรรม</p>
                     <p for="sel1" style="color:#135e8a">วันที่  : 14/10/59 ช่วงเช้า</p>
                     </div>
@@ -74,7 +74,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-dismiss="modal">แก้ไข</button>
-                    <button type="submit" class="btn btn-success" form = "recordPrescriptionResultButton">ยืนยัน</button>
+                    <button type="submit" class="btn btn-success" form = "recordPrescriptionResultForm">ยืนยัน</button>
                 </div>
             </div>
             </div>

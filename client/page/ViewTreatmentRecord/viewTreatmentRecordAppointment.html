@@ -6,36 +6,18 @@
                 <td>รายการนัดหมาย</td>
                 <td>เลือกการนัดหมาย</td>
             </tr>
+            {{#each app in appointmentList}}
             <tr class="appt-row">
                 <td>
-                    <p>แพทย์ : นพ.ณัฐภัทร จันใจวงศ์</p>
-                    <p>แผนก : อายุรกรรม</p>
-                    <p> 14/10/59 ช่วงเช้า</p>
+                    <p>แพทย์ : {{getEmployeeName app.doctor_eid}}</p>
+                    <p>แผนก : {{app.department}}</p>
+                    <p>{{date_format app.date}} {{time_format app.round}}</p>
                 </td>
                 <td>
-                    <button type="submit" class="btn btn-success" data-toggle="modal" data-target="#viewTreatmentDetail" data-backdrop="static">เลือก</button>
+                    <button  data-app="{{app._id}}" class="createViewRecordBtn btn btn-success" data-toggle="modal" data-target="#viewTreatmentDetail" data-backdrop="static">เลือก</button>
                 </td>
             </tr>
-            <tr class="appt-row">
-                <td>
-                    <p>แพทย์ : พญ.ชลกานต์ กิจศิริกุล</p>
-                    <p>แผนก : ทางเดินอาหาร</p>
-                    <p> 14/10/59 ช่วงเช้า</p>
-                </td>
-                <td>
-                    <button type="submit" class="btn btn-success" data-toggle="modal" data-target="#viewTreatmentDetail" data-backdrop="static">เลือก</button>
-                </td>
-            </tr>
-            <tr class="appt-row">
-                <td>
-                    <p>แพทย์ : นพ.ณัฐภัทร จันใจวงศ์</p>
-                    <p>แผนก : หู ตา คอ จมูก</p>
-                    <p> 14/10/59 ช่วงบ่าย</p>
-                </td>
-                <td>
-                    <button type="submit" class="btn btn-success" data-toggle="modal" data-target="#viewTreatmentDetail" data-backdrop="static">เลือก</button>
-                </td>
-            </tr>
+            {{/each}}
         </table>
     </div>
 </template>
