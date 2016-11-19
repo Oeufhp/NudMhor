@@ -15,8 +15,8 @@
           </form>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-danger" data-dismiss="modal">ยกเลิก</button>
-          <button type="submit" class="btn btn-success" form="makeappointmentSearchPatientForm">ค้นหา</button>
+          <button type="button" class="btn btn-danger" data-dismiss="modal">ยกเลิก<i class="fa fa-times" aria-hidden="true"></i></button>
+          <button type="submit" class="btn btn-success" form="makeappointmentSearchPatientForm">ค้นหา<i class="fa fa-check" aria-hidden="true"></i></button>
         </div>
       </div>
     </div>
@@ -32,8 +32,9 @@
           <form id="makeappointmentForm" role="form">
             <div class="form-group">
               <label for="sel1">แผนก</label>
-              <select class="form-control" id="sel1" name="department">
-                <option>โรคทั่วไป</option>
+              <select class="form-control" id="departmentSelector" name="department">
+                <option disabled selected="selected">--โปรดเลือก--</option>
+                <option>แผนกโรคทั่วไป</option>
                 <option>แผนกอายุรกรรม</option>
                 <option>แผนกศัลยกรรม</option>
                 <option>แผนกสูติ</option>
@@ -62,8 +63,8 @@
           </form>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-danger" data-dismiss="modal">ยกเลิก</button>
-          <button type="submit" class="btn btn-success" form="makeappointmentForm">ยืนยัน</button>
+          <button type="button" class="btn btn-danger" data-dismiss="modal">ยกเลิก<i class="fa fa-times" aria-hidden="true"></i></button>
+          <button type="submit" class="btn btn-success" form="makeappointmentForm">ยืนยัน<i class="fa fa-check" aria-hidden="true"></i></button>
         </div>
       </div>
     </div>
@@ -119,8 +120,8 @@
           </form>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-danger" data-dismiss="modal" data-toggle="modal" data-target="#makeappointmentModal" data-backdrop="static">แก้ไข</button>
-          <button type="submit" class="btn btn-success" form="makeappointmentForm2">ยืนยัน</button>
+          <button type="button" class="btn btn-danger" data-dismiss="modal" data-toggle="modal" data-target="#makeappointmentModal" data-backdrop="static">แก้ไข<i class="fa fa-pencil" aria-hidden="true"></i></button>
+          <button type="submit" class="btn btn-success" form="makeappointmentForm2">ยืนยัน<i class="fa fa-check" aria-hidden="true"></i></button>
         </div>
       </div>
     </div>

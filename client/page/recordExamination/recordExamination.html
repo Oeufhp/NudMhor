@@ -10,13 +10,13 @@
           <form id="recordExaminationForm" role="form">
             <div class="form-group">
               <label for="comment">  ค้นหาผู้ป่วย</label>
-              <input name="patient_hn" class="form-control" rows="1" id="comment" placeholder="ระบุเลขบัตรโรงพยาบาลหรือเลขบัตรประจำตัวประชาชนของผู้ป่วย">
+              <input name="patient_hn" class="form-control" rows="1" id="comment" placeholder="ระบุเลขบัตรโรงพยาบาลของผู้ป่วย">
             </div>
           </form>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-danger" data-dismiss="modal">ยกเลิก</button>
-          <button type="submit" class="btn btn-success" form="recordExaminationForm">ค้นหา</button>
+          <button type="button" class="btn btn-danger" data-dismiss="modal">ยกเลิก<i class="fa fa-times" aria-hidden="true"></i></button>
+          <button type="submit" class="btn btn-success" form="recordExaminationForm">ค้นหา<i class="fa fa-check" aria-hidden="true"></i></button>
         </div>
       </div>
     </div>
@@ -53,8 +53,8 @@
                     </form>
                     </div>
                     <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">ยกเลิก</button>
-                    <button type="submit" class="btn btn-success" form="recordExaminationConfirm">บันทึก</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">ยกเลิก<i class="fa fa-times" aria-hidden="true"></i></button>
+                    <button type="submit" class="btn btn-success" form="recordExaminationConfirm">บันทึก<i class="fa fa-check" aria-hidden="true"></i></button>
                     </div>
                 </div>
             </div>
@@ -101,8 +101,8 @@
                 {{/with}}
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-dismiss="modal" data-toggle="modal" data-target="#recordExaminationModal" data-backdrop="static">แก้ไข</button>
-                    <button type="submit" class="btn btn-success" form = "recordExaminationResultButton">ยืนยัน</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal" data-toggle="modal" data-target="#recordExaminationModal" data-backdrop="static">แก้ไข<i class="fa fa-pencil" aria-hidden="true"></i></button>
+                    <button type="submit" class="btn btn-success" form = "recordExaminationResultButton">ยืนยัน<i class="fa fa-check" aria-hidden="true"></i></button>
                 </div>
             </div>
             </div>

@@ -6,7 +6,8 @@ Template.body.events({
       let patient = User.findOne({hn:patient_hn});
       if(patient==null){
         console.log("not found patient in db with this hn");
-        Bert.alert({title: 'รหัสผู้ป่วยที่ระบุไม่มีอยู่ในระบบ   กรุณาระบุใหม่อีกครั้ง'
+        Bert.alert({title: 'รหัสผู้ป่วยที่ระบุไม่มีอยู่ในระบบ', 
+                    message: 'กรุณาระบุใหม่อีกครั้ง' 
         ,type:'warning',style:'growl-top-right',icon: 'fa-warning'});
       }
       else{

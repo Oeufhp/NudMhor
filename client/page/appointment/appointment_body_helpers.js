@@ -8,7 +8,10 @@ Template.body.helpers({
       return doc.fname+" "+doc.lname;
     },
     'doctor_list': function(){
-      return User.find({role:"doctor"}).fetch();
+      let depart = Session.get('selectedDepart');
+      //let depart = $('#departmentSelector option:selected').text();
+      console.log('finding doctor');
+      return User.find({role:"doctor",department:depart}).fetch();
     },
     'random_doctor' :function(){
       let doctors = User.find({role:"doctor"}).fetch();
