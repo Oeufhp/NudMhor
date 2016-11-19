@@ -6,8 +6,9 @@ if(Meteor.isClient){
         let cid_hn = event.target.cid_hn.value.trim();
         Meteor.call('searchPatient',cid_hn,function(err,res){
           if(err){
-            Bert.alert({title: 'ไม่มีผู้ป่วยนี้อยู่ในระบบ กรุณาระบุใหม่อีกครั้ง'
-                , type: 'danger',style:'growl-top-right',icon: 'fa-key'});
+            Bert.alert({title: 'ไม่มีผู้ป่วยนี้อยู่ในระบบ',
+                        message:  'กรุณาระบุใหม่อีกครั้ง'
+                , type: 'warning',style:'growl-top-right',icon: 'fa-warning'});
           }
           else{
             let rc_app = Appointment.findOne({
@@ -16,7 +17,7 @@ if(Meteor.isClient){
               date:moment(new Date()).format('YYYY-MM-DD')
             },{});
             if(rc_app == null){
-              Bert.alert({title: 'ไม่มีการนัดหมายกับผู้ป่วยคนนี้ในวันนี้', type: 'warning',style:'growl-top-right',icon: 'fa-key'});
+              Bert.alert({title: 'ไม่มีการนัดหมายกับผู้ป่วยคนนี้ในวันนี้', type: 'warning',style:'growl-top-right',icon: 'fa-warning'});
             }
             else{
               Session.set('rc_appointment',  rc_app);         

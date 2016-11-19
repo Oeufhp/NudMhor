@@ -4,27 +4,43 @@
         <div class="modal-content">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title">เลิอกแผนกและกรอกชื่อแพทย์ เพื่อดูข้อมูลแพทย์</h4>
+            <h4 class="modal-title">เลือกแผนกและแพทย์ เพื่อดูข้อมูลแพทย์</h4>
           </div>
           <div class="modal-body">
             <form id="viewAppointmentForm" role="form">
-               <label for="comment">  เลิอกแผนก</label>
+               <label for="comment">  เลือกแผนก</label>
                <div class="form-group">
                 <select class="form-control" id="wardOption">
-                    <option>อายุรกรรม</option>
-                    <option>ทางเดินอาหาร</option>
-                    <option>ทางเดินหายใจ</option>
+                  <option selected disabled value="">เลือกแผนก</option>
+                  <option value="">เลือกแผนก</option>
+                  <option value="แผนกโรคทั่วไป">แผนกโรคทั่วไป</option>
+                  <option value="แผนกอายุรกรรม">แผนกอายุรกรรม</option>
+                  <option value="แผนกศัลยกรรม">แผนกศัลยกรรม</option>
+                  <option value="แผนกสูติ">แผนกสูติ</option>
+                  <option value="แผนกจักษุ">แผนกจักษุ</option>
+                  <option value="แผนกโรคผิวหนัง">แผนกโรคผิวหนัง</option>
+                  <option value="แผนกอวัยวะปัสสาวะ">แผนกอวัยวะปัสสาวะ</option>
+                  <option value="แผนกหัวใจ">แผนกหัวใจ</option>
+                  <option value="แผนกหู คอ จมูก">แผนกหู คอ จมูก</option>
+                  <option value="แผนกรังสี">แผนกรังสี</option>
+                  <option value="แผนกรักษาโรคในช่องปากและฟัน">แผนกรักษาโรคในช่องปากและฟัน</option>
                 </select>
                </div>
                <div class="form-group">
-                   <label for="comment">กรอกชื่อ - นามสกุลของแพทย์</label>
-                   <input type="text" class="form-control" placeholder="ชื่อ-นามสกุลของแพทย์">
+                   <label for="comment">  เลือกแพทย์</label>
+                   <!--<input type="text" class="form-control" placeholder="ชื่อ-นามสกุลของแพทย์">-->
+                   <select class="form-control" id="doctorOption">
+                     <option value="">เลือกแพทย์</option>
+                     <option value="">doctor1</option>
+                     <option value="">doctor2</option>
+                     <option value="">doctor3</option>
+                   </select>
                </div>
             </form>
             <div class="modal-footer">
               <button type="button" class="btn btn-danger" data-dismiss="modal">ยกเลิก</button>
               <!--<button type="submit" class="btn btn-success" id="personalInfo-search-btn" form="HNSearchforVieePersonalInfo">ยืนยัน</button>-->
-              <a class="btn btn-success" id="searchDocName-btn" href="/DoctorInfo">ยืนยัน</a>
+              <a class="btn btn-success" id="searchDocName-btn">ยืนยัน</a>
             </div>
         </div>
         </div>

@@ -6,7 +6,8 @@ Template.body.events({
       let patient = User.findOne({hn:patient_hn});
       if(patient==null){
         console.log("not found patient in db with this hn");
-        Bert.alert({title:"ไม่พบรหัสประจำตัวผู้ป่วยนี้ ",type:"danger",style: 'growl-top-right'})
+        Bert.alert({title: 'รหัสผู้ป่วยที่ระบุไม่มีอยู่ในระบบ   กรุณาระบุใหม่อีกครั้ง'
+        ,type:'warning',style:'growl-top-right',icon: 'fa-warning'});
       }
       else{
         Session.setAuth('currentPatientHN',patient_hn);
@@ -34,11 +35,12 @@ Template.body.events({
             heart_rate: heart_rate
           }
       }
+      let name = doctor.fname+" "+doctor.lname;
       let appt_obj ={
-        name: doctor.fname+" "+doctor.lname,
+        name2: name,
         department: appt.department,
         date:appt.date,
-        time:appt.round
+        time2:appt.round
       }
       Session.setAuth('exam_rec_obj',exam_rec_obj);
       Session.setAuth('appt_obj',appt_obj);
@@ -48,7 +50,14 @@ Template.body.events({
     },
     'submit #recordExaminationResultButton': function(event){
       event.preventDefault();
-      console.log('chooseAppointmentButton is submited');
+      Meteor.call('updateExaminationRecord',Session.get('currentAppointmentID'),Session.get('exam_rec_obj'),function(err,result){
+        if(err!=null){
+            Bert.alert({title:"อัพเดทข้อมูลไม่สำเร็จ ",type:"danger",style: 'growl-top-right'})
+        }
+        else{
+            Bert.alert({title:"อัพเดทข้อมูลก่อนการวินิจฉัยเรียบร้อย",type:"success",style: 'growl-top-right'})
+        }
+      })
       $('#recordExaminationResultModal').modal('hide');
       $('#recordExaminationSuccessModal').modal({backdrop: 'static', keyboard: false});
     }

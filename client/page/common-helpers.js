@@ -8,6 +8,7 @@ Template.registerHelper('isEqual',function(obj1,obj2){
   return (obj1==obj2);
 });
 Template.registerHelper('getEmployeeName',function(eid){
+  if(eid ==null) return;
   let usr = User.findOne({eid:eid});
   if(usr!=null){
     return usr.fname +" "+usr.lname;

@@ -7,7 +7,7 @@ if(Meteor.isClient){
         Meteor.call('searchDoctor',doctorEid,function(err,res){
           if(err){
               Bert.alert({title: 'รหัสพนักงานของแพทย์ที่ระบุไม่มีอยู่ในระบบ กรุณาระบุใหม่อีกครั้ง'
-              , type: 'danger',style:'growl-top-right',icon: 'fa-key'});          
+              , type:'warning',style:'growl-top-right',icon: 'fa-warning'});        
           }
           else{
             Meteor.call('getDoctorSchedule',doctorEid,function(err2,schedules){

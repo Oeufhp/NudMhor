@@ -9,7 +9,8 @@ if(Meteor.isClient){
             let RoleEid=event.target.RoleEid.value.trim();
             Meteor.call('searchRole',RoleEid,function(err,userr){
                 if(err){
-                    Bert.alert({title:'รหัสพนักงานนี้ไม่มีอยู่ในระบบ กรุณาลองใหม่อีกครั้ง',
+                    Bert.alert({title:'รหัสพนักงานนี้ไม่มีอยู่ในระบบ',
+                               message : 'กรุณาลองใหม่อีกครั้ง',
                     type:'warning',style:'growl-top-right',icon: 'fa-warning'});
                 }
                 else{
