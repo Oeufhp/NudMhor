@@ -14,16 +14,16 @@
               <input class="form-control" maxlength="13" id="email" name="registerCID" value="" placeholder="รหัสบัตรประชาชน 13 หลัก">
             </div>
             <div class="form-group">
+              <label  for="pwd">รหัสผ่าน :</label>
+              <input type="password" class="form-control" id="pwd" value="" name="registerPassword" placeholder="รหัสผ่าน">
+            </div>
+            <div class="form-group">
               <label>ชื่อ :</label>
               <input class="form-control" id="email" name="firstname" value="" placeholder="ชื่อ">
             </div>
             <div class="form-group">
               <label  for="email">นามสกุล :</label>
               <input class="form-control" id="email" name="lastname" value="" placeholder="นามสกุล">
-            </div>
-            <div class="form-group">
-              <label  for="pwd">รหัสผ่าน :</label>
-              <input type="password" class="form-control" id="pwd" value="" name="registerPassword" placeholder="รหัสผ่าน">
             </div>
             <div class="form-group">
               <label for="email">Email :</label>
@@ -58,6 +58,28 @@
                 <option value="receptionist">เจ้าหน้าที่ต้อนรับ (Receptionist)</option>
               </select>
             </div>
+            <div class="form-group">
+              <label for="sel1">แผนก(เฉพาะแพทย์เท่านั้น)</label>
+              <select class="form-control" name="department">
+                <option selected disabled value="">เลือกแผนก</option>
+                <option value="ไม่ระบุแผนก">ไม่ระบุแผนก</option>
+                <option value="แผนกโรคทั่วไป">แผนกโรคทั่วไป</option>
+                <option value="แผนกอายุรกรรม">แผนกอายุรกรรม</option>
+                <option value="แผนกศัลยกรรม">แผนกศัลยกรรม</option>
+                <option value="แผนกสูติ">แผนกสูติ</option>
+                <option value="แผนกจักษุ">แผนกจักษุ</option>
+                <option value="แผนกโรคผิวหนัง">แผนกโรคผิวหนัง</option>
+                <option value="แผนกอวัยวะปัสสาวะ">แผนกอวัยวะปัสสาวะ</option>
+                <option value="แผนกหัวใจ">แผนกหัวใจ</option>
+                <option value="แผนกหู คอ จมูก">แผนกหู คอ จมูก</option>
+                <option value="แผนกรังสี">แผนกรังสี</option>
+                <option value="แผนกรักษาโรคในช่องปากและฟัน">แผนกรักษาโรคในช่องปากและฟัน</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label  for="email">ความถนัดเฉพาะทาง(เฉพาะแพทย์เท่านั้น) :</label>
+              <input class="form-control" id="email" name="specialize" value="" placeholder="ความถนัดเฉพาะทาง">
+            </div>
           </form>
         </div>
         <div class="modal-footer">
@@ -80,23 +102,27 @@
               <label for="email">รหัสพนักงาน :</label>
               <label style="color:#135e8a"> {{eid}} </label><br>
               <label for="email">เลขบัตรประจำตัวประชาชน :</label>
-              <label style="color:#135e8a"> {{cid}} </label><br>
+              <label style="color:#135e8a"> {{user.cid}} </label><br>
               <label>ชื่อ :</label>
-              <label style="color:#135e8a"> {{fname}} </label><br>
+              <label style="color:#135e8a"> {{user.fname}} </label><br>
               <label  for="email">นามสกุล :</label>
-              <label style="color:#135e8a"> {{lname}} </label><br>
+              <label style="color:#135e8a"> {{user.lname}} </label><br>
               <label  for="pwd">รหัสผ่าน :</label>
-              <label style="color:#135e8a"> {{pass}}</label><br>
+              <label style="color:#135e8a"> {{user.password}}</label><br>
               <label for="email">Email :</label>
-              <label style="color:#135e8a"> {{email}} </label><br>
+              <label style="color:#135e8a"> {{user.email}} </label><br>
               <label  for="email">เบอร์โทรศัพท์มือถือ :</label>
               <label style="color:#135e8a"> {{tel}} </label><br>
               <label  for="email">วันเดือนปีเกิด :</label>
-              <label style="color:#135e8a"> {{birthdate}} </label><br>
+              <label style="color:#135e8a"> {{user.birthdate}} </label><br>
               <label  for="email">เพศ :</label>
-              <label style="color:#135e8a"> {{gender}} </label><br>
+              <label style="color:#135e8a"> {{user.gender}} </label><br>
               <label>ประเภทผู้ใช้งาน</label>
-              <label style="color:#135e8a"> {{role}} </label>
+              <label style="color:#135e8a"> {{role}} </label><br>
+              <label>แผนก</label>
+              <label style="color:#135e8a"> {{user.department}} </label><br>
+              <label>ความถนัดเฉพาะทาง</label>
+              <label style="color:#135e8a"> {{user.specialize}} </label>
             </div>
           </form>
         </div>

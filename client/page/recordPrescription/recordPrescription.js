@@ -5,7 +5,7 @@ Template.body.events({
       $('#PrescriptionpatientSearch').modal('toggle');
       let patientHN=event.target.patientHN.value.trim();
       if(Appointment.find({patient_hn:patientHN}).fetch()===null){
-        throw new Meteor.Error(400, 'Error 400: Wrong Request', 'no permission with currentUser');
+        throw new Meteor.Error(400, 'Error 400: Wrong Request', 'no permission with current_user');
       }
       Session.set('appointments',Appointment.find({patient_hn:patientHN}).fetch());
       Router.go('/recordPrescription/PrescriptionAppointmentList'); 

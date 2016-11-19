@@ -27,7 +27,7 @@ if(Meteor.isClient){
         //patient_hn,doctor_hn,symptom,date,round
         let patient_hn = Session.get('current_user').hn;
         if(patient_hn == null){
-          patient_hn == Session.get('currentPatientHN');
+          patient_hn = Session.get('currentPatientHN');
         }
         let doctor_eid = Session.get('af_doctor_eid');
         let symptom = Session.get('af_symptom');
@@ -52,7 +52,8 @@ if(Meteor.isClient){
       'submit #makeappointmentSearchPatientForm': function(event){
         event.preventDefault();
         let patient_hn = event.target.patient_hn.value.toUpperCase();
-        if(patient_hn ==null){
+        let patient = User.findOne({hn:patient_hn});
+        if(patient == null){
           Bert.alert({title:"ไม่พบรหัสประจำตัวผู้ป่วยนี้",type:"danger",style: 'growl-top-right'})
         }
         else{
@@ -61,20 +62,5 @@ if(Meteor.isClient){
           $('#makeappointmentModal').modal({backdrop: 'static', keyboard: false});
         }
       }
-  });
-
-  Template.registerHelper('isEqual',function(obj1,obj2){
-    return (obj1==obj2);
-  });
-  Template.registerHelper('date_format',function(date){
-    return moment(date).format('DD MMM YYYY');
-  });
-  Template.registerHelper('time_format',function(time){
-    if(time==0){
-      return "ช่วงเช้า (8.00 - 12.00น.)";
-    }
-    if(time==1){
-      return "ช่วงบ่าย (13.00 - 16.00น.)";
-    }
   });
 }
