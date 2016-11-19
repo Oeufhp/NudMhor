@@ -49,7 +49,7 @@ if(Meteor.isClient){
             }
             // drug allergy checker
             if( check(drugAllergy) == true  || drugAllergy > 255 || drugAllergy == ""){
-                Bert.alert({title:'ประวัติการแพ้ยาต้องมีความยาวไม่เกิน 255 ตัวอักษร',type:'danger',style: 'growl-top-right'});
+                Bert.alert({title:'ประวัติการแพ้ยาต้องมีความยาวไม่เกิน 255 ตัวอักษร',message:'หรือระบุว่า ไม่ทราบ ในกรณีที่ไม่ทราบ',type:'danger',style: 'growl-top-right'});
                 return;
             }
             ///
