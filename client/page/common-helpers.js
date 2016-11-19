@@ -38,3 +38,6 @@ Template.registerHelper('appointmentList',function(){
     let appt_list = Appointment.find({patient_hn:patient_hn}).fetch();
     return appt_list;
 });
+Template.registerHelper('alluser',function(){
+    return User.find().fetch();
+});

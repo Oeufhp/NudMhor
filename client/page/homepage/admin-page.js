@@ -17,9 +17,17 @@ if(Meteor.isClient){
                     Session.set('userr',userr);
                     $('#searchEID-modal').modal('toggle');
                     Router.go('/RoleInfo');
-                } 
+                }
             });
          }
     });
+    Template.adminPage.onRendered(function(){
+      let usr = Session.get('current_user');
+      if(usr.cid=='9999999999999'){
+      }
+      else if(usr==null || usr.role!='admin'){
+        Router.go('/');
+        Router.go('/accessdenied');
+      }
+    })
 }
-

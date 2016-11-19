@@ -14,71 +14,37 @@ if (Meteor.isClient) {
       Router.go('/forgetPassword');
     });
   });
-  // Template.body.events({
-  //    'click #forgetpass-btn': function(event){
-  //     event.preventDefault();
-  //     Router.go('/forgetPassword');
-
-  //   }
-  // });
   Template.loginPage.onRendered(function(){
     if(Session.get('current_user')!=null){
       Router.go('/home/homepage');
     }
+    $('#quickLoginModal').on('show.bs.modal', function () {
+        $('.modal .modal-body').css('overflow-y', 'auto');
+        $('.modal .modal-body').css('max-height', $(window).height() * 0.7);
+    });
   });
   Template.loginPage.events({
     'submit form': function(event) {
         event.preventDefault();
         console.log("login form is submitted.");
-        let username = event.target.loginCID.value.trim();
+        let username = event.target.loginCID.value.trim().toUpperCase();
         let pass = event.target.loginPassword.value.trim();
-        //for login with hn
-        if(username.substring(0,2).toUpperCase() === 'HN'){
-          username = username.toUpperCase();
-          Meteor.call('loginWithHN',username,pass,function(err,result){
-            if(err!=null){
-              Bert.alert({title:"Wrong username/password ",type:"danger",style: 'growl-top-right'})
+        Meteor.call('login',username,pass,function(err,result){
+          if(err!=null){
+            if(err.error=="notFoundPatient"){
+                Bert.alert({title:"รหัสบัตรประชาชนนี้ยังไม่มีข้อมูลผู้ป่วย",type:"danger",style: 'growl-top-right'});
             }
             else{
-              Session.setAuth('current_user', result)
-              Router.go('/home/homepage');
-              // Bert.alert({title:"Login success",type:"success",style: 'growl-top-right'})
+                Bert.alert({title:"Wrong username/password ",type:"danger",style: 'growl-top-right'});
             }
-          });
-        }
-        //for login with eid
-        else if(username.substring(0,1).toUpperCase() === 'E'){
-          username = username.toUpperCase();
-          Meteor.call('loginWithEID',username,pass,function(err,result){
-            if(err!=null){
-              Bert.alert({title:"Wrong username/password ",type:"danger",style: 'growl-top-right'})
-            }
-            else{
-              Session.setAuth('current_user', result)
-              Router.go('/home/homepage');
-              // Bert.alert({title:"Login success",type:"success",style: 'growl-top-right'})
-            }
-          });
-
-        }
-        //for login with citizen id
-        //todo login cid only patient
-        else{
-          Meteor.call('loginWithCID',username,pass,function(err,result){
-            if(err!=null){
-              Bert.alert({title:"Wrong username/password ",type:"danger",style: 'growl-top-right'})
-            }
-            else{
-              Session.setAuth('current_user', result)
-              Router.go('/home/homepage');
-              // Bert.alert({title:"Login success",type:"success",style: 'growl-top-right'})
-            }
-          });
-        }
-
-
+          }
+          else{
+            Session.setAuth('current_user', result);
+            Router.go('/home/homepage');
+            Bert.alert({title:"ยินดีต้อนรับ คุณ "+result.fname,type:"success",style: 'growl-top-right'})
+          }
+        });
     },
-
     // 'click #sendSMS':function(event){
     //   event.preventDefault();
     //   console.log('pressed SMS SEND!');
@@ -92,9 +58,72 @@ if (Meteor.isClient) {
     //   });
     // }
   });
+  Template.body.events({
+    'click .dumpNewUser':function(event){
+      if(User.findOne({cid:'0000000000000'})==null){
+        let usr = {
+          cid:'0000000000000',password:'000000',email:'patient@gmail.com',
+          fname:'Mr.patient',lname:'patient',tel:'0000000000',
+          gender:'male',birthdate:'20/11/2016',drugAllergy: 'no'
+        }
+        Meteor.call('register',usr);
+      }
+      if(User.findOne({cid:'0000000000001'})==null){
+        let usr = {
+          cid:'0000000000001',password:'000000',email:'admin@gmail.com',
+          fname:'Mr.admin',lname:'admin',tel:'0000000000',
+          gender:'male',birthdate:'20/11/2016',drugAllergy:'no',role:'admin'
+        }
+        Meteor.call('addEmployee',usr);
+      }
+      if(User.findOne({cid:'0000000000002'})==null){
+        let usr = {
+          cid:'0000000000002',password:'000000',email:'doctor@gmail.com',
+          fname:'Mr.doctor',lname:'doctor',tel:'0000000000',
+          gender:'male',birthdate:'20/11/2016',drugAllergy:'no',
+          department:'แผนกโรคทั่วไป',sepecialize:'ไม่มี',role:'doctor'
+        }
+        Meteor.call('addEmployee',usr);
+      }
+      if(User.findOne({cid:'0000000000003'})==null){
+        let usr = {
+          cid:'0000000000003',password:'000000',email:'nurse@gmail.com',
+          fname:'Mr.nurse',lname:'nurse',tel:'0000000000',
+          gender:'male',birthdate:'20/11/2016',drugAllergy:'no',role:'nurse'
+        }
+        Meteor.call('addEmployee',usr);
+      }
+      if(User.findOne({cid:'0000000000004'})==null){
+        let usr = {
+          cid:'0000000000004',password:'000000',email:'phamacist@gmail.com',
+          fname:'Mr.phamacist',lname:'phamacist',tel:'0000000000',
+          gender:'male',birthdate:'20/11/2016',drugAllergy:'no',role:'phamacist'
+        }
+        Meteor.call('addEmployee',usr);
+      }
+      if(User.findOne({cid:'0000000000005'})==null){
+        let usr = {
+          cid:'0000000000005',password:'000000',email:'receptionist@gmail.com',
+          fname:'Mr.receptionist',lname:'receptionist',tel:'0000000000',
+          gender:'male',birthdate:'20/11/2016',drugAllergy:'no',role:'receptionist'
+        }
+        Meteor.call('addEmployee',usr);
+      }
+      Bert.alert({title:"dump all user type success ",type:"success",style: 'growl-top-right'});
+    }
+  });
+  Template.body.events({
+    'click .loginQuickBtn':function(event){
+      console.log(event.target.id)
+      let usr = User.findOne(event.target.id);
+      if(usr.role=="patient"){
+        $('#inputEmail').val(usr.hn);
+        $('#inputPassword').val(usr.password);
+      }
+      else{
+        $('#inputEmail').val(usr.eid);
+        $('#inputPassword').val(usr.password);
+      }
+    }
+  })
 }
-Template.loginPage.helpers({
-  'alluser': function(){
-    return User.find().fetch();
-  }
-});
