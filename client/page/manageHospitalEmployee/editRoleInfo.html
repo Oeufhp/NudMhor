@@ -32,7 +32,7 @@
                       <input type="text" class="form-control" id="" name="tel" value="{{user.tel}}">
                     </div>
                   </div>
-                  <div class="form-group">
+                  <!--<div class="form-group">
                     <label class="control-label col-sm-2" for="role" style="color:rgba(255,255,255,1)">หน้าที่ :</label>
                      <div class="col-sm-10">
                       <select class="form-control" name="role">
@@ -43,7 +43,34 @@
                         <option value="receptionist" {{roleReceptionist}}>เจ้าหน้าที่ต้อนรับ (Receptionist)</option>
                       </select>
                      </div> 
+                  </div>-->
+                  <div class="form-group">
+                    <label class="control-label col-sm-2" for="role" style="color:rgba(255,255,255,1)">หน้าที่ :</label>
+                     <div class="col-sm-10">
+                      <select class="form-control" name="department">
+                        <option selected disabled value="">เลือกแผนก</option>
+                        <option value="ไม่ระบุแผนก">ไม่ระบุแผนก</option>
+                        <option value="แผนกโรคทั่วไป">แผนกโรคทั่วไป</option>
+                        <option value="แผนกอายุรกรรม">แผนกอายุรกรรม</option>
+                        <option value="แผนกศัลยกรรม">แผนกศัลยกรรม</option>
+                        <option value="แผนกสูติ">แผนกสูติ</option>
+                        <option value="แผนกจักษุ">แผนกจักษุ</option>
+                        <option value="แผนกโรคผิวหนัง">แผนกโรคผิวหนัง</option>
+                        <option value="แผนกอวัยวะปัสสาวะ">แผนกอวัยวะปัสสาวะ</option>
+                        <option value="แผนกหัวใจ">แผนกหัวใจ</option>
+                        <option value="แผนกหู คอ จมูก">แผนกหู คอ จมูก</option>
+                        <option value="แผนกรังสี">แผนกรังสี</option>
+                        <option value="แผนกรักษาโรคในช่องปากและฟัน">แผนกรักษาโรคในช่องปากและฟัน</option>
+                      </select>
+                     </div> 
                   </div>
+                  <div class="form-group">
+                    <label class="control-label col-sm-2" for="tel" style="color:rgba(255,255,255,1)">ความถนัดเฉพาะทาง :</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" id="" name="specialize" value="{{user.specialize}}">
+                    </div>
+                  </div>
+
                   <div class="form-group">
                     <div class="col-sm-offset-5 col-sm-2">
                       <button type="button" class="btn-info btn btn-danger" id="editRoleGoBack">ยกเลิก</button>
@@ -81,8 +108,12 @@
                   <label style="color:#135e8a"> {{editedUser.email}} </label><br>
                   <label  for="email">เบอร์โทรศัพท์มือถือ :</label>
                   <label style="color:#135e8a"> {{editedUser.tel}} </label><br>
-                  <label>ประเภทผู้ใช้งาน</label>
-                  <label style="color:#135e8a"> {{editedUser.role}} </label>
+                  <label>ประเภทผู้ใช้งาน :</label>
+                  <label style="color:#135e8a"> {{usr_role}} </label><br>
+                  <label>แผนก :</label>
+                  <label style="color:#135e8a"> {{editedUser.department}} </label><br>
+                  <label>ความถนัดเฉพาะทาง :</label>
+                  <label style="color:#135e8a"> {{editedUser.specialize}} </label>
                 </div>
               </form>
             </div>
