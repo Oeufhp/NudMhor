@@ -9,9 +9,9 @@
             {{#each app in appointmentList}}
             <tr class="appt-row">
                 <td>
-                    <p>แพทย์ : {{app.doctor_eid}}</p>
+                    <p>แพทย์ : {{getEmployeeName app.doctor_eid}}</p>
                     <p>แผนก : {{app.department}}</p>
-                    <p>{{app.date}} {{app.round}}</p>
+                    <p>{{date_format app.date}} {{time_format app.round}}</p>
                 </td>
                 <td>
                     <button type="submit" class="btn btn-success" data-toggle="modal" data-target="#recordExaminationModal" data-backdrop="static">เลือก</button>

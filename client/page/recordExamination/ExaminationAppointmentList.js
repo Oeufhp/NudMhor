@@ -5,8 +5,8 @@ if(Meteor.isClient){
   Template.ExaminationAppointmentList.helpers({
     'appointmentList' : function(){
       let patient_hn = Session.get('currentPatientHN');
-      let appointmentList = Appointment.find({hn:patient_hn}).fetch();
-      return appointmentList;
+      let appt_list = Appointment.find({patient_hn:patient_hn}).fetch();
+      return appt_list;
     }
   });
 }
