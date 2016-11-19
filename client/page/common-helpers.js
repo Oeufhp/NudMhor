@@ -1,3 +1,14 @@
+time_format = function(time){
+  if(time==0){
+    return "ช่วงเช้า (8.00 - 12.00น.)";
+  }
+  if(time==1){
+    return "ช่วงบ่าย (13.00 - 16.00น.)";
+  }
+}
+date_format = function(date){
+  return moment(date).format('DD MMM YYYY');
+}
 Template.registerHelper('equalTo',(a,b)=>{
   return a == b;
 });
@@ -17,12 +28,7 @@ Template.registerHelper('date_format',function(date){
   return moment(date).format('DD MMM YYYY');
 });
 Template.registerHelper('time_format',function(time){
-  if(time==0){
-    return "ช่วงเช้า (8.00 - 12.00น.)";
-  }
-  if(time==1){
-    return "ช่วงบ่าย (13.00 - 16.00น.)";
-  }
+  return time_format(time);
 });
 Template.registerHelper('get_session',function(key){
   return Session.get(key);

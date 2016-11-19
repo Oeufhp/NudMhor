@@ -29,7 +29,13 @@ if(Meteor.isClient){
         if(patient_hn == null){
           patient_hn = Session.get('currentPatientHN');
         }
+        let patient = User.findOne({hn:patient_hn});
+        if( patient ==null) {
+          Bert.alert({title:"ไม่สามารถสร้างการนัดหมายได้",type:"danger",style: 'growl-top-right'})
+          return;
+        }
         let doctor_eid = Session.get('af_doctor_eid');
+        let doctor = User.findOne({eid:doctor_eid});
         let symptom = Session.get('af_symptom');
         let date = $(event.target.date).find('option:selected').data('date');
         let round =$(event.target.date).find('option:selected').data('time');
@@ -46,6 +52,18 @@ if(Meteor.isClient){
             $('#makeappointmentModal2').modal('hide');
             $('#choosenDoctorLabel').text();
             $('#makeappointmentModal3').modal({backdrop: 'static', keyboard: false});
+            //send Email
+            let receiver = patient.email;
+            let title = "ยืนยันการนัดหมายแพทย์ ของคุณ "+patient.fname;
+            let context = "โรงพยาบาล นัดหมอ<br><br>";
+            context =context +"รหัสผู้ป่วย : "+patient.hn+"     ชื่อ-นามสกุล ผู้ป่วย : "+patient.fname+" "+patient.lname+"<br>";
+            context = context+ "วันเวลาที่นัด : "+date_format(date)+" "+time_format(round)+"<br>";
+            context = context+"แพทย์ที่นัด : "+ doctor.fname+" "+doctor.lname+" แผนก : "+doctor.department+"<br>";
+            context = context+"เบอร์โทรแผนก : 0XX-XXX-XXXX<br><br>";
+            context = context+"หากท่านต้องการทำการเปลี่ยนแปลงการนัดหมายทำได้โดย<br>"+
+            "1. เปลี่ยนแปลงการนัดหมายโดยตรงกับเจ้าหน้าทางโทรศัพท์<br>"+
+            "2. ทำการเปลี่ยนแปลงด้วยตนเองผ่านเว็บไซต์ NudMhor.tk<br>";
+            Meteor.call('sendEmail',receiver,'NudMhor System <lostunevol@gmail.com>',title,context)
           }
         });
       },
