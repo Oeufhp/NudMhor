@@ -25,7 +25,10 @@ if(Meteor.isClient){
         event.preventDefault();
         console.log('makeappointmentForm2 is submited');
         //patient_hn,doctor_hn,symptom,date,round
-        let patient_hn = Session.get('currentUser').hn;
+        let patient_hn = Session.get('current_user').hn;
+        if(patient_hn == null){
+          patient_hn == Session.get('currentPatientHN');
+        }
         let doctor_eid = Session.get('af_doctor_eid');
         let symptom = Session.get('af_symptom');
         let date = $(event.target.date).find('option:selected').data('date');
@@ -48,27 +51,18 @@ if(Meteor.isClient){
       },
       'submit #makeappointmentSearchPatientForm': function(event){
         event.preventDefault();
-        console.log('makeappointmentForm2 is submited');
-        $('#makeappointmentSearchPatientModal').modal('hide');
-        $('#makeappointmentModal').modal({backdrop: 'static', keyboard: false});
+        let patient_hn = event.target.patient_hn.value.toUpperCase();
+        if(patient_hn ==null){
+          Bert.alert({title:"ไม่พบรหัสประจำตัวผู้ป่วยนี้",type:"danger",style: 'growl-top-right'})
+        }
+        else{
+          Session.set('currentPatientHN',patient_hn);
+          $('#makeappointmentSearchPatientModal').modal('hide');
+          $('#makeappointmentModal').modal({backdrop: 'static', keyboard: false});
+        }
       }
   });
-  Template.body.helpers({
-    'doctor_list': function(){
-      return User.find({role:"doctor"}).fetch();
-    },
-    'random_doctor' :function(){
-      let doctors = User.find({role:"doctor"}).fetch();
-      let rand = parseInt(Math.random()*doctors.length);
-      return doctors[rand];
-    },
-    'avaliable_time':function(){
-      return DoctorSchedule.find({eid:Session.get('af_doctor_eid')}).fetch();
-    },
-    'best_time':function(){
-      return DoctorSchedule.findOne({eid:Session.get('af_doctor_eid')},{sort: {date: 1}});
-    }
-  });
+
   Template.registerHelper('isEqual',function(obj1,obj2){
     return (obj1==obj2);
   });
