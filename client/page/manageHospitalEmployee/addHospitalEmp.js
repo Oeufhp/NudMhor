@@ -114,7 +114,9 @@ if(Meteor.isClient){
           // Session.set('birthdate',birthdate);
           // Session.set('role',role);  
           // Session.set('eid',result);      
-          Session.set('add_employee',user); 
+          Session.set('add_employee',user);
+          Session.set('add_employee_eid',result); 
+          Session.set('add_employee_role',role);
         }
       });
     },
@@ -136,7 +138,16 @@ if(Meteor.isClient){
       // birthdate: function(){ return Session.get('birthdate'); },
       // role: function(){ return Session.get('role'); },
       // eid: function(){ return Session.get('eid'); },
-      user: function(){ return Session.get('add_employee');}
+      user: function(){ return Session.get('add_employee');},
+      eid: function(){ return Session.get('add_employee_eid');},
+      role: function(){
+        let role = Session.get('add_employee_role');
+        if(role == "admin") return "เจ้าหน้าที่ดูแลระบบ (Admin)";
+        else if(role == "doctor") return "แพทย์ (Doctor)";
+        else if(role == "nurse") return "พยาบาล (Nurse)";
+        else if(role == "pharmacist") return "เภสัชกร (Pharmacist)";
+        else if(role == "receptionist") return "เจ้าหน้าที่ต้อนรับ (Receptionist)";
+      }
   });
 }
 
