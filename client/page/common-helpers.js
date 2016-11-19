@@ -41,3 +41,9 @@ Template.registerHelper('appointmentList',function(){
 Template.registerHelper('alluser',function(){
     return User.find().fetch();
 });
+Template.registerHelper('isNull',(obj)=>{
+  return obj==null;
+});
+Template.registerHelper('isNotNull',(obj)=>{
+  return obj!=null;
+});

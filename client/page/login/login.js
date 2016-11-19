@@ -19,8 +19,8 @@ if (Meteor.isClient) {
       Router.go('/home/homepage');
     }
     $('#quickLoginModal').on('show.bs.modal', function () {
-        $('.modal .modal-body').css('overflow-y', 'auto');
-        $('.modal .modal-body').css('max-height', $(window).height() * 0.7);
+        $('#quickLoginModal .modal .modal-body').css('overflow-y', 'auto');
+        $('#quickLoginModal .modal .modal-body').css('max-height', $(window).height() * 0.7);
     });
   });
   Template.loginPage.events({

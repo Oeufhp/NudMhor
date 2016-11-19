@@ -5,6 +5,15 @@ if(Meteor.isClient){
 	// 	});
   // });
   Template.body.events({
+    'change .userTypeSelect':function(event){
+      if(event.target.value=="doctor"){
+        $('.doctorField').show();
+      }
+      else{
+        $('.doctorField').hide();
+      }
+      console.log(event.target.value);
+    },
     'submit #addEmployeeForm': function(event){
       event.preventDefault();
       console.log('addEmployeeForm is submited');
@@ -27,7 +36,6 @@ if(Meteor.isClient){
       let gender = event.target.gender.value;
       let birthdate = event.target.birthdate.value;
       let role = event.target.role.value;
-
       let department = event.target.department.value;
       let specialize = event.target.specialize.value;
       // citizen ID checker
@@ -81,21 +89,25 @@ if(Meteor.isClient){
         return;
       }
       // not doctor role department checker
-      if(role != "doctor" && role != "" && (department != "ไม่ระบุแผนก")){
-        Bert.alert({title:'แผนกของพยาบาล เจ้าหน้าที่ เภสัชกรและผู้ดูแลระบบจะต้องไม่ระบุแผนก',type:'danger',style: 'growl-top-right'});
-        return;
-     }
+    //   if(role != "doctor" && role != "" && (department != "ไม่ระบุแผนก")){
+    //     Bert.alert({title:'แผนกของพยาบาล เจ้าหน้าที่ เภสัชกรและผู้ดูแลระบบจะต้องไม่ระบุแผนก',type:'danger',style: 'growl-top-right'});
+    //     return;
+    //  }
      // doctor specialize checker
      if(role == "doctor" && (specialize == "" || specialize.length > 255)){
         Bert.alert({title:'ความถนัดเฉพาะทางต้องมีความยาวไม่เกิน 255 ตัวอักษร',type:'danger',style: 'growl-top-right'});
         return;
      }
      // not doctor specialize checker
-     if(role != "doctor" && role != "" && specialize != ""){
-        Bert.alert({title:'สำหรับพยาบาล เจ้าหน้าที่ เภสัชกรและผู้ดูแลระบบไม่ต้องระบุความถนัดเฉพาะทาง',type:'danger',style: 'growl-top-right'});
-        return;
-     }
-      let user = {cid:cid,password:password,email:email,fname:fname,lname:lname,tel:tel,gender:gender,birthdate:birthdate,role:role,department:department,specialize:specialize};
+    //  if(role != "doctor" && role != "" && specialize != ""){
+    //     Bert.alert({title:'สำหรับพยาบาล เจ้าหน้าที่ เภสัชกรและผู้ดูแลระบบไม่ต้องระบุความถนัดเฉพาะทาง',type:'danger',style: 'growl-top-right'});
+    //     return;
+    //  }
+      let user = {cid:cid,password:password,email:email,fname:fname,lname:lname,tel:tel,gender:gender,birthdate:birthdate,role:role};
+      if(role=="doctor"){
+        user.department = department;
+        user.specialize = specialize;
+      }
       Meteor.call('addEmployee',user,function(err,result){
         console.log("result : "+result);
         if(err!=null){
@@ -113,10 +125,10 @@ if(Meteor.isClient){
           // Session.set('tel',tel);
           // Session.set('gender',gender);
           // Session.set('birthdate',birthdate);
-          // Session.set('role',role);  
-          // Session.set('eid',result);      
+          // Session.set('role',role);
+          // Session.set('eid',result);
           Session.set('add_employee',user);
-          Session.set('add_employee_eid',result); 
+          Session.set('add_employee_eid',result);
           Session.set('add_employee_role',role);
         }
       });
@@ -151,4 +163,3 @@ if(Meteor.isClient){
       }
   });
 }
-

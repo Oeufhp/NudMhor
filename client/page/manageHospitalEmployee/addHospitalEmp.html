@@ -49,7 +49,7 @@
             </div>
             <div class="form-group">
               <label>ประเภทผู้ใช้งาน</label>
-              <select name="role">
+              <select name="role" class="userTypeSelect">
                 <option selected="true" disabled="disabled" value="">โปรดเลือก</option>
                 <option value="admin">เจ้าหน้าที่ดูแลระบบ (Admin)</option>
                 <option value="doctor">แพทย์ (Doctor)</option>
@@ -58,8 +58,8 @@
                 <option value="receptionist">เจ้าหน้าที่ต้อนรับ (Receptionist)</option>
               </select>
             </div>
-            <div class="form-group">
-              <label for="sel1">แผนก(เฉพาะแพทย์เท่านั้น)</label>
+            <div class="form-group doctorField" style="display:none">
+              <label for="sel1">แผนก</label>
               <select class="form-control" name="department">
                 <option selected disabled value="">เลือกแผนก</option>
                 <option value="ไม่ระบุแผนก">ไม่ระบุแผนก</option>
@@ -76,8 +76,8 @@
                 <option value="แผนกรักษาโรคในช่องปากและฟัน">แผนกรักษาโรคในช่องปากและฟัน</option>
               </select>
             </div>
-            <div class="form-group">
-              <label  for="email">ความถนัดเฉพาะทาง(เฉพาะแพทย์เท่านั้น) :</label>
+            <div class="form-group doctorField"  style="display:none" >
+              <label  for="email">ความถนัดเฉพาะทาง :</label>
               <input class="form-control" id="email" name="specialize" value="" placeholder="ความถนัดเฉพาะทาง">
             </div>
           </form>
@@ -119,10 +119,14 @@
               <label style="color:#135e8a"> {{user.gender}} </label><br>
               <label>ประเภทผู้ใช้งาน</label>
               <label style="color:#135e8a"> {{role}} </label><br>
+              {{#if isNotNull user.department}}
               <label>แผนก</label>
               <label style="color:#135e8a"> {{user.department}} </label><br>
+              {{/if}}
+              {{#if isNotNull user.specialize}}
               <label>ความถนัดเฉพาะทาง</label>
               <label style="color:#135e8a"> {{user.specialize}} </label>
+              {{/if}}
             </div>
           </form>
         </div>
