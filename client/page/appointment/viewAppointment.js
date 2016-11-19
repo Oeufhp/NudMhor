@@ -4,7 +4,8 @@ Template.body.events({
         let patient_hn = event.target.patient_hn.value.toUpperCase();
         let patient = User.findOne({hn:patient_hn});
         if(patient ==null){
-          Bert.alert({title:"ไม่พบรหัสพบผู้ป่วยนี้ในระบบ",type:"danger",style: 'growl-top-right'});
+          Bert.alert({title: 'ไม่มีผู้ป่วยนี้อยู่ในระบบ',
+                        message:  'กรุณาระบุใหม่อีกครั้ง',message:"กรุณาระบุใหม่อีกครั้ง",type:"warning",style: 'growl-top-right',icon: 'fa-warning'});
         }
         else{
           Session.set('currentPatientHN',patient_hn);

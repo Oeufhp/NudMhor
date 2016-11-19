@@ -8,13 +8,14 @@ if(Meteor.isClient){
         let time = event.target.time.value;
         let date = event.target.date.value;
         if(eid == "" || time == "" || date == ""){
-          Bert.alert({title: 'กรุณากรอกข้อมูลให้ครบถ้วน', type: 'danger',style:'growl-top-right',icon: 'fa-key'});
+          Bert.alert({title: 'กรุณากรอกข้อมูลให้ครบถ้วน', type: 'danger',style:'growl-top-right',icon: 'fa-times'});
           return;
         }
         Meteor.call('searchDoctor',eid,function(err,name){
           console.log('result : ' + name);
           if(err!=null){
-            Bert.alert({title: 'รหัสพนักงานของแพทย์ที่ระบุไม่มีอยู่ในระบบ กรุณาระบุใหม่อีกครั้ง', type: 'danger',style:'growl-top-right',icon: 'fa-key'});
+            Bert.alert({title: 'รหัสพนักงานของแพทย์ที่ระบุไม่มีอยู่ในระบบ',
+                        message: 'กรุณาระบุใหม่อีกครั้ง', type: 'warning',style:'growl-top-right',icon: 'fa-warning'});
           }
           else{
             Meteor.call('addDoctorSchedule',eid,date,time,function(err2,res){

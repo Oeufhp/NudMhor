@@ -89,6 +89,18 @@ if(Meteor.isClient){
 			else{
 				Router.go('/');
 				Bert.alert({title: 'Register successful',type: 'success',style: 'growl-top-right',icon: 'fa-check'});
+				//send email
+				let receiver = patient.email;
+				let title = "ยืนยันการนัดหมายแพทย์ ของคุณ "+patient.fname;
+				let context = "โรงพยาบาล นัดหมอ<br><br>";
+				context =context +"รหัสผู้ป่วย : "+patient.hn+"     ชื่อ-นามสกุล ผู้ป่วย : "+patient.fname+" "+patient.lname+"<br>";
+				context = context+ "วันเวลาที่นัด : "+date_format(date)+" "+time_format(round)+"<br>";
+				context = context+"แพทย์ที่นัด : "+ doctor.fname+" "+doctor.lname+" แผนก : "+doctor.department+"<br>";
+				context = context+"เบอร์โทรแผนก : 0XX-XXX-XXXX<br><br>";
+				context = context+"หากท่านต้องการทำการเปลี่ยนแปลงการนัดหมายทำได้โดย<br>"+
+				"1. เปลี่ยนแปลงการนัดหมายโดยตรงกับเจ้าหน้าทางโทรศัพท์<br>"+
+				"2. ทำการเปลี่ยนแปลงด้วยตนเองผ่านเว็บไซต์ NudMhor.tk<br>";
+				Meteor.call('sendEmail',receiver,'NudMhor System <lostunevol@gmail.com>',title,context)
 			}
 		});
     }
