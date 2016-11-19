@@ -73,7 +73,7 @@
                 </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">แก้ไข</button>
+                    <button type="button" class="btn btn-danger" id="editBtn">แก้ไข</button>
                     <button type="submit" class="btn btn-success" form = "recordDiagnosisResultButton">ยืนยัน</button>
                 </div>
             </div>
@@ -91,17 +91,17 @@
                 <form>
                     <div class="form-group">  
                     <label for="sel1">การนัดหมาย</label>
-                    <p for="sel1" style="color:#135e8a">แพทย์ : นพ.ณัฐภัทร จันใจวงศ์</p>
-                    <p for="sel1" style="color:#135e8a">แผนก : อายุรกรรม</p>
-                    <p for="sel1" style="color:#135e8a">วันที่  : 14/10/59 ช่วงเช้า</p>
+                    <p for="sel1" style="color:#135e8a">แพทย์ : {{docName}} </p>
+                    <p for="sel1" style="color:#135e8a">แผนก : {{deprt}} </p>
+                    <p for="sel1" style="color:#135e8a">วันที่  : {{dateround}} </p>
                     </div>
                     <div class="form-group">  
                     <label for="sel1">โรค</label>
-                    <p for="sel1" style="color:#135e8a">[J11] Influenza due to unidentified influenza virus</p>
+                    <p for="sel1" style="color:#135e8a"> {{symptom}} </p>
                     </div>
                     <div class="form-group">
                     <label for="sel1">รายการยา</label>
-                    <p for="sel1" style="color:#135e8a">paracetamol 14 เม็ด รับประทานครั้ง 1 เม็ด เช้า เย็น</p>
+                    <p for="sel1" style="color:#135e8a"> {{medicine}} </p>
                     </div>
                 </form>
                 </div>

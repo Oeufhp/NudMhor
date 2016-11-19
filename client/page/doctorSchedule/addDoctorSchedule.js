@@ -5,7 +5,7 @@ if(Meteor.isClient){
         event.preventDefault();
         console.log('adddoctorscheduleForm is submited');
         let eid = event.target.eid.value.trim();
-        let time = parseInt(event.target.time.value);
+        let time = event.target.time.value;
         let date = event.target.date.value;
         if(eid == "" || time == "" || date == ""){
           Bert.alert({title: 'กรุณากรอกข้อมูลให้ครบถ้วน', type: 'danger',style:'growl-top-right',icon: 'fa-key'});

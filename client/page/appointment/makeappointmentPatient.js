@@ -27,7 +27,7 @@ if(Meteor.isClient){
         //patient_hn,doctor_hn,symptom,date,round
         let patient_hn = Session.get('current_user').hn;
         if(patient_hn == null){
-          patient_hn == Session.get('currentPatientHN');
+          patient_hn = Session.get('currentPatientHN');
         }
         let doctor_eid = Session.get('af_doctor_eid');
         let symptom = Session.get('af_symptom');

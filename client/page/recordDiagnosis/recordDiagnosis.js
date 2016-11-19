@@ -11,9 +11,9 @@ if(Meteor.isClient){
           }
           else{
             let rc_app = Appointment.findOne({
-              patient_hn:Session.get('searchPatient'),
-              doctor_eid:Session.get('currentUser').eid,
-              date:moment(new Date()).format('DD MMM YYYY')
+              patient_hn:res.hn,
+              doctor_eid:Session.get('current_user').eid,
+              date:moment(new Date()).format('YYYY-MM-DD')
             },{});
             if(rc_app == null){
               Bert.alert({title: 'ไม่มีการนัดหมายกับผู้ป่วยคนนี้ในวันนี้', type: 'warning',style:'growl-top-right',icon: 'fa-key'});
@@ -33,7 +33,7 @@ if(Meteor.isClient){
         console.log('submited recordDiagnosisConfirm');
         Session.set('rc_symptom', event.target.symptom.value);
         Session.set('rc_medicine', event.target.medicine.value);
-        if(Session.get('currentUser').role != doctor){
+        if(Session.get('current_user').role != 'doctor'){
           Bert.alert({title: 'You not have permission!', type: 'danger',style:'growl-top-right',icon: 'fa-key'});
         }
         else{
@@ -44,8 +44,25 @@ if(Meteor.isClient){
       'submit #recordDiagnosisResultButton': function(event){
         event.preventDefault();
         console.log('recordDiagnosisResultButton is submited');
+        let diagObj = {
+          symptom: Session.get('rc_symptom'),
+          medicine: Session.get('rc_medicine')
+        };
+        Meteor.call('updateDiagnosisRecord', Session.get('rc_appointment'), diagObj, function(err,res){
+          if(err!=null){
+              Bert.alert({title:"อัพเดทข้อมูลไม่สำเร็จ ",type:"danger",style: 'growl-top-right'})
+          }
+          else{
+              Bert.alert({title:"อัพเดทข้อมูลการวินิจฉัยเรียบร้อย",type:"success",style: 'growl-top-right'})
+              $('#recordDiagnosisResultModal').modal('hide');
+              $('#recordDiagnosisSuccessModal').modal({backdrop: 'static', keyboard: false});
+          }         
+        });
+      },
+      'click #editBtn':function(event){
+        event.preventDefault();
         $('#recordDiagnosisResultModal').modal('hide');
-        $('#recordDiagnosisSuccessModal').modal({backdrop: 'static', keyboard: false});
+        $('#recordDiagnosisModal').modal({backdrop: 'static', keyboard: false});
       }
   });
 
@@ -58,7 +75,13 @@ if(Meteor.isClient){
       return Session.get('rc_appointment').department;
     },
     dateround:function(){
-      return Session.get('rc_appointment').date + " " + Session.get('rc_appointment').round;
+      let time = Session.get('rc_appointment').round;
+      if(time==0){
+        return Session.get('rc_appointment').date + " ช่วงเช้า (8.00 - 12.00น.)";
+      }
+      if(time==1){
+        return Session.get('rc_appointment').date + " ช่วงบ่าย (13.00 - 16.00น.)";
+      }      
     },
     symptom:function(){
       return Session.get('rc_symptom');
