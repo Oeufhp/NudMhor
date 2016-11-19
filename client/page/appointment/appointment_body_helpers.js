@@ -22,7 +22,8 @@ Template.body.helpers({
       return DoctorSchedule.find({eid:eid}).fetch();
     },
     'best_time':function(){
-      return DoctorSchedule.findOne({eid:Session.get('af_doctor_eid')},{sort: {date: 1}});
+      let schedule = DoctorSchedule.findOne({eid:Session.get('af_doctor_eid')},{sort: {date: 1}});
+      return schedule;
     },
     'best_time2':function(eid){
       return DoctorSchedule.findOne({eid:eid},{sort: {date: 1}});
