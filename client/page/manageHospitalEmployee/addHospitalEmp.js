@@ -18,7 +18,7 @@ if(Meteor.isClient){
       let birthdate = event.target.birthdate.value;
       let role = event.target.role.value;
       if(cid == "" || cid.length != 13) {
-        Bert.alert({title:'กรุญาใส่รหัสบัตรประชาชน 13 หลัก',type:'danger',style: 'growl-top-right'});
+        Bert.alert({title:'กรุณาใส่รหัสบัตรประชาชน 13 หลัก',type:'danger',style: 'growl-top-right'});
         return;
       }
       if(password == ""||(password.length<6 || password.length>10) ){
@@ -33,7 +33,7 @@ if(Meteor.isClient){
       Meteor.call('addEmployee',user,function(err,result){
         console.log("result : "+result);
         if(err!=null){
-          Bert.alert({title: 'Already used citizenID',type: 'danger',style: 'growl-top-right',icon: 'fa-key'});
+          Bert.alert({title: 'รหัสบัตรประชาชนที่ระบุถูกใช้งานแล้ว',message: 'กรุณาใส่รหัสบัตรประชาชนใหม่',type: 'danger',style: 'growl-top-right',icon: 'fa-times'});
         }
         else{
           $('#addEmployeeModal').modal('hide');
