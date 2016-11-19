@@ -18,8 +18,13 @@ if(Meteor.isClient){
             let email=event.target.email.value.trim();
             let tel=event.target.tel.value.trim();
             let role=Session.get('userr').role;
-            let department = event.target.department.value;
-            let specialize = event.target.specialize.value.trim();
+            let department,specialize;
+            if (event.target.department!=null){
+              department = event.target.department.value;
+            }
+            if(event.target.specialize!=null){
+              specialize = event.target.specialize.value.trim();
+            }
             // fname checker
             if(check(fname) == true || fname.length > 20 || fname == ""){
 			  Bert.alert({title:'ชื่อจะต้องมีความยาวไม่เกิน 20 ตัวอักษรและไม่ประกอบด้วยอักขระพิเศษ',type:'danger',style: 'growl-top-right'});
@@ -51,29 +56,29 @@ if(Meteor.isClient){
                 return;
             }
             // not doctor role department checker
-            if(role != "doctor" && role != "" && (department != "ไม่ระบุแผนก")){
-                Bert.alert({title:'แผนกของพยาบาล เจ้าหน้าที่ เภสัชกรและผู้ดูแลระบบจะต้องไม่ระบุแผนก',type:'danger',style: 'growl-top-right'});
-                return;
-            }
+            // if(role != "doctor" && role != "" && (department != "ไม่ระบุแผนก")){
+            //     Bert.alert({title:'แผนกของพยาบาล เจ้าหน้าที่ เภสัชกรและผู้ดูแลระบบจะต้องไม่ระบุแผนก',type:'danger',style: 'growl-top-right'});
+            //     return;
+            // }
             // doctor specialize checker
             if(role == "doctor" && (specialize == "" || specialize.length > 255)){
                 Bert.alert({title:'ความถนัดเฉพาะทางต้องมีความยาวไม่เกิน 255 ตัวอักษร',type:'danger',style: 'growl-top-right'});
                 return;
             }
             // not doctor specialize checker
-            if(role != "doctor" && role != "" && specialize != ""){
-                Bert.alert({title:'สำหรับพยาบาล เจ้าหน้าที่ เภสัชกรและผู้ดูแลระบบไม่ต้องระบุความถนัดเฉพาะทาง',type:'danger',style: 'growl-top-right'});
-                return;
-            }
+            // if(role != "doctor" && role != "" && specialize != ""){
+            //     Bert.alert({title:'สำหรับพยาบาล เจ้าหน้าที่ เภสัชกรและผู้ดูแลระบบไม่ต้องระบุความถนัดเฉพาะทาง',type:'danger',style: 'growl-top-right'});
+            //     return;
+            // }
             Meteor.call('editRole',RoleEid,fname,lname,email,tel,role,department,specialize,function(err,usr){
                 if(err){
                    Bert.alert({title:'การแก้ไขล้มเหลว อาจเป็นเพราะไม่มีบุคคลนี้ในระบบ',
-                    type:'danger',style:'growl-top-right',icon: 'fa-warning'}); 
+                    type:'danger',style:'growl-top-right',icon: 'fa-warning'});
                 }
                 else{
                      Session.set('usr',usr);
                      Session.set('usr_role',role);
-                     $('#editRoleInfoConfirmationModal').modal({backdrop: 'static', keyboard: false}); 
+                     $('#editRoleInfoConfirmationModal').modal({backdrop: 'static', keyboard: false});
                 }
             });
         },
@@ -90,7 +95,7 @@ if(Meteor.isClient){
             let delEid = Session.get('userr').eid;
             Meteor.call('deleteRole', delEid);
             $('#deleteRoleModal').modal('hide');
-            $('#deleteRoleConfirmationModal').modal({backdrop: 'static', keyboard: false}); 
+            $('#deleteRoleConfirmationModal').modal({backdrop: 'static', keyboard: false});
         }
     });
     Template.editRoleInfo.helpers({

@@ -102,7 +102,7 @@ if(Meteor.isClient){
     //  if(role != "doctor" && role != "" && specialize != ""){
     //     Bert.alert({title:'สำหรับพยาบาล เจ้าหน้าที่ เภสัชกรและผู้ดูแลระบบไม่ต้องระบุความถนัดเฉพาะทาง',type:'danger',style: 'growl-top-right'});
     //     return;
-    //  }
+    //  }     
       let user = {cid:cid,password:password,email:email,fname:fname,lname:lname,tel:tel,gender:gender,birthdate:birthdate,role:role};
       if(role=="doctor"){
         user.department = department;

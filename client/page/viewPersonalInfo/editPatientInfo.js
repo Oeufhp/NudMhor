@@ -1,4 +1,4 @@
-if(Meteor.isClient){ 
+if(Meteor.isClient){
 
     Template.editPatientInfo.events({
         // '​click #edit-patientInfo-btn':function(){
@@ -56,13 +56,13 @@ if(Meteor.isClient){
             Meteor.call('editPatientInfo',cid,fname,lname,email,tel,drugAllergy,function(err,res){
                 if(err){
                     Bert.alert({title: 'Something went wrong!'
-                      , type: 'danger',style:'growl-top-right',icon: 'fa-key'});                     
+                      , type: 'danger',style:'growl-top-right',icon: 'fa-key'});
                 }
                 else{
                     Session.set('editedUser',res);
                     if(Session.get('current_user').role == 'patient')
                         Session.set('current_user',res);
-                    $('#editPatientInfoConfirmationModal').modal({backdrop: 'static', keyboard: false}); 
+                    $('#editPatientInfoConfirmationModal').modal({backdrop: 'static', keyboard: false});
                 }
             });
         },
@@ -82,12 +82,12 @@ if(Meteor.isClient){
             else return cUser;
         },
         // gender0:function(){
-        //     let gender = Session.get('current_user').role == 'patient' ? 
+        //     let gender = Session.get('current_user').role == 'patient' ?
         //         Session.get('current_user').gender: Session.get('patientSearched').gender ;
         //     if(gender == "male") return "checked";
         // },
         // gender1:function(){
-        //     let gender = Session.get('current_user').role == 'patient' ? 
+        //     let gender = Session.get('current_user').role == 'patient' ?
         //         Session.get('current_user').gender: Session.get('patientSearched').gender ;
         //     if(gender == "female") return "checked";
         // },

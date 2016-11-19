@@ -63,7 +63,7 @@ if (Meteor.isClient) {
       if(User.findOne({cid:'0000000000000'})==null){
         let usr = {
           cid:'0000000000000',password:'000000',email:'patient@gmail.com',
-          fname:'Mr.patient',lname:'patient',tel:'0000000000',
+          fname:'MRpatient',lname:'patient',tel:'0000000000',
           gender:'male',birthdate:'20/11/2016',drugAllergy: 'no'
         }
         Meteor.call('register',usr);
@@ -71,41 +71,41 @@ if (Meteor.isClient) {
       if(User.findOne({cid:'0000000000001'})==null){
         let usr = {
           cid:'0000000000001',password:'000000',email:'admin@gmail.com',
-          fname:'Mr.admin',lname:'admin',tel:'0000000000',
-          gender:'male',birthdate:'20/11/2016',drugAllergy:'no',role:'admin'
+          fname:'MRadmin',lname:'admin',tel:'0000000000',
+          gender:'male',birthdate:'20/11/2016',role:'admin'
         }
         Meteor.call('addEmployee',usr);
       }
       if(User.findOne({cid:'0000000000002'})==null){
         let usr = {
           cid:'0000000000002',password:'000000',email:'doctor@gmail.com',
-          fname:'Mr.doctor',lname:'doctor',tel:'0000000000',
-          gender:'male',birthdate:'20/11/2016',drugAllergy:'no',
-          department:'แผนกโรคทั่วไป',sepecialize:'ไม่มี',role:'doctor'
+          fname:'MRdoctor',lname:'doctor',tel:'0000000000',
+          gender:'male',birthdate:'20/11/2016',
+          department:'แผนกโรคทั่วไป',specialize:'ไม่มี',role:'doctor'
         }
         Meteor.call('addEmployee',usr);
       }
       if(User.findOne({cid:'0000000000003'})==null){
         let usr = {
           cid:'0000000000003',password:'000000',email:'nurse@gmail.com',
-          fname:'Mr.nurse',lname:'nurse',tel:'0000000000',
-          gender:'male',birthdate:'20/11/2016',drugAllergy:'no',role:'nurse'
+          fname:'MRnurse',lname:'nurse',tel:'0000000000',
+          gender:'male',birthdate:'20/11/2016',role:'nurse'
         }
         Meteor.call('addEmployee',usr);
       }
       if(User.findOne({cid:'0000000000004'})==null){
         let usr = {
           cid:'0000000000004',password:'000000',email:'phamacist@gmail.com',
-          fname:'Mr.phamacist',lname:'phamacist',tel:'0000000000',
-          gender:'male',birthdate:'20/11/2016',drugAllergy:'no',role:'phamacist'
+          fname:'MRphamacist',lname:'phamacist',tel:'0000000000',
+          gender:'male',birthdate:'20/11/2016',role:'phamacist'
         }
         Meteor.call('addEmployee',usr);
       }
       if(User.findOne({cid:'0000000000005'})==null){
         let usr = {
           cid:'0000000000005',password:'000000',email:'receptionist@gmail.com',
-          fname:'Mr.receptionist',lname:'receptionist',tel:'0000000000',
-          gender:'male',birthdate:'20/11/2016',drugAllergy:'no',role:'receptionist'
+          fname:'MRreceptionist',lname:'receptionist',tel:'0000000000',
+          gender:'male',birthdate:'20/11/2016',role:'receptionist'
         }
         Meteor.call('addEmployee',usr);
       }
