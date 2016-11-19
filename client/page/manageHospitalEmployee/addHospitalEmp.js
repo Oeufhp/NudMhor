@@ -104,7 +104,7 @@ if(Meteor.isClient){
         else{
           $('#addEmployeeModal').modal('hide');
           $('#addEmployeeModal2').modal({backdrop: 'static', keyboard: false});
-          Bert.alert({title: 'Register successful',type: 'success',style: 'growl-top-right',icon: 'fa-check'});
+          Bert.alert({title: 'เพิ่มบุคลากรเรียบร้อย',type: 'success',style: 'growl-top-right',icon: 'fa-check'});
           // Session.set('cid',cid);
           // Session.set('fname',fname);
           // Session.set('lname',lname);
