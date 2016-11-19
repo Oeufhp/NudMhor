@@ -5,7 +5,21 @@ if(Meteor.isClient){
         console.log('makeappointmentForm is submited');
         Session.set('af_symptom',event.target.symptom.value);
         Session.set('af_doctor',event.target.doctor.value);
-        Session.set('af_doctor_eid',$(event.target.doctor).find('option:selected').data('eid'));
+        let doctor_eid = $(event.target.doctor).find('option:selected').data('eid');
+        Session.set('af_doctor_eid',doctor_eid);
+        console.log("doctor eid selected: "+doctor_eid);
+        let schedules = DoctorSchedule.find({eid:doctor_eid}).fetch();
+        let haveFutureSlot = false;
+        for(let i=0;i<schedules.length;i++){
+          if(schedules[i].date > new Date()){
+            haveFutureSlot =true;
+            break;
+          }
+        }
+        if(haveFutureSlot ==false ){
+          Bert.alert({title:"ไม่พบวันเวลาที่ว่างในตารางออกตรวจของแพทย์",type:"warning",style: 'growl-top-right'})
+          return;
+        }
         Session.set('af_department',event.target.department.value);
         $(".doctor").text(Session.get('af_doctor'));
         $(".symptom").text(Session.get('af_symptom'));
