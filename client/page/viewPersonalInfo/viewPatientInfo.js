@@ -8,7 +8,7 @@ if(Meteor.isClient){
         'click #viewPatientInfoGoBack': function(event){
             console.log("submitted back to home");
             event.preventDefault();
-            thisRole = Session.get('currentUser').role;
+            thisRole = Session.get('current_user').role;
             if(thisRole == 'nurse') Router.go('/home/nurse');
             else if(thisRole == 'patient') Router.go('/home/patient');
             else if(thisRole == 'doctor') Router.go('/home/doctor');
@@ -20,23 +20,23 @@ if(Meteor.isClient){
 
     Template.viewPatientInfo.helpers({
         patientSearched:function(){
-            if(Session.get('currentUser').role != 'patient')
+            if(Session.get('current_user').role != 'patient')
                 return Session.get('patientSearched');
-            else return Session.get('currentUser');
+            else return Session.get('current_user');
         },
         gender0:function(){
             let gender;
-            if(Session.get('currentUser').role != 'patient')
+            if(Session.get('current_user').role != 'patient')
                 gender = Session.get('patientSearched').gender;
-            else gender = Session.get('currentUser').gender;
+            else gender = Session.get('current_user').gender;
             if(gender == "male") return "checked";
             else return "disabled";
         },
         gender1:function(){
             let gender;
-            if(Session.get('currentUser').role != 'patient')
+            if(Session.get('current_user').role != 'patient')
                 gender = Session.get('patientSearched').gender;
-            else gender = Session.get('currentUser').gender;
+            else gender = Session.get('current_user').gender;
             if(gender == "female") return "checked";
             else return "disabled";
         },

@@ -10,7 +10,7 @@
           <form id="makeappointmentSearchPatientForm" role="form">
             <div class="form-group">
               <label for="comment">  ค้นหาผู้ป่วย</label>
-              <textarea class="form-control" rows="1" id="comment" placeholder="ระบุเลขบัตรโรงพยาบาลหรือเลขบัตรประจำตัวประชาชนของผู้ป่วย"></textarea>
+              <input name="patient_hn" class="form-control" rows="1" id="comment" placeholder="ระบุเลขบัตรโรงพยาบาลหรือเลขบัตรประจำตัวประชาชนของผู้ป่วย">
             </div>
           </form>
         </div>
@@ -91,7 +91,8 @@
             </div>
             <div class="form-group">
               <label for="sel1">วันเวลาที่เร็วที่สุด</label>
-              <label for="sel1" style="color:#135e8a">{{date_format best_time.date}}
+              <label for="sel1" style="color:#135e8a">
+                {{date_format best_time.date}}
                 {{time_format best_time.time}}
               </label>
             </div>
