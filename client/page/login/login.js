@@ -79,18 +79,18 @@ if (Meteor.isClient) {
 
     },
 
-    'click #sendSMS':function(event){
-      event.preventDefault();
-      console.log('pressed SMS SEND!');
-      Meteor.call('sendSMS','0847275986',function(err,res){
-        if(err){
-          console.log('error');
-        }
-        else{
-                    console.log(res);
-        }
-      });
-    }
+    // 'click #sendSMS':function(event){
+    //   event.preventDefault();
+    //   console.log('pressed SMS SEND!');
+    //   Meteor.call('sendSMS','0847275986',function(err,res){
+    //     if(err){
+    //       console.log('error');
+    //     }
+    //     else{
+    //       console.log(res);
+    //     }
+    //   });
+    // }
   });
 }
 Template.loginPage.helpers({

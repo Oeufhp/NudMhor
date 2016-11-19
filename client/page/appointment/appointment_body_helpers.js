@@ -7,12 +7,13 @@ Template.body.helpers({
       if(doc==null) return;
       return doc.fname+" "+doc.lname;
     },
-    'doctor_list': function(){
-      let depart = Session.get('selectedDepart');
-      //let depart = $('#departmentSelector option:selected').text();
-      console.log('finding doctor');
-      return User.find({role:"doctor",department:depart}).fetch();
-    },
+    // 'doctor_list': function(){
+    //   let depart = Session.get('selectedDepart');
+    //   //let depart = $('#departmentSelector option:selected').text();
+    //   console.log('finding doctor');
+    //   console.log(User.find({role:"doctor",department:depart}).fetch());
+    //   return User.find({role:"doctor",department:depart}).fetch();
+    // },
     'random_doctor' :function(){
       let doctors = User.find({role:"doctor"}).fetch();
       let rand = parseInt(Math.random()*doctors.length);
