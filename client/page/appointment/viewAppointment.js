@@ -1,13 +1,16 @@
 Template.body.events({
     'submit #viewAppointmentForm': function(event){
         event.preventDefault();
-        $('#viewAppointmentModal').modal('toggle');
-        $('#viewAppointment2Modal').modal({backdrop: 'static', keyboard: false});
-    },
-    'click #appt-search-btn': function(event){
-        event.preventDefault();
-        Router.go('/viewAppointment/results');
-        $('#viewAppointmentModal').modal('toggle');
+        let patient_hn = event.target.patient_hn.value.toUpperCase();
+        let patient = User.findOne({hn:patient_hn});
+        if(patient ==null){
+          Bert.alert({title:"ไม่พบรหัสพบผู้ป่วยนี้ในระบบ",type:"danger",style: 'growl-top-right'});
+        }
+        else{
+          Session.set('currentPatientHN',patient_hn);
+          $('#viewAppointmentModal').modal('toggle');
+          Router.go('/viewAppointment/results');
+        }
     },
     'click #del-appt-btn' : function(event){
         event.preventDefault();

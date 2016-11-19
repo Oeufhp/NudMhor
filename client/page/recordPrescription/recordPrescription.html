@@ -10,13 +10,13 @@
           <form id="recordPrescriptionForm" role="form">
             <div class="form-group">
               <label for="comment">  ค้นหาผู้ป่วย</label>
-              <textarea class="form-control" rows="1" id="comment" placeholder="ระบุเลขบัตรโรงพยาบาลหรือเลขบัตรประจำตัวประชาชนของผู้ป่วย"></textarea>
+              <input class="form-control" value="" name="patientHN" placeholder="ระบุเลขบัตรโรงพยาบาลของผู้ป่วย">
             </div>
           </form>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">ยกเลิก</button>
-          <button type="submit" class="btn btn-success" form="recordPrescriptionForm">ค้นหา</button>
+          <button type="submit" class="btn btn-success" id="recPres-btn" form="recordPrescriptionForm">ค้นหา</button>
         </div>
       </div>
     </div>
@@ -32,11 +32,11 @@
                     <form id="recordPrescriptionConfirm" role="form">
                         <div class="form-group">
                         <label for="comment">รายการยา</label>
-                        <textarea class="form-control" rows="3" id="comment"></textarea>
+                        <textarea class="form-control" rows="3" name="medicine-list" value=""></textarea>
                         </div>
                         <div class="form-group">
                         <label for="comment">จำนวน</label>
-                        <textarea class="form-control" rows="3" id="comment"></textarea>
+                        <textarea class="form-control" rows="3" name="medicine-amount" value=""></textarea>
                         </div>
                     </form>
                     </div>

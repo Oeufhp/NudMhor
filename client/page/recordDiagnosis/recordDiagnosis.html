@@ -10,7 +10,7 @@
           <form id="recordDiagnosisForm" role="form">
             <div class="form-group">
               <label for="comment">  ค้นหาผู้ป่วย</label>
-              <textarea class="form-control" rows="1" id="comment" placeholder="ระบุเลขบัตรโรงพยาบาลหรือเลขบัตรประจำตัวประชาชนของผู้ป่วย"></textarea>
+              <input type="text" class="form-control" rows="1" name="cid_hn" value="" placeholder="ระบุเลขบัตรโรงพยาบาลหรือเลขบัตรประจำตัวประชาชนของผู้ป่วย" />
             </div>
           </form>
         </div>
@@ -32,11 +32,11 @@
                     <form id="recordDiagnosisConfirm" role="form">
                         <div class="form-group">
                         <label for="comment">โรค</label>
-                        <textarea class="form-control" rows="1" id="comment"></textarea>
+                        <textarea class="form-control" rows="3" name="symptom" value="" ></textarea>
                         </div>
                         <div class="form-group">
                         <label for="comment">รายการยา</label>
-                        <textarea class="form-control" rows="3" id="comment"></textarea>
+                        <textarea class="form-control" rows="3" name="medicine" value="" ></textarea>
                         </div>
                     </form>
                     </div>
@@ -58,17 +58,17 @@
                 <form id = "recordDiagnosisResultButton">
                     <div class="form-group">  
                     <label for="sel1">การนัดหมาย</label>
-                    <p for="sel1" style="color:#135e8a">แพทย์ : นพ.ณัฐภัทร จันใจวงศ์</p>
-                    <p for="sel1" style="color:#135e8a">แผนก : อายุรกรรม</p>
-                    <p for="sel1" style="color:#135e8a">วันที่  : 14/10/59 ช่วงเช้า</p>
+                    <p for="sel1" style="color:#135e8a">แพทย์ : {{docName}}</p>
+                    <p for="sel1" style="color:#135e8a">แผนก : {{deprt}}</p>
+                    <p for="sel1" style="color:#135e8a">วันที่  : {{dateround}}</p>
                     </div>
                     <div class="form-group">  
                     <label for="sel1">โรค</label>
-                    <p for="sel1" style="color:#135e8a">[J11] Influenza due to unidentified influenza virus</p>
+                    <p for="sel1" style="color:#135e8a"> {{symptom}} </p>
                     </div>
                     <div class="form-group">
                     <label for="sel1">รายการยา</label>
-                    <p for="sel1" style="color:#135e8a">paracetamol 14 เม็ด รับประทานครั้ง 1 เม็ด เช้า เย็น</p>
+                    <p for="sel1" style="color:#135e8a"> {{medicine}} </p>
                     </div>
                 </form>
                 </div>

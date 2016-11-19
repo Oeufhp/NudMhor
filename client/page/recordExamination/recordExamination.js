@@ -1,9 +1,18 @@
 Template.body.events({
     'submit #recordExaminationForm': function(event){
       event.preventDefault();
-      console.log('makeappointmentForm is submited');
-      $('#ExaminationpatientSearch').modal('hide');
-      Router.go('/recordExamination/ExaminationAppointmentList'); 
+      let patient_hn = event.target.patient_hn.value.toUpperCase();
+      console.log(patient_hn);
+      let patient = User.findOne({hn:patient_hn});
+      if(patient==null){
+        console.log("not found patient in db with this hn");
+        Bert.alert({title:"ไม่พบรหัสประจำตัวผู้ป่วยนี้ ",type:"danger",style: 'growl-top-right'})
+      }
+      else{
+        Session.set('currentPatientHN',patient_hn);
+        $('#ExaminationpatientSearch').modal('hide');
+        Router.go('/recordExamination/ExaminationAppointmentList');
+      }
     },
     'submit #recordExaminationConfirm': function(event){
       event.preventDefault();

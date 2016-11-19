@@ -30,7 +30,7 @@ if(Meteor.isClient){
             });
 
           }
-        });//end of meteor.call   
+        });//end of meteor.call
       },
       //old date picker -- remained in case of the new one fail
       // 'click #datepicker-adddoctorschedule':function(event){
@@ -47,7 +47,7 @@ if(Meteor.isClient){
   });
   Template.body.rendered = function() {
       $('#datetimepicker-adddoctorschedule').datetimepicker({
-        format:'DD/MMM/YYYY',
+        format:'YYYY-MM-DD',
       });
   }
 

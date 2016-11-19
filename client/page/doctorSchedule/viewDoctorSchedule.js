@@ -64,7 +64,7 @@ if(Meteor.isClient){
   });
 
   Template.viewDoctorSchedule.onRendered(function(){
-    cUser = Session.get('currentUser');
+    cUser = Session.get('current_user');
     if(cUser.role=='doctor'){
         Meteor.call('getDoctorSchedule',cUser.eid,function(err,res){
           if(err) console.log('cannot get doc schedule');

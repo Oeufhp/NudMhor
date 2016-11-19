@@ -22,7 +22,7 @@ if (Meteor.isClient) {
   //   }
   // });
   Template.loginPage.onRendered(function(){
-    if(Session.get('currentUser')!=null){
+    if(Session.get('current_user')!=null){
       Router.go('/home/homepage');
     }
   });
@@ -40,7 +40,7 @@ if (Meteor.isClient) {
               Bert.alert({title:"Wrong username/password ",type:"danger",style: 'growl-top-right'})
             }
             else{
-              Session.setAuth('currentUser', result)
+              Session.setAuth('current_user', result)
               Router.go('/home/homepage');
               // Bert.alert({title:"Login success",type:"success",style: 'growl-top-right'})
             }
@@ -54,7 +54,7 @@ if (Meteor.isClient) {
               Bert.alert({title:"Wrong username/password ",type:"danger",style: 'growl-top-right'})
             }
             else{
-              Session.setAuth('currentUser', result)
+              Session.setAuth('current_user', result)
               Router.go('/home/homepage');
               // Bert.alert({title:"Login success",type:"success",style: 'growl-top-right'})
             }
@@ -62,13 +62,14 @@ if (Meteor.isClient) {
 
         }
         //for login with citizen id
+        //todo login cid only patient
         else{
           Meteor.call('loginWithCID',username,pass,function(err,result){
             if(err!=null){
               Bert.alert({title:"Wrong username/password ",type:"danger",style: 'growl-top-right'})
             }
             else{
-              Session.setAuth('currentUser', result)
+              Session.setAuth('current_user', result)
               Router.go('/home/homepage');
               // Bert.alert({title:"Login success",type:"success",style: 'growl-top-right'})
             }
@@ -79,8 +80,8 @@ if (Meteor.isClient) {
     }
   });
 }
-Template.registerHelper('currentUser',function(){
-  return Session.get('currentUser');
+Template.registerHelper('current_user',function(){
+  return Session.get('current_user');
 });
 Template.loginPage.helpers({
   'alluser': function(){
