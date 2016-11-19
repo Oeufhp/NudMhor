@@ -61,6 +61,11 @@ if(Meteor.isClient){
           $('#makeappointmentSearchPatientModal').modal('hide');
           $('#makeappointmentModal').modal({backdrop: 'static', keyboard: false});
         }
+      },
+      'change #departmentSelector':function(event){
+        console.log('click selector');
+        let depart = $('#departmentSelector option:selected').text();
+        Session.set('selectedDepart',depart);
       }
   });
 }
