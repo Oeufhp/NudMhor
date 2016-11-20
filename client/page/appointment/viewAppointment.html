@@ -112,7 +112,7 @@
                 <b>วันเวลา(ใหม่) : </b>
                 <div class="form-group">
                   <select class="form-control" id="changedatetimeOption" name="date">
-                    {{#each slot in avaliable_time2 currentAppointment.doctor_eid}}
+                    {{#each slot in avaliable_time_by_eid currentAppointment.doctor_eid}}
                     <option data-date="{{slot.date}}" data-time="{{slot.time}}">
                     {{date_format slot.date}}
                     {{time_format slot.time}}

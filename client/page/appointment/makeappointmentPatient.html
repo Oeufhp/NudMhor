@@ -33,8 +33,7 @@
             <div class="form-group">
               <label for="sel1">แผนก</label>
               <select class="form-control" id="departmentSelector" name="department">
-                <!--<option disabled selected="selected">โปรดเลือก</option>-->
-                <option value="ไม่ระบุแผนก">ไม่ระบุแผนก</option>
+                <option disabled selected="selected" value="notChooseDepartment">โปรดเลือก</option>
                 <option value="แผนกโรคทั่วไป">แผนกโรคทั่วไป</option>
                 <option value="แผนกอายุรกรรม">แผนกอายุรกรรม</option>
                 <option value="แผนกศัลยกรรม">แผนกศัลยกรรม</option>
@@ -50,11 +49,8 @@
             </div>
             <div class="form-group">
               <label for="sel1">แพทย์</label>
-              <select class="form-control" id="sel1" name="doctor">
-                <option data-eid="{{random_doctor.eid}}">ไม่ระบุ</option>
-                {{#each doctor in doctor_list}}
-                <option data-eid="{{doctor.eid}}">{{doctor.fname}} {{doctor.lname}}</option>
-                {{/each}}
+              <select class="form-control" id="doctorSelector" name="doctor">
+                <option data-eid="noDoctorSpecific">ไม่ระบุ</option>
               </select>
             </div>
             <div class="form-group">

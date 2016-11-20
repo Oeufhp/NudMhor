@@ -20,16 +20,29 @@ Template.body.helpers({
       return doctors[rand];
     },
     'avaliable_time':function(){
-      return DoctorSchedule.find({eid:Session.get('af_doctor_eid')}).fetch();
+      let avaliable_slot = findEmptySlotOfDoctor(Session.get('af_doctor_eid'));
+      return avaliable_slot;
     },
-    'avaliable_time2':function(eid){
-      return DoctorSchedule.find({eid:eid}).fetch();
+    'avaliable_time_by_eid':function(eid){
+      let avaliable_slot = findEmptySlotOfDoctor(eid);
+      return avaliable_slot;
     },
     'best_time':function(){
-      let schedule = DoctorSchedule.findOne({eid:Session.get('af_doctor_eid')},{sort: {date: 1}});
-      return schedule;
+      let avaliable_slot = findEmptySlotOfDoctor(Session.get('af_doctor_eid'));
+      if(avaliable_slot.length>0){
+        return avaliable_slot[0];
+      }
+      else{
+        return null;
+      }
     },
-    'best_time2':function(eid){
-      return DoctorSchedule.findOne({eid:eid},{sort: {date: 1}});
+    'best_time_by_eid':function(eid){
+      let avaliable_slot = findEmptySlotOfDoctor(eid);
+      if(avaliable_slot.length>0){
+        return avaliable_slot[0];
+      }
+      else{
+        return null;
+      }
     }
 });

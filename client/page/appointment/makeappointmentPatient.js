@@ -1,26 +1,50 @@
+  findEmptySlotOfDoctor = function(eid){
+  let schedules = DoctorSchedule.find({eid:eid},{sort: {date: 1}}).fetch();
+  let avaliable_slot = [];
+  for(let i=0;i<schedules.length;i++){
+    if(moment(new Date()).format() <= moment(schedules[i].date).format()){
+      avaliable_slot.push({date:schedules[i].date,time:schedules[i].time});
+    }
+  }
+  return avaliable_slot;
+}
 if(Meteor.isClient){
   Template.body.events({
       'submit #makeappointmentForm': function(event){
         event.preventDefault();
         console.log('makeappointmentForm is submited');
         Session.set('af_symptom',event.target.symptom.value);
-        Session.set('af_doctor',event.target.doctor.value);
-        let doctor_eid = $(event.target.doctor).find('option:selected').data('eid');
-        Session.set('af_doctor_eid',doctor_eid);
-        console.log("doctor eid selected: "+doctor_eid);
-        let schedules = DoctorSchedule.find({eid:doctor_eid}).fetch();
-        let haveFutureSlot = false;
-        for(let i=0;i<schedules.length;i++){
-          if(schedules[i].date > new Date()){
-            haveFutureSlot =true;
-            break;
-          }
-        }
-        if(haveFutureSlot ==false ){
-          Bert.alert({title:"ไม่พบวันเวลาที่ว่างในตารางออกตรวจของแพทย์",type:"warning",style: 'growl-top-right'})
+
+        if(event.target.department.value=="notChooseDepartment"){
+          Bert.alert({title:"โปรดระบุแผนก",type:"danger",style: 'growl-top-right'})
           return;
         }
         Session.set('af_department',event.target.department.value);
+        //check if not specific doctor
+        let doctor_eid = $(event.target.doctor).find('option:selected').data('eid');
+        if(doctor_eid=="noDoctorSpecific"){
+          let doctors = User.find({department:event.target.department.value,role:"doctor"}).fetch();
+          if(doctors.length==0){
+            Bert.alert({title:"ไม่พบแพทย์ในแผนกที่ท่านต้องการ",type:"danger",style: 'growl-top-right'})
+            return;
+          }
+          else{
+            let rand = parseInt(Math.random()*doctors.length);
+            doctor_eid = doctors[rand].eid;
+          }
+        }
+        Session.set('af_doctor_eid',doctor_eid);
+        let doctor =User.findOne({eid:doctor_eid});
+        if(doctor!=null){
+          Session.set('af_doctor',doctor.fname+" "+doctor.lname);
+        }
+        console.log("doctor eid selected: "+doctor_eid);
+        // check if no slot time in doctor
+        let avaliable_slot = findEmptySlotOfDoctor(doctor_eid);
+        if(avaliable_slot.length == 0 ){
+          Bert.alert({title:"ไม่พบวันเวลาที่ว่างในตารางออกตรวจของแพทย์",type:"warning",style: 'growl-top-right'})
+          return;
+        }
         $(".doctor").text(Session.get('af_doctor'));
         $(".symptom").text(Session.get('af_symptom'));
         $(".department").text(Session.get('af_department'));
@@ -95,9 +119,12 @@ if(Meteor.isClient){
         }
       },
       'change #departmentSelector':function(event){
-        console.log('click selector');
-        let depart = $('#departmentSelector option:selected').text();
-        Session.set('selectedDepart',depart);
+        let depart = event.target.value;
+        let doctors = User.find({department:depart,role:"doctor"}).fetch();
+        $('.docList').remove();
+        for(let i=0;i<doctors.length;i++){
+          $('#doctorSelector').append("<option class='docList' data-eid='"+doctors[i].eid+"'>"+doctors[i].fname+" "+doctors[i].lname+"</option>")
+        }
       }
   });
 }
