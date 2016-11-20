@@ -33,3 +33,20 @@ li a:hover{
     color: #555;
     background-color: transparent;
 }
+.navbar-default .navbar-toggle {
+     border-color: transparent;
+}
+.navbar-default .navbar-toggle .icon-bar {
+    background-color: white;
+}
+.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
+     background-color: transparent;
+}
+@media (max-width: 767px){
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+      color: white;
+  }
+}
+.navbar-default .navbar-collapse, .navbar-default .navbar-form {
+     border:none;
+}
