@@ -10,7 +10,7 @@
             <form id="viewAppointmentForm" role="form">
                <label for="comment">  เลือกแผนก</label>
                <div class="form-group">
-                <select class="form-control" id="wardOption">
+                <select class="form-control" id="viewDocInfo_depSel">
                   <option selected disabled value="">เลือกแผนก</option>
                   <option value="">เลือกแผนก</option>
                   <option value="แผนกโรคทั่วไป">แผนกโรคทั่วไป</option>
@@ -29,11 +29,12 @@
                <div class="form-group">
                    <label for="comment">  เลือกแพทย์</label>
                    <!--<input type="text" class="form-control" placeholder="ชื่อ-นามสกุลของแพทย์">-->
-                   <select class="form-control" id="doctorOption">
-                     <option value="">เลือกแพทย์</option>
-                     <option value="">doctor1</option>
-                     <option value="">doctor2</option>
-                     <option value="">doctor3</option>
+                   <select class="form-control" id="viewDocInfo_docSel">
+                      <!--<option data-eid="{{random_doctor.eid}}">ไม่ระบุ</option>-->
+                      <option selected disabled value="">เลือกแพทย์</option>
+                      {{#each doctor in viewDoctorInfo_doctor_list}}
+                      <option class='docList' data-eid=doctor>{{doctor.fname}} {{doctors.lname}}</option>
+                      {{/each}}
                    </select>
                </div>
             </form>
