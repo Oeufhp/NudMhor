@@ -97,7 +97,7 @@ if (Meteor.isClient) {
         let usr = {
           cid:'0000000000004',password:'000000',email:'phamacist@gmail.com',
           fname:'MRphamacist',lname:'phamacist',tel:'0000000000',
-          gender:'male',birthdate:'20/11/2016',role:'phamacist'
+          gender:'male',birthdate:'20/11/2016',role:'pharmacist'
         }
         Meteor.call('addEmployee',usr);
       }
