@@ -32,9 +32,9 @@
                    <select class="form-control" id="viewDocInfo_docSel">
                       <!--<option data-eid="{{random_doctor.eid}}">ไม่ระบุ</option>-->
                       <option selected disabled value="">เลือกแพทย์</option>
-                      {{#each doctor in viewDoctorInfo_doctor_list}}
-                      <option class='docList' data-eid=doctor>{{doctor.fname}} {{doctors.lname}}</option>
-                      {{/each}}
+                      <!--{{#each doctor in viewDoctorInfo_doctor_list}}
+                      <option>{{doctor.fname}} {{doctor.lname}}</option>
+                      {{/each}}-->
                    </select>
                </div>
             </form>
@@ -58,15 +58,18 @@
             <div class="row">
               <div class="col-md-4">
                 <img src="/img/appointment-doc.svg" class="img-responsive"/>
-                <p style="text-align:center; font-size:14px; padding-top:10px;" id="docName-modal"><b>ชื่อ-นามสกุลแพทย์: </b></p>
+                <p style="text-align:center; font-size:14px; padding-top:10px;" id="docName-modal"><b>ชื่อ-นามสกุลแพทย์ </b></p>
+                <p style="text-align:center;">{{viewDoctorInfo.fname}} {{viewDoctorInfo.lname}}</p>
               </div>
               <div class="col-md-4">
                 <img src="/img/hospital_ward.svg" class="img-responsive"/>
                 <p style="text-align:center; font-size:14px; padding-top:10px;" id="ward-modal"><b>แผนก: </b></p>
+                <p style="text-align:center;">{{viewDoctorInfo.department}}</p>
               </div>
               <div class="col-md-4">
                 <img src="/img/doctor_cert.svg" class="img-responsive"/>
                 <p style="text-align:center; font-size:14px; padding-top:10px;"><b>ความถนัดเฉพาะทาง: </b></p>
+                <p style="text-align:center;">{{viewDoctorInfo.specialize}}</p>
               </div>
             </div>
             <div class="modal-footer">
