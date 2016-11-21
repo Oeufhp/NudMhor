@@ -45,14 +45,17 @@ if(Meteor.isClient){
               if(!err){
                 console.log(appnts[i]._id);
                 aCount++;
+                console.log(aCount);
               }
               else console.log(err);
+              console.log('debug: ',aCount);
+              Bert.alert({title:'ลบตารางออกตรวจเรียบร้อยแล้ว', message: 'มี '+aCount+' นัดหมายถูกลบ', type:'success',style:'growl-top-right',icon: 'fa-check', hideDelay:2000});
+              Meteor.call('getDoctorSchedule',sched.eid,function(err,schedules){
+                Session.set('schedules', schedules);
+              });
             });
           }
-          Bert.alert({title:'ลบตารางออกตรวจเรียบร้อยแล้ว', message: 'มี '+aCount+' นัดหมายถูกลบ', type:'success',style:'growl-top-right',icon: 'fa-check', hideDelay:2000});
-          Meteor.call('getDoctorSchedule',sched.eid,function(err,schedules){
-            Session.set('schedules', schedules);
-          });
+          
         });
 
         
