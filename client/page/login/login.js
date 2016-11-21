@@ -52,7 +52,7 @@ if (Meteor.isClient) {
         if( pass.length > 20 ){
           Bert.alert({title:'รหัสผ่านต้องมีความยาวไม่เกิน 20 ตัวอักษร',type:'danger',style: 'growl-top-right'});
 	    		return;
-  	  	} 
+  	  	}
         //////////////////////////complete all checking////////////////////////////////
         Meteor.call('login',username,pass,function(err,result){
           if(err!=null){
@@ -142,6 +142,24 @@ if (Meteor.isClient) {
       else{
         $('#inputEmail').val(usr.eid);
         $('#inputPassword').val(usr.password);
+      }
+    },
+    'click .removeQuickBtn':function(event){
+      let usr = User.findOne(event.target.id);
+      console.log("found : "+usr);
+      if(usr.role=="patient"){
+        Meteor.call('removePatient',usr.hn,function(err,result){
+          if(result==true){
+            Bert.alert({title:"ลบข้อมูลของผู้ป่วยรหัส "+usr.hn+" เรียบร้อย" ,type:"success",style: 'growl-top-right'});
+          }
+        })
+      }
+      else{
+        Meteor.call('removeEmployee',usr.eid,function(err,result){
+          if(result==true){
+            Bert.alert({title:"ลบข้อมูลของพนักงานรหัส "+usr.eid+" เรียบร้อย" ,type:"success",style: 'growl-top-right'});
+          }
+        })
       }
     }
   })
