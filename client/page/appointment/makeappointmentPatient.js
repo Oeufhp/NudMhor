@@ -104,7 +104,7 @@ if(Meteor.isClient){
             Meteor.call('sendEmail',receiver,'NudMhor System <lostunevol@gmail.com>',title,context);
             //send SMS
             let sms_tel = patient.tel;
-            let sms_messages = "คุณ " + patient.fname + ". ได้นัดหมายวันที่ " + date_format(date)+" "+time_format(round)+". "+doctor.department;
+            let sms_messages = "คุณ " + patient.fname + " ได้นัดหมายวันที่ " + date_format(date)+" "+time_format(round)+" "+doctor.department;
             Meteor.call('sendSMS',sms_tel,sms_messages);
 
           }

@@ -16,6 +16,7 @@
       <tr class="table-header" style=" border-radius:20%; padding:1em; background-color:grey; font-size:20px; text-align: center;">
         <td> วันที่ และช่วงการออกตรวจ </td>
         <td> ดูรายชื่อผู้ป่วย </td>
+        <td> ลบตารางออกตรวจ </td>
       </tr>
       {{#each schedule in schedules}}
         <tr class="appt-row">
@@ -29,6 +30,9 @@
           </td>
           <td>
             <button type="button" id="viewPatientList-Btn" data-sched="{{schedule._id}}" class="btn btn-success" data-toggle="modal" data-target="#viewDoctorScheduleModal2" data-backdrop="static">ดูข้อมูล</button> 
+          </td>
+          <td>
+            <button type="button" id="viewPatientList-Btn" data-sched="{{schedule._id}}" class="btn btn-danger" data-toggle="modal" data-target="#deleteDoctorScheduleModal" data-backdrop="static">ลบ</button>             
           </td>
         </tr>
       {{/each}}
@@ -65,9 +69,7 @@
       </div>
     </div>
 </div>
-</body>
 
-<body>
 <div class="modal fade" id="viewDoctorScheduleModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -86,6 +88,26 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-danger" data-dismiss="modal">ปิด</button>
+        </div>
+      </div>
+    </div>
+</div>
+
+<div class="modal fade" id="deleteDoctorScheduleModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">ยืนยันการลบตารางออกตรวจ</h4>
+        </div>
+        <div class="modal-body">
+          <h3 style="color:Red">
+            การลบตารางออกตรวจจะเป็นการยกเลิกการนัดหมายด้วย
+          </h3>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">ยกเลิก</button>
+          <button type="button" class="btn btn-success" data-dismiss="modal" id="confirmDeleteDoctorSchedule" >ยืนยัน</button>
         </div>
       </div>
     </div>

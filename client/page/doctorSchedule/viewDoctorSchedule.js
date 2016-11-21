@@ -26,6 +26,37 @@ if(Meteor.isClient){
           }
         });//end of searchDoctor call
       },
+      'click #confirmDeleteDoctorSchedule':function(event){
+        event.preventDefault();
+        console.log('confirmDeleteDoctorSchedule is submitted');
+        let sched = DoctorSchedule.findOne({_id:Session.get('scheduleID')});
+        //delete DoctorSchedule
+        Meteor.call('removeDoctorSchedule',sched._id,function(err,res){
+          if(err){
+            Bert.alert({title: 'เกิดข้อผิดพลาด', type:'danger',style:'growl-top-right',icon: 'fa-warning'});
+            return;
+          }
+          //delete Appointment involved
+          let appnts = Appointment.find({doctor_eid:sched.eid, date:sched.date, round:parseInt(sched.time)}).fetch();
+          console.log('Appointment deleted: ');
+          var aCount = 0;
+          for(i in appnts){
+            Meteor.call('removeAppointment',appnts[i]._id, function(err,res){
+              if(!err){
+                console.log(appnts[i]._id);
+                aCount++;
+              }
+              else console.log(err);
+            });
+          }
+          Bert.alert({title:'ลบตารางออกตรวจเรียบร้อยแล้ว', message: 'มี '+aCount+' นัดหมายถูกลบ', type:'success',style:'growl-top-right',icon: 'fa-check', hideDelay:2000});
+          Meteor.call('getDoctorSchedule',sched.eid,function(err,schedules){
+            Session.set('schedules', schedules);
+          });
+        });
+
+        
+      }
   });
 
   Template.viewDoctorSchedule.events({
