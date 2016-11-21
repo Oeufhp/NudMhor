@@ -4,59 +4,20 @@
         <div class="modal-content">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title">กรอกรหัสประจำตัวผู้ป่วยเพื่อดูข้อมูลส่วนบุคคล</h4>
+            <h4 class="modal-title" id="myModalLabel">กรอกรหัสประจำตัวผู้ป่วยเพื่อดูข้อมูลส่วนบุคคล</h4>
           </div>
           <div class="modal-body">
-            <form id="viewAppointmentForm" role="form">
-               <label for="comment">  ค้นหาผู้ป่วย</label>
-               <input type="text" class="form-control" placeholder="ระบุเลขบัตรโรงพยาบาลหรือเลขบัตรประจำตัวประชาชนของผู้ป่วย">
+            <form id="searchPatientForm" role="form">
+              <div class="form-group">
+               <label for="sel1">  ค้นหาผู้ป่วย </label>
+               <input type="text" class="form-control" name="cidhn" value="" placeholder="ระบุเลขบัตรโรงพยาบาลหรือเลขบัตรประจำตัวประชาชนของผู้ป่วย">
+              </div>
             </form>
             <div class="modal-footer">
-              <button type="button" class="btn btn-danger" data-dismiss="modal">ยกเลิก</button>
-              <!--<button type="submit" class="btn btn-success" id="personalInfo-search-btn" form="HNSearchforVieePersonalInfo">ยืนยัน</button>-->
-              <a class="btn btn-info" id="searchHN-btn" href="/viewPatientInfo">ยืนยัน</a>
+              <button type="button" class="btn btn-danger" data-dismiss="modal">ยกเลิก<i class="fa fa-times" aria-hidden="true"></i></button>
+              <button type="submit" class="btn btn-success" form="searchPatientForm">ยืนยัน<i class="fa fa-check" aria-hidden="true"></i></button>
             </div>
-        </div>
-        </div>
-    </div>
-  </div>
-  <div class="modal fade" id="searchEID-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title">กรอกรหัสประจำตัวบุคลากรเพื่อดูข้อมูลส่วนบุคคล</h4>
           </div>
-          <div class="modal-body">
-            <form id="searchEIDForm" role="form">
-               <label for="comment">  ค้นหาผู้บุคลากร</label>
-               <input type="text" class="form-control" placeholder="รหัสประจำตัวบุคลากร">
-            </form>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-danger" data-dismiss="modal">ยกเลิก</button>
-              <!--<button type="submit" class="btn btn-success" id="personalInfo-search-btn" form="HNSearchforVieePersonalInfo">ยืนยัน</button>-->
-              <a class="btn btn-info" id="searchEID-btn" href="javascript:{}">ค้นหา</a>
-            </div>
-        </div>
-        </div>
-    </div>
-  </div>
-  <div class="modal fade" id="deleteRoleModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title">ยืนยันการลบบุคลากร</h4>
-          </div>
-          <div class="modal-body">
-            <div class="row">
-                <h5 style="text-align:center;">คุณต้องการลบบุคลากรออกจากระบบใช่หรือไม่?</h5>
-            </div>
-            <div class="modal-footer">
-              <button type="submit" class="btn edit-btn" form="">ยืนยัน     <i class="fa fa-check" aria-hidden="true"></i></button>
-              <button type="button" class="btn cancel-btn" data-dismiss="modal">ยกเลิก     <i class="fa fa-times" aria-hidden="true"></i></button>
-            </div>
-        </div>
         </div>
     </div>
   </div>

@@ -3,39 +3,33 @@
         <h1 class="modal-title" id="myModalLabel" style="color:rgb(255,255,255)">บันทึกประวัติการจ่ายยา</h1><br>
         <table border=1 frame=void rules=rows style="width:100%; color:#000000; text-align:center;">
             <tr class="table-header" style="border:1px solid #000000; border-radius:20%; padding:1em; background-color:grey; font-size:20px;">
-                <td>รายการนัดหมาย</td>
+                <td>รหัสประจำตัวแพทย์</td>
+                <td>รหัสประจำตัวผู้ป่วย</td>
+                <td>วันที่และรอบ</td>
+                <td>แผนก</td>
                 <td>เลือกการนัดหมาย</td>
             </tr>
+            {{#each appointment in appointments}}
             <tr class="appt-row">
                 <td>
-                    <p>แพทย์ : นพ.ณัฐภัทร จันใจวงศ์</p>
-                    <p>แผนก : อายุรกรรม</p>
-                    <p> 14/10/59 ช่วงเช้า</p>
+                    <p><b>HN ของผู้ป่วย </b>: {{appointment.patient_hn}}</p>
+                    
                 </td>
                 <td>
-                    <button type="submit" class="btn btn-success" data-toggle="modal" data-target="#recordPrescriptionModal" data-backdrop="static">เลือก</button>
+                    <p><b>EID ของแพทย์ </b>: {{appointment.doctor_eid}}</p>
+                </td>
+                <td>
+                    <p><b>วันที่ </b>: {{appointment.date}}</p>
+                    <p><b>รอบ </b>: {{round}}</p>
+                </td>
+                <td>
+                    <p><b>แผนก </b>: {{appointment.department}}</p>
+                </td>
+                <td>
+                    <button type="submit" class="btn btn-success" id="view-appt-btn" data-app="{{appointment._id}}" data-toggle="modal" data-target="#recordPrescriptionModal" data-backdrop="static">เลือก</button>
                 </td>
             </tr>
-            <tr class="appt-row">
-                <td>
-                    <p>แพทย์ : พญ.ชลกานต์ กิจศิริกุล</p>
-                    <p>แผนก : ทางเดินอาหาร</p>
-                    <p> 14/10/59 ช่วงเช้า</p>
-                </td>
-                <td>
-                    <button type="submit" class="btn btn-success" data-toggle="modal" data-target="#recordPrescriptionModal" data-backdrop="static">เลือก</button>
-                </td>
-            </tr>
-            <tr class="appt-row">
-                <td>
-                    <p>แพทย์ : นพ.ณัฐภัทร จันใจวงศ์</p>
-                    <p>แผนก : หู ตา คอ จมูก</p>
-                    <p> 14/10/59 ช่วงบ่าย</p>
-                </td>
-                <td>
-                    <button type="submit" class="btn btn-success" data-toggle="modal" data-target="#recordPrescriptionModal" data-backdrop="static">เลือก</button>
-                </td>
-            </tr>
+            {{/each}}
         </table>
     </div>
 </template>

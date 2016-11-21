@@ -1,5 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 
-Meteor.startup(() => {
-  // code to run on server at startup
-});
+if(Meteor.isServer){
+  Meteor.startup(() => {
+    process.env.MAIL_URL = "smtp://lostunevol:shadowfiend38@smtp.gmail.com:465";
+  });
+}

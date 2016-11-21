@@ -14,6 +14,10 @@
               <input class="form-control" maxlength="13" id="email" name="registerCID" value="" placeholder="รหัสบัตรประชาชน 13 หลัก">
             </div>
             <div class="form-group">
+              <label  for="pwd">รหัสผ่าน :</label>
+              <input type="password" class="form-control" id="pwd" value="" name="registerPassword" placeholder="รหัสผ่าน">
+            </div>
+            <div class="form-group">
               <label>ชื่อ :</label>
               <input class="form-control" id="email" name="firstname" value="" placeholder="ชื่อ">
             </div>
@@ -22,16 +26,12 @@
               <input class="form-control" id="email" name="lastname" value="" placeholder="นามสกุล">
             </div>
             <div class="form-group">
-              <label  for="pwd">รหัสผ่าน :</label>
-              <input type="password" class="form-control" id="pwd" value="" name="registerPassword" placeholder="รหัสผ่าน">
-            </div>
-            <div class="form-group">
               <label for="email">Email :</label>
               <input type="email" class="form-control" id="email" value="" name="emailS" placeholder="อีเมล์">
             </div>
             <div class="form-group">
               <label  for="email">เบอร์โทรศัพท์มือถือ :</label>
-              <input class="form-control" length="10" id="email" name="tel" value="" placeholder="เบอร์โทรศัพท์มือถือ 0xx-xxx-xxxx">
+              <input class="form-control" maxlength="10" id="email" name="tel" value="" placeholder="เบอร์โทรศัพท์มือถือ">
             </div>
             <div class="form-group">
               <label  for="email">วันเดือนปีเกิด :</label>
@@ -49,7 +49,7 @@
             </div>
             <div class="form-group">
               <label>ประเภทผู้ใช้งาน</label>
-              <select name="role">
+              <select name="role" class="userTypeSelect">
                 <option selected="true" disabled="disabled" value="">โปรดเลือก</option>
                 <option value="admin">เจ้าหน้าที่ดูแลระบบ (Admin)</option>
                 <option value="doctor">แพทย์ (Doctor)</option>
@@ -58,11 +58,32 @@
                 <option value="receptionist">เจ้าหน้าที่ต้อนรับ (Receptionist)</option>
               </select>
             </div>
+            <div class="form-group doctorField" style="display:none">
+              <label for="sel1">แผนก</label>
+              <select class="form-control" name="department">
+                <option selected disabled value="">เลือกแผนก</option>
+                <option value="แผนกโรคทั่วไป">แผนกโรคทั่วไป</option>
+                <option value="แผนกอายุรกรรม">แผนกอายุรกรรม</option>
+                <option value="แผนกศัลยกรรม">แผนกศัลยกรรม</option>
+                <option value="แผนกสูติ">แผนกสูติ</option>
+                <option value="แผนกจักษุ">แผนกจักษุ</option>
+                <option value="แผนกโรคผิวหนัง">แผนกโรคผิวหนัง</option>
+                <option value="แผนกอวัยวะปัสสาวะ">แผนกอวัยวะปัสสาวะ</option>
+                <option value="แผนกหัวใจ">แผนกหัวใจ</option>
+                <option value="แผนกหู คอ จมูก">แผนกหู คอ จมูก</option>
+                <option value="แผนกรังสี">แผนกรังสี</option>
+                <option value="แผนกรักษาโรคในช่องปากและฟัน">แผนกรักษาโรคในช่องปากและฟัน</option>
+              </select>
+            </div>
+            <div class="form-group doctorField"  style="display:none" >
+              <label  for="email">ความถนัดเฉพาะทาง :</label>
+              <input class="form-control" id="email" name="specialize" value="" placeholder="ความถนัดเฉพาะทาง">
+            </div>
           </form>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-danger" data-dismiss="modal">ยกเลิก</button>
-          <button type="submit" class="btn btn-success" form="addEmployeeForm">ยืนยัน</button>
+          <button type="button" class="btn btn-danger" data-dismiss="modal">ยกเลิก<i class="fa fa-times" aria-hidden="true"></i></button>
+          <button type="submit" class="btn btn-success" form="addEmployeeForm">ยืนยัน <i class="fa fa-check" aria-hidden="true"></i></button>
         </div>
       </div>
     </div>
@@ -80,23 +101,31 @@
               <label for="email">รหัสพนักงาน :</label>
               <label style="color:#135e8a"> {{eid}} </label><br>
               <label for="email">เลขบัตรประจำตัวประชาชน :</label>
-              <label style="color:#135e8a"> {{cid}} </label><br>
+              <label style="color:#135e8a"> {{user.cid}} </label><br>
               <label>ชื่อ :</label>
-              <label style="color:#135e8a"> {{fname}} </label><br>
+              <label style="color:#135e8a"> {{user.fname}} </label><br>
               <label  for="email">นามสกุล :</label>
-              <label style="color:#135e8a"> {{lname}} </label><br>
+              <label style="color:#135e8a"> {{user.lname}} </label><br>
               <label  for="pwd">รหัสผ่าน :</label>
-              <label style="color:#135e8a"> {{pass}}</label><br>
+              <label style="color:#135e8a"> {{user.password}}</label><br>
               <label for="email">Email :</label>
-              <label style="color:#135e8a"> {{email}} </label><br>
+              <label style="color:#135e8a"> {{user.email}} </label><br>
               <label  for="email">เบอร์โทรศัพท์มือถือ :</label>
               <label style="color:#135e8a"> {{tel}} </label><br>
               <label  for="email">วันเดือนปีเกิด :</label>
-              <label style="color:#135e8a"> {{birthdate}} </label><br>
+              <label style="color:#135e8a"> {{user.birthdate}} </label><br>
               <label  for="email">เพศ :</label>
-              <label style="color:#135e8a"> {{gender}} </label><br>
+              <label style="color:#135e8a"> {{user.gender}} </label><br>
               <label>ประเภทผู้ใช้งาน</label>
-              <label style="color:#135e8a"> {{role}} </label>
+              <label style="color:#135e8a"> {{role}} </label><br>
+              {{#if isNotNull user.department}}
+              <label>แผนก</label>
+              <label style="color:#135e8a"> {{user.department}} </label><br>
+              {{/if}}
+              {{#if isNotNull user.specialize}}
+              <label>ความถนัดเฉพาะทาง</label>
+              <label style="color:#135e8a"> {{user.specialize}} </label>
+              {{/if}}
             </div>
           </form>
         </div>

@@ -10,13 +10,13 @@
           <form id="viewTreatmentpatientSearchForm" role="form">
             <div class="form-group">
               <label for="comment">  ค้นหาผู้ป่วย</label>
-              <textarea class="form-control" rows="1" id="comment" placeholder="ระบุเลขบัตรโรงพยาบาลหรือเลขบัตรประจำตัวประชาชนของผู้ป่วย"></textarea>
+              <input class="form-control" name="patient_hn" placeholder="ระบุเลขบัตรโรงพยาบาลของผู้ป่วย">
             </div>
           </form>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">ยกเลิก</button>
-          <button type="submit" class="btn btn-success" form="viewTreatmentpatientSearchForm">ค้นหา</button>
+          <button type="button" class="btn btn-danger" data-dismiss="modal">ยกเลิก<i class="fa fa-times" aria-hidden="true"></i></button>
+          <button type="submit" class="btn btn-success" form="viewTreatmentpatientSearchForm">ค้นหา<i class="fa fa-check" aria-hidden="true"></i></button>
         </div>
       </div>
     </div>
@@ -30,19 +30,26 @@
           </div>
           <div class="modal-body">
             <div class="row">
+
               <div class="col-md-4">
                 <img src="/img/examination.svg" class="img-responsive"/>
                 <p style="text-align:center; font-size:14px; padding-top:10px;" id="appt-time-modal"><b>ข้อมูลก่อนการวินิจฉัย: </b></p>
-                <label for="sel1">น้ำหนัก</label>
-                <p for="sel1" style="color:#135e8a">70 กิโลกรัม</p>
-                <label for="sel1">ส่วนสูง</label>
-                <p for="sel1" style="color:#135e8a">1.70 เมตร</p>
-                <label for="sel1">อุณหภูมิ</label>
-                <p for="sel1" style="color:#135e8a">39 องศาเซลเซียส</p>
-                <label for="sel1">ความดันโลหิต</label>
-                <p for="sel1" style="color:#135e8a">80/120 มิลลิเมตรปรอท</p>
-                <label for="sel1">ชีพจร</label>
-                <p for="sel1" style="color:#135e8a">60 ครั้งต่อนาที</p>                   
+                {{#if haveExaminationRecord}}
+                  {{#with getAppointmentDoccument}}
+                  <label for="sel1">น้ำหนัก</label>
+                  <p for="sel1" style="color:#135e8a">{{examinationRecord.weight}} กิโลกรัม</p>
+                  <label for="sel1">ส่วนสูง</label>
+                  <p for="sel1" style="color:#135e8a">{{examinationRecord.height}} เมตร</p>
+                  <label for="sel1">อุณหภูมิ</label>
+                  <p for="sel1" style="color:#135e8a">{{examinationRecord.body_temp}} องศาเซลเซียส</p>
+                  <label for="sel1">ความดันโลหิต</label>
+                  <p for="sel1" style="color:#135e8a">{{examinationRecord.blood_pressure}} มิลลิเมตรปรอท</p>
+                  <label for="sel1">ชีพจร</label>
+                  <p for="sel1" style="color:#135e8a">{{examinationRecord.heart_rate}} ครั้งต่อนาที</p>
+                  {{/with}}
+                {{else}}
+                  <p>ไม่มีข้อมูลก่อนการวินิจฉัย</p>
+                {{/if}}
               </div>
               <div class="col-md-4">
                 <img src="/img/diagnosis.svg" class="img-responsive"/>
@@ -58,7 +65,7 @@
                 <label for="sel1">รายการยา</label>
                 <p for="sel1" style="color:#135e8a">Paracetamol</p>
                 <label for="sel1">จำนวน</label>
-                <p for="sel1" style="color:#135e8a"> 14 เม็ด</p>        
+                <p for="sel1" style="color:#135e8a"> 14 เม็ด</p>
               </div>
             </div>
             <div class="modal-footer">

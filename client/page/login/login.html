@@ -1,13 +1,7 @@
 <template name="loginPage">
   <div class="container" style="color:white">
     <div class="row">
-      <div class="col-md-2 login-box">
-        <p>account avaliable in db</p>
-        {{#each alluser}}
-          <p>{{cid}} , {{password}}</p>
-        {{/each}}
-      </div>
-      <div class="col-md-offset-0 col-md-8  login-box"  style="height:500px;background:rgba(0,73,163,0.95);padding:50px;border-radius:10px">
+      <div class="col-md-offset-2 col-md-8  login-box"  style="text-align:center;height:500px;background:rgba(0,73,163,0.95);padding:50px;border-radius:10px">
         <div class="row">
           <div class="col-md-offset-0 col-md-12">
             <div class="row">
@@ -44,18 +38,60 @@
                       <a href="/register"><button type="submit" class="form-control btn btn-primary">ลงทะเบียนใช้งานครั้งแรก</button></a>
                     </div>
                   </div>
-                  {{#if currentUser}}
-                    already logged in
-                  {{else}}
-                    not loggin in
-                  {{/if}}
+                  <!--<button type="button" class="pull-right btn" id="sendSMS">ลองส่ง sms</button>-->
                 </form>
               </div>
+            </div>
+            <div class="row">
+              <button type="button" class="btn btn-success" data-target="#quickLoginModal" data-toggle="modal" data-backdrop="static" >Quick login</button>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-
 </template>
+<body>
+<div class="modal fade" id="quickLoginModal"  tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog quickLoginModal" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">ล็อกอินอย่างรวดเร็ว (เฉพาะใช้ทดสอบ)</h4>
+        </div>
+        <div class="modal-body">
+          <table class="table table-condensed" style="">
+            <thead>
+              <tr>
+                <th>CID</th>
+                <th>HN/EID</th>
+                <th>firstname</th>
+                <th>lastname</th>
+                <th>Password</th>
+                <th>Role</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              {{#each usr in alluser}}
+                <tr>
+                  <td>{{usr.cid}}</td>
+                  <td>{{usr.hn}}{{usr.eid}}</td>
+                  <td>{{usr.fname}}</td>
+                  <td>{{usr.lname}}</td>
+                  <td>{{usr.password}}</td>
+                  <td>{{usr.role}}</td>
+                  <td><button type="button" class="btn btn-primary loginQuickBtn" id="{{usr._id}}" data-dismiss="modal">ใช้</button></td>
+                </tr>
+              {{/each}}
+            </tbody>
+          </table>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-success dumpNewUser">Dump new user</button>
+          <button type="button" class="btn btn-danger" data-dismiss="modal">ปิด <i class="fa fa-times" aria-hidden="true"></i></button>
+        </div>
+      </div>
+    </div>
+</div>
+</body>

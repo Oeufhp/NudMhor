@@ -1,7 +1,7 @@
 <head>
   <style type="text/css">
     th, td {
-    padding: 1vh;
+      padding: 1vh;
     }
     tr:hover{
       background-color: lightgray;
@@ -14,20 +14,28 @@
     <!-- <label for="sel1">ตารางการออกตรวจ</label> -->
     <table class="table table-hover" border=1 frame=void rules=rows style="width:100%; color:#000000; text-align: center;">
       <tr class="table-header" style=" border-radius:20%; padding:1em; background-color:grey; font-size:20px; text-align: center;">
-        <td> วันที่ </td>
-        <td> ช่วงการออกตรวจ</td>
+        <td> วันที่ และช่วงการออกตรวจ </td>
+        <td> ดูรายชื่อผู้ป่วย </td>
       </tr>
       {{#each schedule in schedules}}
-        <tr class="appt-row" data-toggle="modal" data-target="#viewDoctorScheduleModal2" data-backdrop="static">
-          <td>{{schedule.date}}</td>
-          {{#if equalTo schedule.time "0"}}
-            <td>ช่วงเช้า(9:00-12:00)</td>
-          {{else}}
-            <td>ช่วงบ่าย(13:00-16:00)</td>
-          {{/if}}
-        </tr>        
+        <tr class="appt-row">
+          <td>
+              <p>{{schedule.date}}</p>
+              {{#if equalTo schedule.time "0"}}
+              <p>ช่วงเช้า(9:00-12:00)</p>
+              {{else}}
+              <p>ช่วงบ่าย(13:00-16:00)</p>
+              {{/if}}
+          </td>
+          <td>
+            <button type="button" id="viewPatientList-Btn" data-sched="{{schedule._id}}" class="btn btn-success" data-toggle="modal" data-target="#viewDoctorScheduleModal2" data-backdrop="static">ดูข้อมูล</button> 
+          </td>
+        </tr>
       {{/each}}
     </table>
+    {{#unless schedules}}
+      <h1 style="color:white; text-align:center; padding-top:10%"> ไม่มีตารางออกตรวจในระบบ </h1>
+    {{/unless}}
 <!--     <a href="/home/doctor">
       <button type="button" class="btn btn-danger pull-right">ย้อนกลับ</button>
     </a> -->
@@ -46,13 +54,13 @@
           <form id="viewDoctorScheduleForm" role="form">
             <div class="form-group">
               <label for="sel1">รหัสแพทย์</label>
-              <input class="form-control" name="doctorEid" value="" >
+              <input class="form-control" name="doctorEid" value="" placeholder="ระบุเลขบัตรโรงพยาบาลของแพทย์" >
             </div>
           </form>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-danger" data-dismiss="modal">ยกเลิก</button>
-            <button type="submit" class="btn btn-success" form="viewDoctorScheduleForm">ยืนยัน</button>
+          <button type="button" class="btn btn-danger" data-dismiss="modal">ยกเลิก<i class="fa fa-times" aria-hidden="true"></i></button>
+            <button type="submit" class="btn btn-success" form="viewDoctorScheduleForm">ยืนยัน<i class="fa fa-check" aria-hidden="true"></i></button>
         </div>
       </div>
     </div>
@@ -69,10 +77,11 @@
         </div>
         <div class="modal-body">
           <ul>
-            <li>นาย ประกาห ฟสกยฟ</li>
-            <li>นาย ประกาห ฟสกยฟ</li>
-            <li>นาย ประกาห ฟสกยฟ</li>
-            <li>นาย ประกาห ฟสกยฟ</li>
+            {{#each patient in patients}}
+            <li> {{patient}} </li>
+            {{else}}
+            <h3> ไม่มีผู้ป่วยที่ทำการนัดหมายในช่วงเวลานี้ </h3>
+            {{/each}}
           </ul>
         </div>
         <div class="modal-footer">
