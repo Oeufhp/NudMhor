@@ -95,22 +95,12 @@ if(Meteor.isClient){
 			return;
 		}
 		// drug allergy checker
-<<<<<<< HEAD
 		if( check(drugAllergy) == true  || drugAllergy > 255 ){
 			Bert.alert({title:'ประวัติการแพ้ยาต้องมีความยาวไม่เกิน 255 ตัวอักษร',type:'danger',style: 'growl-top-right'});
 			return;
 		}
 		if( drugAllergy == "" ){
 			drugAllergy = 'ไม่ทราบ'
-=======
-		if( check(drugAllergy) == true  || drugAllergy > 255){
-			Bert.alert({title:'ประวัติการแพ้ยาต้องมีความยาวไม่เกิน 255 ตัวอักษร',type:'danger',style: 'growl-top-right'});
-			return;
-		}
-		if( check(drugAllergy) == true  || drugAllergy == ""){
-			Bert.alert({title:'กรุณาประวัติการแพ้ยา',type:'danger',style: 'growl-top-right'});
-			return;
->>>>>>> 18343221e26a8e95689880e750da9c2bd1fe30e3
 		}
 		//////////////////////////complete all checking////////////////////////////////
 		let user = {cid:cid,password:password,email:email,fname:fname,lname:lname,tel:tel,gender:gender,birthdate:birthdate,drugAllergy:drugAllergy};
@@ -121,7 +111,7 @@ if(Meteor.isClient){
 			}
 			else{
 				Router.go('/');
-				Bert.alert({title: 'สมัครสมาชิกใหม่เรียบร้อย',type: 'success',style: 'growl-top-right',icon: 'fa-check'});
+				Bert.alert({title: 'สมัครสมาชิกใหม่เรียบร้อย รหัส HN ของคุณคือ\nHN'+result.hn,type: 'success',style: 'growl-top-right',icon: 'fa-check'});
 				//send email
 				let receiver = patient.email;
 				let title = "ยืนยันการนัดหมายแพทย์ ของคุณ "+patient.fname;
