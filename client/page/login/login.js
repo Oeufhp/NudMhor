@@ -48,14 +48,8 @@ if (Meteor.isClient) {
     // 'click #sendSMS':function(event){
     //   event.preventDefault();
     //   console.log('pressed SMS SEND!');
-    //   Meteor.call('sendSMS','0847275986',function(err,res){
-    //     if(err){
-    //       console.log('error');
-    //     }
-    //     else{
-    //       console.log(res);
-    //     }
-    //   });
+    //   Meteor.call('sendSMS','0847275986','sms test from Nudmhor');
+
     // }
   });
   Template.body.events({
