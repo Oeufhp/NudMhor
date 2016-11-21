@@ -39,7 +39,9 @@ Template.registerHelper('appointmentList',function(){
     return appt_list;
 });
 Template.registerHelper('alluser',function(){
-    return User.find().fetch();
+    let u1 = User.find({role:"patient"},{sort:{hn:1}}).fetch();
+    u1 = u1.concat(User.find({role:{$ne:"patient"}},{sort:{eid:1}}).fetch());
+    return u1;
 });
 Template.registerHelper('isNull',(obj)=>{
   return obj==null;

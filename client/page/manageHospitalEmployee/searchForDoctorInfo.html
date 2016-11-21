@@ -1,4 +1,4 @@
-<body>    
+<body>
 <div class="modal fade" id="searchDocName-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -7,11 +7,11 @@
             <h4 class="modal-title">เลือกแผนกและแพทย์ เพื่อดูข้อมูลแพทย์</h4>
           </div>
           <div class="modal-body">
-            <form id="viewAppointmentForm" role="form">
-               <label for="comment">  เลือกแผนก</label>
+            <form id="viewDoctorInfoForm" role="form">
+               <label for="comment">แผนก</label>
                <div class="form-group">
-                <select class="form-control" id="viewDocInfo_depSel">
-                  <option selected disabled value="">เลือกแผนก</option>
+                <select class="form-control" id="departmentSelector2" name="department">
+                  <option disabled selected="selected" value="notChooseDepartment">โปรดเลือก</option>
                   <option value="แผนกโรคทั่วไป">แผนกโรคทั่วไป</option>
                   <option value="แผนกอายุรกรรม">แผนกอายุรกรรม</option>
                   <option value="แผนกศัลยกรรม">แผนกศัลยกรรม</option>
@@ -26,21 +26,15 @@
                 </select>
                </div>
                <div class="form-group">
-                   <label for="comment">  เลือกแพทย์</label>
-                   <!--<input type="text" class="form-control" placeholder="ชื่อ-นามสกุลของแพทย์">-->
-                   <select class="form-control" id="viewDocInfo_docSel">
-                      <!--<option data-eid="{{random_doctor.eid}}">ไม่ระบุ</option>-->
-                      <option selected disabled value="">เลือกแพทย์</option>
-                      <!--{{#each doctor in viewDoctorInfo_doctor_list}}
-                      <option>{{doctor.fname}} {{doctor.lname}}</option>
-                      {{/each}}-->
+                   <label for="sel1">แพทย์</label>
+                   <select class="form-control " id="doctorSelector2"  name="doctor">
+                   <option disabled selected="selected" data-eid="noDoctorSpecific">โปรดเลือก</option>
                    </select>
                </div>
             </form>
             <div class="modal-footer">
               <button type="button" class="btn btn-danger" data-dismiss="modal">ยกเลิก<i class="fa fa-times" aria-hidden="true"></i></button>
-              <!--<button type="submit" class="btn btn-success" id="personalInfo-search-btn" form="HNSearchforVieePersonalInfo">ยืนยัน</button>-->
-              <a class="btn btn-success" id="searchDocName-btn">ยืนยัน<i class="fa fa-check" aria-hidden="true"></i></a>
+              <button type="submit" form="viewDoctorInfoForm" class="btn btn-success" >ยืนยัน<i class="fa fa-check" aria-hidden="true"></i></button>
             </div>
         </div>
         </div>
@@ -58,17 +52,17 @@
               <div class="col-md-4">
                 <img src="/img/appointment-doc.svg" class="img-responsive"/>
                 <p style="text-align:center; font-size:14px; padding-top:10px;" id="docName-modal"><b>ชื่อ-นามสกุลแพทย์ </b></p>
-                <p style="text-align:center;">{{viewDoctorInfo.fname}} {{viewDoctorInfo.lname}}</p>
+                <p style="text-align:center;" id="doctorName"></p>
               </div>
               <div class="col-md-4">
                 <img src="/img/hospital_ward.svg" class="img-responsive"/>
                 <p style="text-align:center; font-size:14px; padding-top:10px;" id="ward-modal"><b>แผนก: </b></p>
-                <p style="text-align:center;">{{viewDoctorInfo.department}}</p>
+                <p style="text-align:center;" id="doctorDepartment"></p>
               </div>
               <div class="col-md-4">
                 <img src="/img/doctor_cert.svg" class="img-responsive"/>
                 <p style="text-align:center; font-size:14px; padding-top:10px;"><b>ความถนัดเฉพาะทาง: </b></p>
-                <p style="text-align:center;">{{viewDoctorInfo.specialize}}</p>
+                <p style="text-align:center;"  id="doctorSpecialize"></p>
               </div>
             </div>
             <div class="modal-footer">

@@ -70,6 +70,7 @@
                 <th>Password</th>
                 <th>Role</th>
                 <th></th>
+                <th></th>
               </tr>
             </thead>
             <tbody>
@@ -82,6 +83,7 @@
                   <td>{{usr.password}}</td>
                   <td>{{usr.role}}</td>
                   <td><button type="button" class="btn btn-primary loginQuickBtn" id="{{usr._id}}" data-dismiss="modal">ใช้</button></td>
+                  <td><button type="button" class="btn btn-danger removeQuickBtn" id="{{usr._id}}" >ลบ</button></td>
                 </tr>
               {{/each}}
             </tbody>

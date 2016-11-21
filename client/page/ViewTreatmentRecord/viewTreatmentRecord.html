@@ -54,10 +54,26 @@
               <div class="col-md-4">
                 <img src="/img/diagnosis.svg" class="img-responsive"/>
                 <p style="text-align:center; font-size:14px; padding-top:10px;" id="doc-name-modal"><b>ข้อมูลการวินิจฉัย: </b></p>
+                <!--{#if haveMedicinePrescription}}
+                {{#with getAppointmentDoccument}}
+                  <label for="sel1">โรค</label>
+                  <p for="sel1" style="color:#135e8a">{{getAppointmentDoccument.diagnosisRecord.symptom}}</p>
+                  <label for="sel1">รายการยา</label>
+                  <p for="sel1" style="color:#135e8a">{{getAppointmentDoccument.diagnosisRecord.medicine}}</p>
+                {{/with}}
+                {{else}}
+                  <p>ไม่มีข้อมูลการวินิจฉัย</p>
+                {{/if}}-->
+                {{#if haveDiagnosisRecord}}
+                {{#with getAppointmentDoccument}}
                 <label for="sel1">โรค</label>
                 <p for="sel1" style="color:#135e8a">{{getAppointmentDoccument.diagnosisRecord.symptom}}</p>
                 <label for="sel1">รายการยา</label>
                 <p for="sel1" style="color:#135e8a">{{getAppointmentDoccument.diagnosisRecord.medicine}}</p>
+                 {{/with}}
+                {{else}}
+                  <p>ไม่มีข้อมูลการวินิจฉัย</p>
+                {{/if}}
               </div>
               <div class="col-md-4">
                 <img src="/img/prescription.svg" class="img-responsive"/>

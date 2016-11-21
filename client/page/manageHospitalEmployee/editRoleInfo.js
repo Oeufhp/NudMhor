@@ -88,15 +88,8 @@ if(Meteor.isClient){
             $('#editRoleInfoConfirmationModal').modal('hide');
             $('#deleteRoleConfirmationModal').modal('hide');
             Router.go('/home/admin');
-        },
-        'click #deleteRoleBtn':function(event){
-            event.preventDefault();
-            console.log("deleting hospitalEmployee");
-            let delEid = Session.get('userr').eid;
-            Meteor.call('deleteRole', delEid);
-            $('#deleteRoleModal').modal('hide');
-            $('#deleteRoleConfirmationModal').modal({backdrop: 'static', keyboard: false});
         }
+        
     });
     Template.editRoleInfo.helpers({
             user:function(){
