@@ -32,7 +32,7 @@ if (Meteor.isClient) {
         // username checker
         if( username.substr(0,1).toUpperCase()=="E" ){
           let temp_username = username.substr(1);
-          if( /^[0-9]*$/.test(temp_username) == false || temp_username.length != 6 ){
+          if( /^[0-9]*$/.test(temp_username) == false || temp_username.length != 5 ){
             Bert.alert({title:'รูปแบบชื่อผู้ใช้งานไม่ถูกต้อง',type:'danger',style: 'growl-top-right'});
 	    		  return;
   	  	  }
