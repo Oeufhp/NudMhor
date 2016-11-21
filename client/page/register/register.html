@@ -85,4 +85,44 @@
     </div>
   </div>
 </div>
+
+<div class="modal" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="myModalLabel">สมัครสมาชิคใหม่เรียบร้อย</h4>
+            </div>
+            <div class="modal-body">
+              <form id="addEmployeeForm" role="form">
+                <div class="form-group">
+                  <label for="email">รหัสโรงพยาบาล :</label>
+                  <label style="color:#135e8a"> {{result.hn}} </label><br>
+                  <label for="email">เลขบัตรประจำตัวประชาชน :</label>
+                  <label style="color:#135e8a"> {{user.cid}} </label><br>
+                  <label for="email">ชื่อ :</label>
+                  <label style="color:#135e8a"> {{user.fname}} </label><br>
+                  <label  for="email">นามสกุล :</label>
+                  <label style="color:#135e8a"> {{user.lname}} </label><br>
+                  <label  for="pwd">รหัสผ่าน :</label>
+                  <label style="color:#135e8a"> {{user.password}}</label><br>
+                  <label for="email">Email :</label>
+                  <label style="color:#135e8a"> {{user.email}} </label><br>
+                  <label  for="email">เบอร์โทรศัพท์มือถือ :</label>
+                  <label style="color:#135e8a"> {{tel}} </label><br>
+                  <label  for="email">วันเดือนปีเกิด :</label>
+                  <label style="color:#135e8a"> {{user.birthdate}} </label><br>
+                  <label  for="email">เพศ :</label>
+                  <label style="color:#135e8a"> {{user.gender}} </label><br>
+                  <label  for="email">ประวัติการแพ้ยา :</label>
+                  <label style="color:#135e8a"> {{user.drugAllergy}} </label><br>
+                </div>
+              </form>
+            </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" id="registerGoLogin">ปิดหน้าต่าง</button>
+        </div>
+      </div>
+    </div>
+</div>
 </template>

@@ -16,7 +16,7 @@ if(Meteor.isClient){
         Session.set('af_symptom',event.target.symptom.value);
 
         if(event.target.department.value=="notChooseDepartment"){
-          Bert.alert({title:"โปรดระบุแผนก",type:"danger",style: 'growl-top-right'})
+          Bert.alert({title:"กรุณาระบุแผนก",type:"danger",style: 'growl-top-right'})
           return;
         }
         Session.set('af_department',event.target.department.value);
@@ -25,7 +25,7 @@ if(Meteor.isClient){
         if(doctor_eid=="noDoctorSpecific"){
           let doctors = User.find({department:event.target.department.value,role:"doctor"}).fetch();
           if(doctors.length==0){
-            Bert.alert({title:"ไม่พบแพทย์ในแผนกที่ท่านต้องการ",type:"danger",style: 'growl-top-right'})
+            Bert.alert({title:"กรุณาระบุแพทย์",type:"danger",style: 'growl-top-right'})
             return;
           }
           else{
