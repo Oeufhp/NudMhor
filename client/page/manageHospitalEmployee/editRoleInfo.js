@@ -56,20 +56,22 @@ if(Meteor.isClient){
                 return;
             }
             // not doctor role department checker
-            // if(role != "doctor" && role != "" && (department != "ไม่ระบุแผนก")){
-            //     Bert.alert({title:'แผนกของพยาบาล เจ้าหน้าที่ เภสัชกรและผู้ดูแลระบบจะต้องไม่ระบุแผนก',type:'danger',style: 'growl-top-right'});
-            //     return;
-            // }
+            if(role != "doctor" && role != "" && (department != "ไม่ระบุแผนก")){
+                Bert.alert({title:'แผนกของพยาบาล เจ้าหน้าที่ เภสัชกรและผู้ดูแลระบบจะต้องไม่ระบุแผนก',type:'danger',style: 'growl-top-right'});
+                return;
+            }
             // doctor specialize checker
             if(role == "doctor" && (specialize == "" || specialize.length > 255)){
                 Bert.alert({title:'ความถนัดเฉพาะทางต้องมีความยาวไม่เกิน 255 ตัวอักษร',type:'danger',style: 'growl-top-right'});
                 return;
             }
-            // not doctor specialize checker
-            // if(role != "doctor" && role != "" && specialize != ""){
-            //     Bert.alert({title:'สำหรับพยาบาล เจ้าหน้าที่ เภสัชกรและผู้ดูแลระบบไม่ต้องระบุความถนัดเฉพาะทาง',type:'danger',style: 'growl-top-right'});
-            //     return;
-            // }
+            //not doctor specialize checker
+            if(role != "doctor" && role != "" && specialize != ""){
+                Bert.alert({title:'สำหรับพยาบาล เจ้าหน้าที่ เภสัชกรและผู้ดูแลระบบไม่ต้องระบุความถนัดเฉพาะทาง',type:'danger',style: 'growl-top-right'});
+                return;
+            }
+            console.log(department);
+            console.log(specialize);
             Meteor.call('editRole',RoleEid,fname,lname,email,tel,role,department,specialize,function(err,usr){
                 if(err){
                    Bert.alert({title:'การแก้ไขล้มเหลว อาจเป็นเพราะไม่มีบุคคลนี้ในระบบ',
