@@ -19,7 +19,7 @@ if(Meteor.isClient){
           }
           else{
             Meteor.call('addDoctorSchedule',eid,date,time,function(err2,res){
-              if(err2) Bert.alert({title: 'มีช่วงการออกตรวจในระบบแล้ว', type: 'success',style: 'growl-top-right',icon: 'fa-check'});
+              if(err2) Bert.alert({title: 'มีช่วงการออกตรวจในระบบแล้ว', type: 'danger',style: 'growl-top-right',icon: 'fa-times'});
               else{
                 $('#adddoctorscheduleModal').modal('toggle');
                 $('#adddoctorscheduleModal2').modal({backdrop: 'static', keyboard: false});
