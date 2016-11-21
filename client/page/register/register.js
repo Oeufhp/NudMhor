@@ -75,8 +75,12 @@ if(Meteor.isClient){
 			return;
 		}
 		// drug allergy checker
-		if( check(drugAllergy) == true  || drugAllergy > 255 || drugAllergy == ""){
+		if( check(drugAllergy) == true  || drugAllergy > 255){
 			Bert.alert({title:'ประวัติการแพ้ยาต้องมีความยาวไม่เกิน 255 ตัวอักษร',type:'danger',style: 'growl-top-right'});
+			return;
+		}
+		if( check(drugAllergy) == true  || drugAllergy == ""){
+			Bert.alert({title:'กรุณาประวัติการแพ้ยา',type:'danger',style: 'growl-top-right'});
 			return;
 		}
 		//////////////////////////complete all checking////////////////////////////////
@@ -88,7 +92,7 @@ if(Meteor.isClient){
 			}
 			else{
 				Router.go('/');
-				Bert.alert({title: 'Register successful',type: 'success',style: 'growl-top-right',icon: 'fa-check'});
+				Bert.alert({title: 'สมัครสมาชิกใหม่เรียบร้อย',type: 'success',style: 'growl-top-right',icon: 'fa-check'});
 				//send email
 				let receiver = patient.email;
 				let title = "ยืนยันการนัดหมายแพทย์ ของคุณ "+patient.fname;
