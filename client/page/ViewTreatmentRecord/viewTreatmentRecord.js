@@ -28,5 +28,12 @@ Template.body.helpers({
       }
     }
     return false;
+  },
+  'haveMedicinePrescription':()=>{
+    if(Session.get('currentAppointmentID')!=null){
+      let appt=Appointment.findOne(Session.get('currentAppointmentID'));
+      if(appt.medicinePrescription!=null) return true;
+    }
+    return false;
   }
 })
