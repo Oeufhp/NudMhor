@@ -11,7 +11,15 @@ if(Meteor.isClient){
           }
           else{
             Meteor.call('getDoctorSchedule',doctorEid,function(err2,schedules){
-              Session.set('schedules',schedules);
+              let doc_schedule = schedules;
+
+            doc_schedule.sort(function(a,b){
+                // Turn your strings into dates, and then subtract them
+                // to get a value that is either negative, positive, or zero.
+                return new Date(b.date) - new Date(a.date);
+            });
+              
+              Session.set('schedules',doc_schedule);
               $('#viewDoctorScheduleModal').modal('toggle');
               Router.go('/doctorSchedule');
             });
@@ -29,7 +37,8 @@ if(Meteor.isClient){
   });
 
   Template.viewDoctorSchedule.helpers({
-    schedules: function(){ 
+    schedules: function(){
+        console.log('schedule: ',Session.get('schedules'));
         return Session.get('schedules');
     },
   });
@@ -68,7 +77,15 @@ if(Meteor.isClient){
     if(cUser.role=='doctor'){
         Meteor.call('getDoctorSchedule',cUser.eid,function(err,res){
           if(err) console.log('cannot get doc schedule');
-          else Session.set('schedules',res);
+          else {
+            let doc_schedule = res;
+            doc_schedule.sort(function(a,b){
+              // Turn your strings into dates, and then subtract them
+              // to get a value that is either negative, positive, or zero.
+              return new Date(b.date) - new Date(a.date);
+            });
+            Session.set('schedules',doc_schedule);
+          }
         });     
     }
   });
