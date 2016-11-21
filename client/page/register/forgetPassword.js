@@ -22,7 +22,7 @@ if(Meteor.isClient){
 		  }
       Meteor.call('forgetPassword',cid,birthdate,function(err,result){
         if(err!=null){
-				  Bert.alert({title: 'ข้อมูลที่ระบุไม่ถูกต้อง',type: 'danger',style: 'growl-top-right',icon: 'fa-key'});
+				  Bert.alert({title: 'ข้อมูลที่ระบุไม่ถูกต้อง',type: 'danger',style: 'growl-top-right',icon: 'fa-times'});
         }
         else{
           //Router.go('/');
