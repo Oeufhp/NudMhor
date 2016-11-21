@@ -29,6 +29,31 @@ if (Meteor.isClient) {
         console.log("login form is submitted.");
         let username = event.target.loginCID.value.trim().toUpperCase();
         let pass = event.target.loginPassword.value.trim();
+        // username checker
+        if( username.substr(0,1).toUpperCase()=="E" ){
+          let temp_username = username.substr(1);
+          if( /^[0-9]*$/.test(temp_username) == false || temp_username.length != 6 ){
+            Bert.alert({title:'รูปแบบชื่อผู้ใช้งานไม่ถูกต้อง',type:'danger',style: 'growl-top-right'});
+	    		  return;
+  	  	  }
+        }else if( username.substr(0,2).toUpperCase()=="HN" ){
+          let temp_username = username.substr(2);
+          if( /^[0-9]*$/.test(temp_username) == false || (temp_username.length != 6) ){
+            Bert.alert({title:'รูปแบบชื่อผู้ใช้งานไม่ถูกต้อง',type:'danger',style: 'growl-top-right'});
+	    		  return;
+  	  	  }
+        }else{
+          if( /^[0-9]*$/.test(username) == false || (username.length != 13) ){
+            Bert.alert({title:'รูปแบบชื่อผู้ใช้งานไม่ถูกต้อง',type:'danger',style: 'growl-top-right'});
+	    		  return;
+  	  	  }
+        }
+	     	// password checker
+        if( pass.length > 20 ){
+          Bert.alert({title:'รหัสผ่านต้องมีความยาวไม่เกิน 20 ตัวอักษร',type:'danger',style: 'growl-top-right'});
+	    		return;
+  	  	} 
+        //////////////////////////complete all checking////////////////////////////////
         Meteor.call('login',username,pass,function(err,result){
           if(err!=null){
             if(err.error=="notFoundPatient"){
