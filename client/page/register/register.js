@@ -111,7 +111,7 @@ if(Meteor.isClient){
 			}
 			else{
 				Router.go('/');
-				Bert.alert({title: 'สมัครสมาชิกใหม่เรียบร้อย',type: 'success',style: 'growl-top-right',icon: 'fa-check'});
+				Bert.alert({title: 'สมัครสมาชิกใหม่เรียบร้อย รหัส HN ของคุณคือ\n'+result.hn, hideDelay:5000,type: 'success',style: 'growl-top-right',icon: 'fa-check'});
 				//send email
 				let receiver = patient.email;
 				let title = "ยืนยันการนัดหมายแพทย์ ของคุณ "+patient.fname;
