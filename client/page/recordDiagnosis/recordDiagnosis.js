@@ -84,10 +84,11 @@ if(Meteor.isClient){
         return Session.get('rc_appointment').date + " ช่วงบ่าย (13.00 - 16.00น.)";
       }      
     },
-    symptom:function(){
+    rcd_symptom:function(){
+      //console.log('helpers: rc_symptom');
       return Session.get('rc_symptom');
     },
-    medicine:function(){
+    rcd_medicine:function(){
       return Session.get('rc_medicine');
     }
   });
