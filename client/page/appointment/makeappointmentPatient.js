@@ -2,7 +2,7 @@
   let schedules = DoctorSchedule.find({eid:eid},{sort: {date: 1}}).fetch();
   let avaliable_slot = [];
   for(let i=0;i<schedules.length;i++){
-    if(moment(new Date()).format() <= moment(schedules[i].date).format()){
+    if(moment(new Date()).format('YYYY-MM-DD') <= moment(schedules[i].date).format('YYYY-MM-DD')){
       avaliable_slot.push({date:schedules[i].date,time:schedules[i].time});
     }
   }
@@ -101,7 +101,12 @@ if(Meteor.isClient){
             context = context+"หากท่านต้องการทำการเปลี่ยนแปลงการนัดหมายทำได้โดย<br>"+
             "1. เปลี่ยนแปลงการนัดหมายโดยตรงกับเจ้าหน้าทางโทรศัพท์<br>"+
             "2. ทำการเป ลี่ยนแปลงด้วยตนเองผ่านเว็บไซต์ NudMhor.tk<br>";
-            Meteor.call('sendEmail',receiver,'NudMhor System <lostunevol@gmail.com>',title,context)
+            Meteor.call('sendEmail',receiver,'NudMhor System <lostunevol@gmail.com>',title,context);
+            //send SMS
+            let sms_tel = patient.tel;
+            let sms_messages = "คุณ " + patient.fname + ". ได้นัดหมายวันที่ " + date_format(date)+" "+time_format(round)+". "+doctor.department;
+            Meteor.call('sendSMS',sms_tel,sms_messages);
+
           }
         });
       },
