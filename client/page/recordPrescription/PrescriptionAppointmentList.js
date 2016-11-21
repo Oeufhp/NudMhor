@@ -13,6 +13,11 @@ if(Meteor.isClient){
         },
         'round':function(){
             return Session.get('appointments').round===1?"เช้า":"บ่าย";
+        },
+        'doctorName':function(){
+            let appts=Session.get('appointments');
+            let docEid=appts.doctor_eid;
+            return User.findOne({eid:docEid});
         }
     });
     Template.body.events({

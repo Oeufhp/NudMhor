@@ -16,11 +16,16 @@ Template.body.events({
       event.preventDefault();
       console.log('recPresCon is submited');
       let medicineList =event.target.medicineList.value.trim();
-      console.log(medicineList);
-      Session.set('medicine',medicineList);
-      Session.set('apptID',Session.get('currentAppointmentID'));
-      $('#recordPrescriptionModal').modal('toggle');
-      $('#recordPrescriptionResultModal').modal({backdrop: 'static', keyboard: false});
+      if(medicineList===""){
+        Bert.alert({title:'please fill medicine form',type:'warning',style:'growl-top-right',icon:'fa-warning',hideDelay:3000});
+      }
+      else{
+        console.log(medicineList);
+        Session.set('medicine',medicineList);
+        Session.set('apptID',Session.get('currentAppointmentID'));
+        $('#recordPrescriptionModal').modal('toggle');
+        $('#recordPrescriptionResultModal').modal({backdrop: 'static', keyboard: false});
+      }  
     },
     
     'submit #recordPrescriptionResultForm': function(event){
@@ -41,14 +46,14 @@ Template.body.events({
       event.preventDefault();
       $('#recordPrescriptionResultModal').modal('hide');
       $('#recordPrescriptionModal').modal('show');
+      // $('.modal-backdrop').remove();
     },
     'click #finish-btn':function(event){
       event.preventDefault();
       $('#recordPrescriptionResultModal').modal('hide');
       $('#recordPrescriptionModal').modal('hide');
       $('.modal-backdrop').remove();
-
-    }
+    },
 });
 
 Template.body.helpers({

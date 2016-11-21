@@ -3,8 +3,7 @@
         <h1 class="modal-title" id="myModalLabel" style="color:rgb(255,255,255)">บันทึกประวัติการจ่ายยา</h1><br>
         <table border=1 frame=void rules=rows style="width:100%; color:#000000; text-align:center;">
             <tr class="table-header" style="border:1px solid #000000; border-radius:20%; padding:1em; background-color:grey; font-size:20px;">
-                <td>รหัสประจำตัวแพทย์</td>
-                <td>รหัสประจำตัวผู้ป่วย</td>
+                <td>ชื่อ-นามสกุลแพทย์</td>
                 <td>วันที่และรอบ</td>
                 <td>แผนก</td>
                 <td>เลือกการนัดหมาย</td>
@@ -12,11 +11,7 @@
             {{#each appointment in appointments}}
             <tr class="appt-row">
                 <td>
-                    <p><b>HN ของผู้ป่วย </b>: {{appointment.patient_hn}}</p>
-                    
-                </td>
-                <td>
-                    <p><b>EID ของแพทย์ </b>: {{appointment.doctor_eid}}</p>
+                    <p>{{doctorName.fname}} {{doctorName.lname}}</p>
                 </td>
                 <td>
                     <p><b>วันที่ </b>: {{appointment.date}}</p>
