@@ -8,12 +8,19 @@ Template.AppointmentResult.events({
 Template.AppointmentResult.helpers({
     'appointmentList': function(){
       let usr = Session.get('current_user');
+      let appointment;
       if(usr != null && usr.role=="patient"){
-        return Appointment.find({patient_hn:usr.hn}).fetch();
+        appointments = Appointment.find({patient_hn:usr.hn}).fetch();
       }
       else{
         let patient_hn = Session.get('currentPatientHN');
-        return Appointment.find({patient_hn:patient_hn}).fetch();
+        appointments = Appointment.find({patient_hn:patient_hn}).fetch();
       }
+      appointments.sort(function(a,b){
+          // Turn your strings into dates, and then subtract them
+          // to get a value that is either negative, positive, or zero.
+          return new Date(b.date) - new Date(a.date);
+      });
+      return appointments;
     }
 });
