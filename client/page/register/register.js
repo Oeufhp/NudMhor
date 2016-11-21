@@ -110,8 +110,10 @@ if(Meteor.isClient){
 				Bert.alert({title: 'เลขบัตรประจำตัวประชาชนที่ระบุถูกใช้ไปแล้ว',type: 'danger',style: 'growl-top-right',icon: 'fa-key'});
 			}
 			else{
-				Router.go('/');
-				Bert.alert({title: 'สมัครสมาชิกใหม่เรียบร้อย รหัส HN ของคุณคือ\n'+result.hn, hideDelay:5000,type: 'success',style: 'growl-top-right',icon: 'fa-check'});
+				$('#registerModal').modal('show');
+				Bert.alert({title: 'สมัครสมาชิกใหม่เรียบร้อย', type: 'success',style: 'growl-top-right',icon: 'fa-check'});
+				Session.set('register_user',user);
+				Session.set('register_result',result);
 				//send email
 				let receiver = patient.email;
 				let title = "ยืนยันการนัดหมายแพทย์ ของคุณ "+patient.fname;
@@ -126,8 +128,19 @@ if(Meteor.isClient){
 				Meteor.call('sendEmail',receiver,'NudMhor System <lostunevol@gmail.com>',title,context)
 			}
 		});
-    }
+    },
+	'click #registerGoLogin':function(event){
+            event.preventDefault();
+            console.log("Going to Login Page");
+			$('#registerModal').modal('toggle');
+            $('#registerModal').remove();
+            Router.go('/');
+        }
 	});
+	Template.register.helpers({
+      user: function(){ return Session.get('register_user');},
+	  result: function(){ return Session.get('register_result');}
+  	});
 }
 Template.body.events({
 
