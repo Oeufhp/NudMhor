@@ -40,27 +40,47 @@ if(Meteor.isClient){
 			return;
 		}
 		// password checker
-		if( /^[a-zA-Z0-9]*$/.test(password) == false || password == "" || password.length>20) {
+		if( password == "" ) {
+			Bert.alert({title:'กรุณากรอกรหัสผ่าน',type:'danger',style: 'growl-top-right'});
+			return;
+		}
+		if( /^[a-zA-Z0-9]*$/.test(password) == false || password.length>20 ) {
 			Bert.alert({title:'รหัสผ่านต้องมีความยาวไม่เกิน 20 ตัวอักษร',type:'danger',style: 'growl-top-right'});
 			return;
 		}
 		// fname checker
-		if(check(fname) == true || fname.length > 20 || fname == ""){
+		if( fname == "" ) {
+			Bert.alert({title:'กรุณากรอกชื่อของท่าน',type:'danger',style: 'growl-top-right'});
+			return;
+		}
+		if(check(fname) == true || fname.length > 20 ){
 			Bert.alert({title:'ชื่อจะต้องมีความยาวไม่เกิน 20 ตัวอักษรและไม่ประกอบด้วยอักขระพิเศษ',type:'danger',style: 'growl-top-right'});
 			return;
 		}
 		// lname checker
-		if(check(lname) == true || lname.length > 20 || lname == ""){
+		if( lname == "" ) {
+			Bert.alert({title:'กรุณากรอกนามสกุลของท่าน',type:'danger',style: 'growl-top-right'});
+			return;
+		}
+		if(check(lname) == true || lname.length > 20 ){
 			Bert.alert({title:'นามสกุลจะต้องมีความยาวไม่เกิน 20 ตัวอักษรและไม่ประกอบด้วยอักขระพิเศษ',type:'danger',style: 'growl-top-right'});
 			return;
 		}
 		// email checker
-		if( /^[a-zA-Z0-9_.@]*$/.test(email) == false || email.length > 255 || email == ''){
+		if( email == "" ) {
+			Bert.alert({title:'กรุณากรอกอีเมลขงท่าน',type:'danger',style: 'growl-top-right'});
+			return;
+		}
+		if( /^[a-zA-Z0-9_.@]*$/.test(email) == false || email.length > 255 ){
 			Bert.alert({title:'อีเมลต้องมีความยาวไม่เกิน 255 ตัวอักษร',type:'danger',style: 'growl-top-right'});
 			return;
 		}
 		// mobile phone number checker
-		if( /^[0-9]*$/.test(tel) == false || tel.length != 10 || tel == "" ){
+		if( tel == "" ) {
+			Bert.alert({title:'กรุณากรอกเบอร์โทรศัพท์มือถือของท่าน',type:'danger',style: 'growl-top-right'});
+			return;
+		}
+		if( /^[0-9]*$/.test(tel) == false || tel.length != 10 ){
 			Bert.alert({title:'เบอร์ติดต่อต้องเป็นตัวเลข 10 ตัว',type:'danger',style: 'growl-top-right'});
 			return;
 		}
@@ -75,9 +95,12 @@ if(Meteor.isClient){
 			return;
 		}
 		// drug allergy checker
-		if( check(drugAllergy) == true  || drugAllergy > 255 || drugAllergy == ""){
+		if( check(drugAllergy) == true  || drugAllergy > 255 ){
 			Bert.alert({title:'ประวัติการแพ้ยาต้องมีความยาวไม่เกิน 255 ตัวอักษร',type:'danger',style: 'growl-top-right'});
 			return;
+		}
+		if( drugAllergy == "" ){
+			drugAllergy = 'ไม่ทราบ'
 		}
 		//////////////////////////complete all checking////////////////////////////////
 		let user = {cid:cid,password:password,email:email,fname:fname,lname:lname,tel:tel,gender:gender,birthdate:birthdate,drugAllergy:drugAllergy};
