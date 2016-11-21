@@ -7,6 +7,7 @@ Template.AppointmentResult.events({
 });
 Template.AppointmentResult.helpers({
     'appointmentList': function(){
+        console.log("hello debug");
       let usr = Session.get('current_user');
       let appointment;
       if(usr != null && usr.role=="patient"){
@@ -21,6 +22,7 @@ Template.AppointmentResult.helpers({
           // to get a value that is either negative, positive, or zero.
           return new Date(b.date) - new Date(a.date);
       });
+      console.log(appointments);
       return appointments;
     }
 });
