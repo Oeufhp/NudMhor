@@ -27,32 +27,51 @@ if(Meteor.isClient){
             let tel = event.target.tel.value.trim();
             let drugAllergy = event.target.drugAllergy.value.trim();
             ///
-            //fname
-            if(check(fname) == true || fname.length > 20 || fname == ""){
-                Bert.alert({title:'ชื่อจะต้องมีความยาวไม่เกิน 20 ตัวอักษรและไม่ประกอบด้วยอักขระพิเศษ',type:'danger',style: 'growl-top-right'});
-                return;
-            }
-            // lname checker
-            if(check(lname) == true || lname.length > 20 || lname == ""){
-                Bert.alert({title:'นามสกุลจะต้องมีความยาวไม่เกิน 20 ตัวอักษรและไม่ประกอบด้วยอักขระพิเศษ',type:'danger',style: 'growl-top-right'});
-                return;
-            }
-            // email checker
-            if( /^[a-zA-Z0-9_.@]*$/.test(email) == false || email.length > 255 || email == ''){
-                Bert.alert({title:'อีเมลต้องมีความยาวไม่เกิน 255 ตัวอักษร',type:'danger',style: 'growl-top-right'});
-                return;
-            }
-            // mobile phone number checker
-            if( /^[0-9]*$/.test(tel) == false || tel.length != 10 || tel == "" ){
-                Bert.alert({title:'เบอร์ติดต่อต้องเป็นตัวเลข 10 ตัว',type:'danger',style: 'growl-top-right'});
-                return;
-            }
-            // drug allergy checker
-            if( check(drugAllergy) == true  || drugAllergy > 255 || drugAllergy == ""){
-                Bert.alert({title:'ประวัติการแพ้ยาต้องมีความยาวไม่เกิน 255 ตัวอักษร',message:'หรือระบุว่า ไม่ทราบ ในกรณีที่ไม่ทราบ',type:'danger',style: 'growl-top-right'});
-                return;
-            }
-            ///
+            // fname checker
+		    if( fname == "" ) {
+			    Bert.alert({title:'กรุณากรอกชื่อของท่าน',type:'danger',style: 'growl-top-right'});
+			    return;
+		    }
+		    if(check(fname) == true || fname.length > 20 ){
+			    Bert.alert({title:'ชื่อจะต้องมีความยาวไม่เกิน 20 ตัวอักษรและไม่ประกอบด้วยอักขระพิเศษ',type:'danger',style: 'growl-top-right'});
+			    return;
+		    }
+		    // lname checker
+		    if( lname == "" ) {
+		    	Bert.alert({title:'กรุณากรอกนามสกุลของท่าน',type:'danger',style: 'growl-top-right'});
+		    	return;
+		    }
+	    	if(check(lname) == true || lname.length > 20 ){
+	    		Bert.alert({title:'นามสกุลจะต้องมีความยาวไม่เกิน 20 ตัวอักษรและไม่ประกอบด้วยอักขระพิเศษ',type:'danger',style: 'growl-top-right'});
+	    		return;
+    		}
+	    	// email checker
+	    	if( email == "" ) {
+	    		Bert.alert({title:'กรุณากรอกอีเมลของท่าน',type:'danger',style: 'growl-top-right'});
+	    		return;
+	    	}
+	    	if( /^[a-zA-Z0-9_.@]*$/.test(email) == false || email.length > 255 ){
+	    		Bert.alert({title:'อีเมลต้องมีความยาวไม่เกิน 255 ตัวอักษร',type:'danger',style: 'growl-top-right'});
+	       		return;
+		    }
+	    	// mobile phone number checker
+	    	if( tel == "" ) {
+	    		Bert.alert({title:'กรุณากรอกเบอร์โทรศัพท์มือถือของท่าน',type:'danger',style: 'growl-top-right'});
+	    		return;
+	    	}
+	    	if( /^[0-9]*$/.test(tel) == false || tel.length != 10 ){
+		    	Bert.alert({title:'เบอร์ติดต่อต้องเป็นตัวเลข 10 ตัว',type:'danger',style: 'growl-top-right'});
+	    		return;
+	    	}
+		    // drug allergy checker
+		    if( check(drugAllergy) == true  || drugAllergy.length > 255 ){
+		    	Bert.alert({title:'ประวัติการแพ้ยาต้องมีความยาวไม่เกิน 255 ตัวอักษร',type:'danger',style: 'growl-top-right'});
+		    	return;
+	    	}
+	    	if( drugAllergy == "" ){
+	    		drugAllergy = 'ไม่ทราบ'
+	    	}
+		    //////////////////////////complete all checking////////////////////////////////
             Meteor.call('editPatientInfo',cid,fname,lname,email,tel,drugAllergy,function(err,res){
                 if(err){
                     Bert.alert({title: 'Something went wrong!'

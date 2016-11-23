@@ -68,7 +68,7 @@ if(Meteor.isClient){
 		}
 		// email checker
 		if( email == "" ) {
-			Bert.alert({title:'กรุณากรอกอีเมลขงท่าน',type:'danger',style: 'growl-top-right'});
+			Bert.alert({title:'กรุณากรอกอีเมลของท่าน',type:'danger',style: 'growl-top-right'});
 			return;
 		}
 		if( /^[a-zA-Z0-9_.@]*$/.test(email) == false || email.length > 255 ){
@@ -95,7 +95,7 @@ if(Meteor.isClient){
 			return;
 		}
 		// drug allergy checker
-		if( check(drugAllergy) == true  || drugAllergy > 255 ){
+		if( check(drugAllergy) == true  || drugAllergy.length > 255 ){
 			Bert.alert({title:'ประวัติการแพ้ยาต้องมีความยาวไม่เกิน 255 ตัวอักษร',type:'danger',style: 'growl-top-right'});
 			return;
 		}

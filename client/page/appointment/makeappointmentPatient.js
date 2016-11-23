@@ -14,6 +14,10 @@ if(Meteor.isClient){
         event.preventDefault();
         console.log('makeappointmentForm is submited');
         Session.set('af_symptom',event.target.symptom.value);
+        if(event.target.symptom.value.length > 255){
+          Bert.alert({title:"อาการเบื้องต้นต้องมีความยาวไม่เกิน 255 ตัวอักษร",type:"danger",style: 'growl-top-right'})
+          return;
+        }
 
         if(event.target.department.value=="notChooseDepartment"){
           Bert.alert({title:"กรุณาระบุแผนก",type:"danger",style: 'growl-top-right'})
