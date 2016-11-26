@@ -1,10 +1,10 @@
 if(Meteor.isClient){ 
 
     Template.viewPatientInfo.events({
-        // '​click #edit-patientInfo-btn':function(){
-        //     // event.preventDefault();
-        //     Router.go('/viewPatientInfo/edit');
-        // }
+        'click #edit-patientInfo-btn': function(event){
+            event.preventDefault();
+            Router.go('/viewPatientInfo/edit');
+        },
         'click #viewPatientInfoGoBack': function(event){
             console.log("submitted back to home");
             event.preventDefault();
@@ -39,6 +39,16 @@ if(Meteor.isClient){
             else gender = Session.get('current_user').gender;
             if(gender == "female") return "checked";
             else return "disabled";
+        },
+        disable:function(){
+            let role = Session.get('current_user').role;
+            if(role == 'patient' || role == 'receptionist'){
+                return "";
+            }
+            else{
+                return "disabled";
+            }
+            
         },
     });
 
