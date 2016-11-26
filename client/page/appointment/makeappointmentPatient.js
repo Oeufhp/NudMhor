@@ -100,7 +100,7 @@ if(Meteor.isClient){
             context = context+"เบอร์โทรแผนก : 0XX-XXX-XXXX<br><br>";
             context = context+"หากท่านต้องการทำการเปลี่ยนแปลงการนัดหมายทำได้โดย<br>"+
             "1. เปลี่ยนแปลงการนัดหมายโดยตรงกับเจ้าหน้าทางโทรศัพท์<br>"+
-            "2. ทำการเป ลี่ยนแปลงด้วยตนเองผ่านเว็บไซต์ NudMhor.tk<br>";
+            "2. ทำการเปลี่ยนแปลงด้วยตนเองผ่านเว็บไซต์ NudMhor.tk<br>";
             Meteor.call('sendEmail',receiver,'NudMhor System <lostunevol@gmail.com>',title,context);
             //send SMS
             let sms_tel = patient.tel;
