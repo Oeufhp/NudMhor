@@ -82,6 +82,13 @@ if(Meteor.isClient){
                 }
             });
         },
+        'click #editRoleGoBack':function(event){
+            event.preventDefault();
+            console.log("Going back");
+            $('#editRoleInfoConfirmationModal').modal('hide');
+            $('#deleteRoleConfirmationModal').modal('hide');
+            Router.go('/home/admin');
+        }
         
     });
     Template.editRoleInfo.helpers({
