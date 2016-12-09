@@ -25,6 +25,11 @@ if(Meteor.isClient){
             if(event.target.specialize!=null){
               specialize = event.target.specialize.value.trim();
             }
+            console.log("department is ",department, "specialize is ",specialize);
+            if(role != "doctor"){
+                department = "ไม่ระบุแผนก";
+                specialize = "";
+            }
             // fname checker
             if(check(fname) == true || fname.length > 20 || fname == ""){
 			  Bert.alert({title:'ชื่อจะต้องมีความยาวไม่เกิน 20 ตัวอักษรและไม่ประกอบด้วยอักขระพิเศษ',type:'danger',style: 'growl-top-right'});
