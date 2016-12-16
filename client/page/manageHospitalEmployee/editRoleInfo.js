@@ -25,7 +25,7 @@ if(Meteor.isClient){
             if(event.target.specialize!=null){
               specialize = event.target.specialize.value.trim();
             }
-            console.log("department is ",department, "specialize is ",specialize);
+            //console.log("department is ",department, "specialize is ",specialize);
             if(role != "doctor"){
                 department = "ไม่ระบุแผนก";
                 specialize = "";
